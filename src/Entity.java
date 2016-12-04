@@ -67,15 +67,5 @@ public abstract class Entity implements IRenderable {
 		this.isDestroyed = isDestroyed;
 	}
 
-	@Override
-	public int compareTo(IRenderable o) {
-		if (this.getZ() > o.getZ()) {
-			return 1;
-		} else if (this.getZ() == o.getZ()) {
-			return 0;
-		} else {
-			return -1;
-		}
-	}
 
 }

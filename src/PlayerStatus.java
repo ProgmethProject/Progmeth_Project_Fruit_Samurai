@@ -1,5 +1,5 @@
 
-public class PlayerStatus {
+public class PlayerStatus implements IRenderable {
 	private int score;
 	private int healthPoint;
 	private boolean onCombo = false;
@@ -43,5 +43,22 @@ public class PlayerStatus {
 	public void increaseComboCount(int comboCount) {
 		this.comboCount += comboCount;
 	}
+
+	@Override
+	public int getZ() {
+		return Integer.MAX_VALUE;
+	}
+
+	@Override
+	public boolean isVisible() {
+		return true;
+	}
+
+	@Override
+	public void draw() {
+		
+		//TODO
+	}
+
 
 }
