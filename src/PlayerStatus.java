@@ -1,6 +1,7 @@
 
 public class PlayerStatus implements IRenderable {
 	private int score;
+	private int scoreModifier;
 	private int healthPoint;
 	private boolean onCombo = false;
 	private int comboCount = 0;
@@ -17,7 +18,11 @@ public class PlayerStatus implements IRenderable {
 	}
 
 	public void increaseScore(int score) {
-		this.score += score;
+		this.score += score*scoreModifier;
+	}
+	
+	public void setScoreModifier(int scoreModifier) {
+		this.scoreModifier = scoreModifier;
 	}
 
 	public int getHealthPoint() {
@@ -56,7 +61,6 @@ public class PlayerStatus implements IRenderable {
 
 	@Override
 	public void draw() {
-		
 		//TODO
 	}
 

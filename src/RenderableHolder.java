@@ -43,7 +43,7 @@ public class RenderableHolder {
 
 	public void sortEntity() {
 		Collections.sort(entities,comparator);
-		maxZ = entities.get(entities.size() - 1).getZ();
+		maxZ = entities.get(entities.size() - 2).getZ();
 	}
 
 }
