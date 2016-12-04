@@ -1,8 +1,8 @@
 
-public abstract class instantItem extends Entity implements Cuttable, IRenderable {
+public abstract class InstantItem extends Entity implements Cuttable, IRenderable {
 
-	public instantItem(double x, double y, double speedX, double speedY, int z) {
-		super(x, y, speedX, speedY, z);
+	public InstantItem(double x, double y, double speedX, double speedY, int z) {
+		super(x, y, speedX, speedY);
 	}
 
 }
