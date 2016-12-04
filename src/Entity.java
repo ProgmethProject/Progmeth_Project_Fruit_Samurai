@@ -7,6 +7,18 @@ public abstract class Entity implements IRenderable {
 	protected int z;
 	protected boolean isDestroyed;
 
+	
+
+	public Entity(double x, double y, double speedX, double speedY, int z) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.speedX = speedX;
+		this.speedY = speedY;
+		this.z = z;
+		isDestroyed = false;
+	}
+
 	public double getX() {
 		return x;
 	}
@@ -53,6 +65,17 @@ public abstract class Entity implements IRenderable {
 
 	public void setDestroyed(boolean isDestroyed) {
 		this.isDestroyed = isDestroyed;
+	}
+
+	@Override
+	public int compareTo(IRenderable o) {
+		if (this.getZ() > o.getZ()) {
+			return 1;
+		} else if (this.getZ() == o.getZ()) {
+			return 0;
+		} else {
+			return -1;
+		}
 	}
 
 }
