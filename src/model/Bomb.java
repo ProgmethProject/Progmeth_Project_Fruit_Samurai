@@ -24,6 +24,7 @@ public class Bomb extends InstantItem {
 		return false;
 	}
 
+
 	@Override
 	public void draw(GraphicsContext gc) {
 		// TODO Auto-generated method stub

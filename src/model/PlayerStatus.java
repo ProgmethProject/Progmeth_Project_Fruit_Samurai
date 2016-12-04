@@ -68,7 +68,8 @@ public class PlayerStatus implements IRenderable {
 
 		
 	public void draw(GraphicsContext gc) {
-		//TODO
+		gc.fillText("SCORE: " + String.format("%03d", score), 10, 50);
+		
 	}
 
 
