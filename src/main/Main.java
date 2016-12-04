@@ -5,7 +5,7 @@ import gui.GameScreen;
 import gui.StartScreen;
 import javafx.application.Application;
 import javafx.event.EventHandler;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -17,11 +17,12 @@ public class Main extends Application {
 	CollectionScreen collectionScreen;
 	GameScreen gameScreen;
 	StartScreen startScreen;
+	
+	Scene collectionScene, gameScene, startScene;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		instance = this;
-		BorderPane root = new BorderPane();
 		
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Fruit Samurai");
@@ -37,7 +38,11 @@ public class Main extends Application {
 		this.collectionScreen = new CollectionScreen();
 		this.startScreen = new StartScreen();
 		
-		root.setCenter(startScreen);
+
+		this.gameScene = new Scene(gameScreen);
+		
+		this.primaryStage.setScene(this.gameScene);
+		this.primaryStage.show();
 	}
 	
 	public void changeToStartScreen(){

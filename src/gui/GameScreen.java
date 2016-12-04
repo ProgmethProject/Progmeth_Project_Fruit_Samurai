@@ -1,5 +1,7 @@
 package gui;
 
-public class GameScreen {
+import javafx.scene.layout.BorderPane;
+
+public class GameScreen extends BorderPane {
 
 }

@@ -1,5 +1,7 @@
 package gui;
 
-public class CollectionScreen {
+import javafx.scene.layout.BorderPane;
+
+public class CollectionScreen extends BorderPane {
 
 }
