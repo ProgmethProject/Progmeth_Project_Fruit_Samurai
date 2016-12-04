@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.canvas.GraphicsContext;
+
 public class Bomb extends InstantItem {
 	private int healthPointAdjustment = -1;
 	
@@ -22,10 +24,11 @@ public class Bomb extends InstantItem {
 		return false;
 	}
 
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
 
+	@Override
+	public void draw(GraphicsContext gc) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
