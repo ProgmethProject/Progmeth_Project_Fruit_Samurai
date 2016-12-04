@@ -49,6 +49,10 @@ public class PlayerStatus implements IRenderable {
 	public void increaseComboCount(int comboCount) {
 		this.comboCount += comboCount;
 	}
+	
+	public void resetComboCount() {
+		this.comboCount = 0;
+	}
 
 	@Override
 	public int getZ() {
@@ -62,7 +66,7 @@ public class PlayerStatus implements IRenderable {
 
 	@Override
 	public void draw() {
-		//TODO
+		
 	}
 
 
