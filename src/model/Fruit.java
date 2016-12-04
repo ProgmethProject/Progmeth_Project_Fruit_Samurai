@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.canvas.GraphicsContext;
+
 public class Fruit extends Entity{
 
 	int point;
@@ -20,7 +22,7 @@ public class Fruit extends Entity{
 	}
 
 	@Override
-	public void draw() {
+	public void draw(GraphicsContext gc) {
 		
 	}
 

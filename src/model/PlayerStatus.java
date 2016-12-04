@@ -1,5 +1,7 @@
 package model;
 
+import javafx.scene.canvas.GraphicsContext;
+
 public class PlayerStatus implements IRenderable {
 	private int score;
 	private int scoreModifier;
@@ -61,7 +63,7 @@ public class PlayerStatus implements IRenderable {
 	}
 
 	@Override
-	public void draw() {
+	public void draw(GraphicsContext gc) {
 		//TODO
 	}
 
