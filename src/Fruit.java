@@ -3,9 +3,8 @@ public class Fruit extends Entity{
 
 	int point;
 	
-	public Fruit(double x, double y, double speedX, double speedY, int z) {
-		super(x, y, speedX, speedY, z);
-		// TODO Auto-generated constructor stub
+	public Fruit(double x, double y, double speedX, double speedY) {
+		super(x, y, speedX, speedY);
 	}
 
 	

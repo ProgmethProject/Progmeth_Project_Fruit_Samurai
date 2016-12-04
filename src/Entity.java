@@ -9,13 +9,13 @@ public abstract class Entity implements IRenderable {
 
 	
 
-	public Entity(double x, double y, double speedX, double speedY, int z) {
+	public Entity(double x, double y, double speedX, double speedY) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.speedX = speedX;
 		this.speedY = speedY;
-		this.z = z;
+		this.z = RenderableHolder.instance.getMaxZ();
 		isDestroyed = false;
 	}
 

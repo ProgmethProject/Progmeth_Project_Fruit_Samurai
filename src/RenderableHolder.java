@@ -46,4 +46,12 @@ public class RenderableHolder {
 		maxZ = entities.get(entities.size() - 2).getZ();
 	}
 
+	public List<IRenderable> getEntities() {
+		return entities;
+	}
+
+	public int getMaxZ() {
+		return maxZ;
+	}	
+	
 }
