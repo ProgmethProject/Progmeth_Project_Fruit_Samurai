@@ -1,17 +1,17 @@
 package model;
 
 public class PlayerStatus implements IRenderable {
+	private static final int DEFAULT_HP = 3; 
 	private int score;
 	private int scoreModifier;
 	private int healthPoint;
 	private boolean onCombo = false;
 	private int comboCount = 0;
+	public static final PlayerStatus instance = new PlayerStatus(DEFAULT_HP);
 	
 	public PlayerStatus(int healthPoint) {
 		this.healthPoint = healthPoint;
 		score = 0;
-		onCombo = false;
-		comboCount = 0;
 	}
 
 	public int getScore() {
