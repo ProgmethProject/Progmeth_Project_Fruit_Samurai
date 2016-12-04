@@ -1,3 +1,4 @@
+package model;
 
 public abstract class InstantItem extends Entity implements Cuttable, IRenderable {
 

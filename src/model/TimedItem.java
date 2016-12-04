@@ -1,3 +1,4 @@
+package model;
 
 public abstract class TimedItem extends Entity implements Cuttable, IRenderable {
 	protected int duration;

@@ -1,3 +1,4 @@
+package model;
 
 public interface IRenderable {
 	int getZ();
