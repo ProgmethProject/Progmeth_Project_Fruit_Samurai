@@ -15,7 +15,7 @@ public abstract class Entity implements IRenderable {
 		this.y = y;
 		this.speedX = speedX;
 		this.speedY = speedY;
-		this.z = RenderableHolder.instance.getMaxZ();
+		this.z = RenderableHolder.instance.getMaxZ() + 1;
 		isDestroyed = false;
 	}
 
