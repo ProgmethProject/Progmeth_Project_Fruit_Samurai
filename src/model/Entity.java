@@ -8,8 +8,6 @@ public abstract class Entity implements IRenderable {
 	protected int z;
 	protected boolean isDestroyed;
 
-	
-
 	public Entity(double x, double y, double speedX, double speedY) {
 		super();
 		this.x = x;
@@ -67,6 +65,5 @@ public abstract class Entity implements IRenderable {
 	public void setDestroyed(boolean isDestroyed) {
 		this.isDestroyed = isDestroyed;
 	}
-
 
 }
