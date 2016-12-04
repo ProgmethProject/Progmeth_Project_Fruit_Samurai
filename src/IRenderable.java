@@ -1,5 +1,5 @@
 
-public interface IRenderable extends Comparable<IRenderable> {
+public interface IRenderable {
 	int getZ();
 
 	boolean isVisible();

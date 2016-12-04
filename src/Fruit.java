@@ -23,9 +23,4 @@ public class Fruit extends Entity{
 		
 	}
 
-	@Override
-	public int compareTo(IRenderable o) {
-		return 0;
-	}
-
 }
