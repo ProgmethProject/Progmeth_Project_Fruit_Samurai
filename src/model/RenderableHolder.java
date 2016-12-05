@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.sun.xml.internal.ws.api.model.wsdl.editable.EditableWSDLService;
 
+import Utility.DrawingUtility;
 import gui.ConfigurableSettings;
 import javafx.scene.image.Image;
 
@@ -17,10 +18,6 @@ public class RenderableHolder {
 	private List<IRenderable> entities;
 	private int maxZ;
 	private Comparator<IRenderable> comparator;
-	public static Image background;
-
-	public static Image[] cross;
-	public static Image[] fruit;
 
 	private RenderableHolder() {
 		entities = new ArrayList<>();
@@ -33,29 +30,6 @@ public class RenderableHolder {
 			else
 				return -1;
 		};
-	}
-
-	static {
-		loadResource();
-	}
-
-	private static void loadResource() {
-		cross = new Image[2];
-		cross[0] = new Image(ClassLoader.getSystemResource("image/black_cross.png").toString(), 50, 50, false, true);
-		cross[1] = new Image(ClassLoader.getSystemResource("image/red_cross.png").toString(), 50, 50, false, true);
-		fruit = new Image[11];
-		fruit[0] = new Image(ClassLoader.getSystemResource("image/apple.png").toString(), 50, 50, false, true);
-		fruit[1] = new Image(ClassLoader.getSystemResource("image/banana.png").toString(), 50, 50, false, true);
-		fruit[2] = new Image(ClassLoader.getSystemResource("image/blackberry.png").toString(), 50, 50, false, true);
-		fruit[3] = new Image(ClassLoader.getSystemResource("image/fig.png").toString(), 50, 50, false, true);
-		fruit[4] = new Image(ClassLoader.getSystemResource("image/grapes.png").toString(), 50, 50, false, true);
-		fruit[5] = new Image(ClassLoader.getSystemResource("image/mango.png").toString(), 50, 50, false, true);
-		fruit[6] = new Image(ClassLoader.getSystemResource("image/orange.png").toString(), 50, 50, false, true);
-		fruit[7] = new Image(ClassLoader.getSystemResource("image/peach.png").toString(), 50, 50, false, true);
-		fruit[8] = new Image(ClassLoader.getSystemResource("image/pineapple.png").toString(), 50, 50, false, true);
-		fruit[9] = new Image(ClassLoader.getSystemResource("image/raspberry.png").toString(), 50, 50, false, true);
-		fruit[10] = new Image(ClassLoader.getSystemResource("image/strawberry.png").toString(), 50, 50, false, true);
-		background = new Image(ClassLoader.getSystemResource("image/background.jpg").toString(), ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight, false, true);
 	}
 
 	public void addEntity(IRenderable renderable) {
