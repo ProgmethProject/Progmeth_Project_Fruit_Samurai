@@ -19,9 +19,8 @@ public class Bomb extends InstantItem {
 	}
 
 	@Override
-	public boolean isVisible() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean isDestroyed() {
+		return isDestroyed;
 	}
 
 

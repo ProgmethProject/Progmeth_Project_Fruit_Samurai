@@ -15,11 +15,11 @@ public class PlayerStatus implements IRenderable {
 		this.healthPoint = healthPoint;
 		score = 0;
 	}
-
+	
 	public int getScore() {
 		return score;
 	}
-
+	
 	public void increaseScore(int score) {
 		this.score += score*scoreModifier;
 	}
@@ -27,7 +27,7 @@ public class PlayerStatus implements IRenderable {
 	public void setScoreModifier(int scoreModifier) {
 		this.scoreModifier = scoreModifier;
 	}
-
+	
 	public int getHealthPoint() {
 		return healthPoint;
 	}
@@ -43,11 +43,11 @@ public class PlayerStatus implements IRenderable {
 	public void setOnCombo(boolean onCombo) {
 		this.onCombo = onCombo;
 	}
-
+	
 	public int getComboCount() {
 		return comboCount;
 	}
-
+	
 	public void increaseComboCount(int comboCount) {
 		this.comboCount += comboCount;
 	}
@@ -60,10 +60,10 @@ public class PlayerStatus implements IRenderable {
 	public int getZ() {
 		return Integer.MAX_VALUE;
 	}
-
+	
 	@Override
-	public boolean isVisible() {
-		return true;
+	public boolean isDestroyed() {
+		return false;
 	}
 
 		

@@ -5,7 +5,7 @@ import javafx.scene.canvas.GraphicsContext;
 public interface IRenderable {
 	int getZ();
 
-	boolean isVisible();
+	boolean isDestroyed();
 
 	void draw(GraphicsContext gc);
 }
