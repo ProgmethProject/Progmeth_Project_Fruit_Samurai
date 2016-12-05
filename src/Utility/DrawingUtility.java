@@ -8,9 +8,9 @@ import model.RenderableHolder;
 public class DrawingUtility {
 	public static Image background;
 	private static Image playButton;
-	private static Image pauseButton;
-	private static Image[] cross;
-	private static Image[] fruit;
+	public static Image pauseButton;
+	public static Image[] cross;
+	public static Image[] fruit;
 	
 	static {
 		loadResource();

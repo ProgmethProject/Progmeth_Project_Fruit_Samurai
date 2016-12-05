@@ -1,6 +1,10 @@
 package model;
 
+
+
+import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 public class Fruit extends Entity{
 
@@ -23,7 +27,8 @@ public class Fruit extends Entity{
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		
+		Image image = DrawingUtility.fruit[1];
+		gc.drawImage(image, x, y);
 	}
 
 }
