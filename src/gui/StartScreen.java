@@ -17,6 +17,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import main.Main;
 
 public class StartScreen extends BorderPane {
 	private StackPane titlePane;
@@ -47,7 +48,7 @@ public class StartScreen extends BorderPane {
 		public MenuPane() {
 
 			setAlignment(Pos.CENTER);
-			setBackground(new Background(new BackgroundFill(Color.RED, CornerRadii.EMPTY, Insets.EMPTY)));
+			setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 			
 			startButton = new Button("Start");
 			collectionButton = new Button("Collections");
@@ -70,7 +71,7 @@ public class StartScreen extends BorderPane {
 
 				@Override
 				public void handle(ActionEvent arg0) {
-
+					Main.instance.changeToGameScreen();
 				}
 
 			});
@@ -79,7 +80,7 @@ public class StartScreen extends BorderPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-
+					Main.instance.changeToCollectionScreen();
 				}
 
 			});
@@ -88,7 +89,7 @@ public class StartScreen extends BorderPane {
 
 				@Override
 				public void handle(ActionEvent event) {
-
+					Main.instance.closeScreen();
 				}
 
 			});

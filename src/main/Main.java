@@ -12,12 +12,12 @@ import javafx.stage.WindowEvent;
 
 public class Main extends Application {
 	
-	Main instance;
-	Stage primaryStage;
+	public static Main instance;
+	private Stage primaryStage;
 	
-	CollectionScreen collectionScreen;
-	GameScreen gameScreen;
-	StartScreen startScreen;
+	private CollectionScreen collectionScreen;
+	private GameScreen gameScreen;
+	private StartScreen startScreen;
 	
 	Scene collectionScene, gameScene, startScene;
 
@@ -49,18 +49,23 @@ public class Main extends Application {
 	}
 	
 	public void changeToStartScreen(){
-		
+		this.primaryStage.setScene(startScene);
 	}
 	
 	public void changeToGameScreen(){
-		
+		this.primaryStage.setScene(gameScene);
 	}
 	
 	public void changeToCollectionScreen(){
-		
+		this.primaryStage.setScene(collectionScene);
+	}
+	
+	public void closeScreen(){
+		this.primaryStage.close();
 	}
 
 	public static void main(String[] args){
 		launch(args);
 	}
+	
 }
