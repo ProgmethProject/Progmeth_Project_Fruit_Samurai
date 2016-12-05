@@ -18,8 +18,9 @@ public class RenderableHolder {
 	private int maxZ;
 	private Comparator<IRenderable> comparator;
 	public static Image background;
-	private static Image[] cross;
-	private static Image[] fruit;
+
+	public static Image[] cross;
+	public static Image[] fruit;
 
 	private RenderableHolder() {
 		entities = new ArrayList<>();
@@ -40,8 +41,8 @@ public class RenderableHolder {
 
 	private static void loadResource() {
 		cross = new Image[2];
-		cross[0] = new Image(ClassLoader.getSystemResource("image/black_cross.png").toString(),50,50,false,true);
-		cross[1] = new Image(ClassLoader.getSystemResource("image/red_cross.png").toString(),50,50,false,true);
+		cross[0] = new Image(ClassLoader.getSystemResource("image/black_cross.png").toString(), 50, 50, false, true);
+		cross[1] = new Image(ClassLoader.getSystemResource("image/red_cross.png").toString(), 50, 50, false, true);
 		fruit = new Image[11];
 		fruit[0] = new Image(ClassLoader.getSystemResource("image/apple.png").toString(), 50, 50, false, true);
 		fruit[1] = new Image(ClassLoader.getSystemResource("image/banana.png").toString(), 50, 50, false, true);
