@@ -35,12 +35,12 @@ public class Main extends Application {
 			}
 		});
 		
-//		this.gameScreen = new GameScreen();
+		this.gameScreen = new GameScreen();
 		this.collectionScreen = new CollectionScreen();
 		this.startScreen = new StartScreen();
 		
 
-//		this.gameScene = new Scene(gameScreen,ConfigurableSettings.screenWidth,ConfigurableSettings.screenHeight);
+		this.gameScene = new Scene(gameScreen,ConfigurableSettings.screenWidth,ConfigurableSettings.screenHeight);
 		this.collectionScene = new Scene(collectionScreen,ConfigurableSettings.screenWidth,ConfigurableSettings.screenHeight);
 		this.startScene = new Scene(startScreen,ConfigurableSettings.screenWidth,ConfigurableSettings.screenHeight);
 		

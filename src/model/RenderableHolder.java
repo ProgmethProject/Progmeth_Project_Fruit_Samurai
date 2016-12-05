@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.sun.xml.internal.ws.api.model.wsdl.editable.EditableWSDLService;
 
+import gui.ConfigurableSettings;
 import javafx.scene.image.Image;
 
 public class RenderableHolder {
@@ -16,7 +17,7 @@ public class RenderableHolder {
 	private List<IRenderable> entities;
 	private int maxZ;
 	private Comparator<IRenderable> comparator;
-	private static Image background;
+	public static Image background;
 	private static Image[] cross;
 	private static Image[] fruit;
 
@@ -53,6 +54,7 @@ public class RenderableHolder {
 		fruit[8] = new Image(ClassLoader.getSystemResource("image/pineapple.png").toString(), 50, 50, false, true);
 		fruit[9] = new Image(ClassLoader.getSystemResource("image/raspberry.png").toString(), 50, 50, false, true);
 		fruit[10] = new Image(ClassLoader.getSystemResource("image/strawberry.png").toString(), 50, 50, false, true);
+		background = new Image(ClassLoader.getSystemResource("image/background.jpg").toString(), ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight, false, true);
 	}
 
 	public void addEntity(IRenderable renderable) {
