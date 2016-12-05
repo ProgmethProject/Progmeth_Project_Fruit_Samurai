@@ -17,7 +17,7 @@ public class Fruit extends Entity{
 	}
 
 	@Override
-	public boolean isVisible() {
+	public boolean isDestroyed() {
 		return true;
 	}
 
