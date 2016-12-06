@@ -9,6 +9,8 @@ import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import logic.GameLogic;
+import model.RenderableHolder;
 
 public class Main extends Application {
 	
@@ -19,11 +21,15 @@ public class Main extends Application {
 	private GameScreen gameScreen;
 	private StartScreen startScreen;
 	
+	private GameLogic gameLogic;
+	
 	Scene collectionScene, gameScene, startScene;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		instance = this;
+		
+		gameLogic = new GameLogic();
 		
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Fruit Samurai");
@@ -46,6 +52,10 @@ public class Main extends Application {
 		
 		this.primaryStage.setScene(this.startScene);
 		this.primaryStage.show();
+		
+		System.out.println(RenderableHolder.instance.getEntities().size());
+		Thread gameThread = new Thread(gameLogic);
+		gameThread.start();
 	}
 	
 	public void changeToStartScreen(){
@@ -62,6 +72,10 @@ public class Main extends Application {
 	
 	public void closeScreen(){
 		this.primaryStage.close();
+	}
+	
+	public void drawGameScreen(){
+		this.gameScreen.paintComponents();
 	}
 
 	public static void main(String[] args){

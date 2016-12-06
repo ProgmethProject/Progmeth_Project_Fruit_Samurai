@@ -3,13 +3,10 @@ package model;
 import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
 
-public class MenuButton extends Entity implements IRenderable {
+public class MenuButton implements IRenderable {
 	private int buttonSize = 50;
 	public static final MenuButton instance = new MenuButton();
 
-	public MenuButton() {
-		super(10, 10, 0, 0);
-	}
 
 	@Override
 	public int getZ() {
@@ -23,7 +20,7 @@ public class MenuButton extends Entity implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		DrawingUtility.drawMenuButton(gc, PlayerStatus.instance.isPause(), x, y, buttonSize);
+		DrawingUtility.drawMenuButton(gc, PlayerStatus.instance.isPause(), 10, 10, buttonSize);
 	}
 
 }

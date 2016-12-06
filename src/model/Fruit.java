@@ -22,7 +22,7 @@ public class Fruit extends Entity{
 
 	@Override
 	public boolean isDestroyed() {
-		return true;
+		return false;
 	}
 
 	@Override

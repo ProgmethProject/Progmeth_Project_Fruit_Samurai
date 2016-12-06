@@ -1,5 +1,7 @@
 package model;
 
+import gui.ConfigurableSettings;
+
 public abstract class Entity implements IRenderable {
 
 	public static double GRAVITY = 9.8;
@@ -64,6 +66,18 @@ public abstract class Entity implements IRenderable {
 
 	public void setDestroyed(boolean isDestroyed) {
 		this.isDestroyed = isDestroyed;
+	}
+
+	public void move() {
+		if (isDestroyed) {
+			return;
+		}
+		this.x += speedX/10;
+		this.y -= speedY/10;
+		speedY -= GRAVITY / 10;
+		if (this.x > ConfigurableSettings.screenWidth || this.x < 0) {
+			setDestroyed(true);
+		}
 	}
 
 }
