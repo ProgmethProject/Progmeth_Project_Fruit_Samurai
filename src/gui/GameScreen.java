@@ -31,11 +31,7 @@ public class GameScreen extends GridPane {
 		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
-		Fruit fruit = new Fruit(150, 150, 10, 20);
-		System.out.println(fruit.getZ());
-		RenderableHolder.instance.addEntity(fruit);
-		//DrawingUtility.drawBackground(gc);
-//		DrawingUtility.drawFruit(gc, 150, 150);
+		
 		paintComponents();
 		addListener();
 	}

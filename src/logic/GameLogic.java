@@ -4,6 +4,7 @@ import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.List;
 
+import gui.ConfigurableSettings;
 import main.Main;
 import model.Entity;
 import model.Fruit;
@@ -15,13 +16,12 @@ public class GameLogic implements Runnable {
 
 	public GameLogic() {
 		renderables = RenderableHolder.instance.getEntities();
-		
 	}
 
 	@Override
 	public void run() {
 		System.out.println(renderables.size());
-		RenderableHolder.instance.addEntity(new Fruit(200, 200, 20, 20));
+		RenderableHolder.instance.addEntity(new Fruit(200, ConfigurableSettings.screenHeight, 50, 500));
 		while (true) {
 			for (IRenderable iRenderable : renderables) {
 				if (iRenderable instanceof Entity) {
@@ -32,7 +32,7 @@ public class GameLogic implements Runnable {
 			Main.instance.drawGameScreen();
 
 			try {
-				Thread.sleep(100);
+				Thread.sleep(16);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

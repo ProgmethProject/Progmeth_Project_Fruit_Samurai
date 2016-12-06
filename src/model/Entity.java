@@ -4,7 +4,7 @@ import gui.ConfigurableSettings;
 
 public abstract class Entity implements IRenderable {
 
-	public static double GRAVITY = 9.8;
+	public static double GRAVITY = 300;
 
 	protected double x, y, speedX, speedY;
 	protected int z;
@@ -72,9 +72,9 @@ public abstract class Entity implements IRenderable {
 		if (isDestroyed) {
 			return;
 		}
-		this.x += speedX/10;
-		this.y -= speedY/10;
-		speedY -= GRAVITY / 10;
+		this.x += speedX/60;
+		this.y -= speedY/60;
+		speedY -= GRAVITY /60;
 		if (this.x > ConfigurableSettings.screenWidth || this.x < 0) {
 			setDestroyed(true);
 		}
