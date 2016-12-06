@@ -10,6 +10,8 @@ public class PlayerStatus implements IRenderable {
 	private int healthPoint;
 	private boolean onCombo = false;
 	private int comboCount = 0;
+	private boolean pause = false;
+
 	public static final PlayerStatus instance = new PlayerStatus(DEFAULT_HP);
 	
 	public PlayerStatus(int healthPoint) {
@@ -56,6 +58,14 @@ public class PlayerStatus implements IRenderable {
 	public void resetComboCount() {
 		this.comboCount = 0;
 	}
+	
+	public boolean isPause() {
+		return pause;
+	}
+
+	public void setPause(boolean pause) {
+		this.pause = pause;
+	}
 
 	@Override
 	public int getZ() {
@@ -70,7 +80,7 @@ public class PlayerStatus implements IRenderable {
 		
 	public void draw(GraphicsContext gc) {
 		gc.setFill(Color.WHITE);
-		gc.fillText("SCORE: " + String.format("%03d", score), 10, 50);
+		gc.fillText("SCORE: " + String.format("%03d", score), 70, 35);
 		
 	}
 

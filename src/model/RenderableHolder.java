@@ -49,8 +49,12 @@ public class RenderableHolder {
 
 	public void sortEntity() {
 		Collections.sort(entities, comparator);
-		maxZ = entities.get(entities.size() - 2).getZ();
-		//TODO when entities.size<2
+		if(entities.size() > 2) {
+			maxZ = entities.get(entities.size() - 2).getZ();
+		}
+		else {
+			maxZ = 0;
+		}
 	}
 
 	public List<IRenderable> getEntities() {

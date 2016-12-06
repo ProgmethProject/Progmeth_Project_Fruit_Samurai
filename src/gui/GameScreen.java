@@ -26,7 +26,8 @@ public class GameScreen extends GridPane {
 		
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		DrawingUtility.drawBackground(gc);
-		DrawingUtility.drawPauseButton(gc, 40);
+		DrawingUtility.drawMenuButton(gc, PlayerStatus.instance.isPause(), 10, 10, 50);
+		DrawingUtility.drawFruit(gc, 150, 150);
 		paintComponents();
 	}
 	
@@ -37,5 +38,9 @@ public class GameScreen extends GridPane {
 				entity.draw(gc);
 			}
 		}
+	}
+	
+	private void addListener() {
+		//TODO add event handler
 	}
 }

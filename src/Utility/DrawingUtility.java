@@ -42,12 +42,13 @@ public class DrawingUtility {
 		
 	}
 	
-	public static void drawPlayButton(GraphicsContext gc, int size) {
-		gc.drawImage(playButton, 10, 10, size, size);
-	}
-	
-	public static void drawPauseButton(GraphicsContext gc, int size) {
-		gc.drawImage(pauseButton, 10, 10, size, size);
+	public static void drawMenuButton(GraphicsContext gc, boolean pause, double x, double y, int size) {
+		if(!pause) {
+			gc.drawImage(pauseButton, x, y, size, size);
+		}
+		else {
+			gc.drawImage(playButton, x, y, size, size);
+		}
 	}
 	
 	public static void drawFruit(GraphicsContext gc, int x, int y) {
