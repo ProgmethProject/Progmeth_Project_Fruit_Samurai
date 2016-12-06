@@ -5,9 +5,10 @@ import javafx.scene.canvas.GraphicsContext;
 
 public class MenuButton extends Entity implements IRenderable {
 	private int buttonSize = 50;
+	public static final MenuButton instance = new MenuButton();
 
-	public MenuButton(double x, double y) {
-		super(x, y, 0, 0);
+	public MenuButton() {
+		super(10, 10, 0, 0);
 	}
 
 	@Override

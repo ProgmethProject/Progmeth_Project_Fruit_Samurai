@@ -3,7 +3,6 @@ package Utility;
 import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import model.RenderableHolder;
 
 public class DrawingUtility {
 	public static Image background;
