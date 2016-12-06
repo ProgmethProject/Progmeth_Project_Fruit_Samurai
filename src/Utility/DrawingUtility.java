@@ -49,5 +49,9 @@ public class DrawingUtility {
 	public static void drawPauseButton(GraphicsContext gc, int size) {
 		gc.drawImage(pauseButton, 10, 10, size, size);
 	}
+	
+	public static void drawFruit(GraphicsContext gc, int x, int y) {
+		gc.drawImage(fruit[(int) (Math.random()*10)], x, y, 50, 50);
+	}
 
 }

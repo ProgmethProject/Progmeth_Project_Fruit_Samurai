@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import model.IRenderable;
+import model.PlayerStatus;
 import model.RenderableHolder;
 
 public class GameScreen extends GridPane {
@@ -23,8 +24,10 @@ public class GameScreen extends GridPane {
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);
 		
+		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		DrawingUtility.drawBackground(gc);
 		DrawingUtility.drawPauseButton(gc, 40);
+		paintComponents();
 	}
 	
 	

@@ -1,6 +1,7 @@
 package model;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 
 public class PlayerStatus implements IRenderable {
 	private static final int DEFAULT_HP = 3; 
@@ -68,6 +69,7 @@ public class PlayerStatus implements IRenderable {
 
 		
 	public void draw(GraphicsContext gc) {
+		gc.setFill(Color.WHITE);
 		gc.fillText("SCORE: " + String.format("%03d", score), 10, 50);
 		
 	}
