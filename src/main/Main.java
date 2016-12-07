@@ -13,24 +13,25 @@ import logic.GameLogic;
 import model.RenderableHolder;
 
 public class Main extends Application {
-	
+
 	public static Main instance;
 	private Stage primaryStage;
-	
+
 	private CollectionScreen collectionScreen;
 	private GameScreen gameScreen;
 	private StartScreen startScreen;
-	
+
 	private GameLogic gameLogic;
-	
+	private Thread gameThread;
+
 	Scene collectionScene, gameScene, startScene;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		instance = this;
-		
-		gameLogic = new GameLogic();
-		
+
+		this.gameLogic = new GameLogic();
+
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Fruit Samurai");
 		this.primaryStage.setResizable(false);
@@ -40,46 +41,56 @@ public class Main extends Application {
 				System.exit(0);
 			}
 		});
-		
+
 		this.gameScreen = new GameScreen();
 		this.collectionScreen = new CollectionScreen();
 		this.startScreen = new StartScreen();
-		
 
-		this.gameScene = new Scene(gameScreen,ConfigurableSettings.screenWidth,ConfigurableSettings.screenHeight);
-		this.collectionScene = new Scene(collectionScreen,ConfigurableSettings.screenWidth,ConfigurableSettings.screenHeight);
-		this.startScene = new Scene(startScreen,ConfigurableSettings.screenWidth,ConfigurableSettings.screenHeight);
-		
+		this.gameScene = new Scene(gameScreen, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
+		this.collectionScene = new Scene(collectionScreen, ConfigurableSettings.screenWidth,
+				ConfigurableSettings.screenHeight);
+		this.startScene = new Scene(startScreen, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
+
 		this.primaryStage.setScene(this.startScene);
 		this.primaryStage.show();
-		
-		System.out.println(RenderableHolder.instance.getEntities().size());
-		Thread gameThread = new Thread(gameLogic);
-		gameThread.start();
+
+		this.gameThread = new Thread(() -> {
+			while (true) {
+				try {
+					Thread.sleep(16);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				gameLogic.updateLogic();
+				Main.instance.drawGameScreen();
+			}
+		});
 	}
-	
-	public void changeToStartScreen(){
+
+	public void changeToStartScreen() {
 		this.primaryStage.setScene(startScene);
 	}
-	
-	public void changeToGameScreen(){
+
+	public void changeToGameScreen() {
 		this.primaryStage.setScene(gameScene);
+		gameThread.start();
 	}
-	
-	public void changeToCollectionScreen(){
+
+	public void changeToCollectionScreen() {
 		this.primaryStage.setScene(collectionScene);
 	}
-	
-	public void closeScreen(){
+
+	public void closeScreen() {
 		this.primaryStage.close();
 	}
-	
-	public void drawGameScreen(){
+
+	public void drawGameScreen() {
 		this.gameScreen.paintComponents();
 	}
 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 }
