@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import Utility.DrawingUtility;
 import Utility.InputUtility;
+import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.shape.Line;
 
@@ -29,6 +30,19 @@ public class Trail implements IRenderable {
 		trailX.clear();
 		trailY.clear();
 	}
+	
+	public void update() {
+		if(InputUtility.isMouseLeftDown()) {
+			if(Trail.instance.getTrailX().size() < 15) {
+				Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+			}
+			else {
+				Trail.instance.getTrailX().remove(0);
+				Trail.instance.getTrailY().remove(0);
+				Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+			}
+		}
+	}
 
 	@Override
 	public int getZ() {
@@ -42,6 +56,7 @@ public class Trail implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
+		update();
 		if(!Trail.instance.getTrailX().isEmpty()) {
 			DrawingUtility.drawTrail(gc);
 		}

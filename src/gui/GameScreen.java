@@ -43,17 +43,15 @@ public class GameScreen extends GridPane {
 	}
 	
 	public void paintComponents(){
-		System.out.println(InputUtility.getMouseX());
-		System.out.println(InputUtility.isMouseLeftDown());
 		for(IRenderable entity : RenderableHolder.instance.getEntities()) {
 			if(!entity.isDestroyed()) {
 				entity.draw(gc);
-				System.out.println(entity.toString());
 			}
 		}
 	}
 	 
 	private void addListener() {
+		
 		canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -107,15 +105,6 @@ public class GameScreen extends GridPane {
 				if (InputUtility.isMouseOnScreen()) {
 					InputUtility.setMouseX((int) event.getX());
 					InputUtility.setMouseY((int) event.getY());
-
-					if(Trail.instance.getTrailX().size() < 15) {
-						Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-					}
-					else {
-						Trail.instance.getTrailX().remove(0);
-						Trail.instance.getTrailY().remove(0);
-						Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-					}
 				}
 			}
 		});
