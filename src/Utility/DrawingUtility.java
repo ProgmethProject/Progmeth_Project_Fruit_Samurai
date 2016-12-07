@@ -53,5 +53,8 @@ public class DrawingUtility {
 	public static void drawFruit(GraphicsContext gc, double x, double y) {
 		gc.drawImage(fruit[(int) (Math.random()*10)], x, y, 50, 50);
 	}
+	
+	public static void clearTrail(GraphicsContext gc, int x, int y) {
+	}
 
 }

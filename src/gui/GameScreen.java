@@ -19,7 +19,7 @@ public class GameScreen extends GridPane {
 	private static double screen_width, screen_height;
 	private static Canvas canvas;
 	private static GraphicsContext gc;
-	
+
 	public GameScreen() {
 		
 		screen_width = ConfigurableSettings.screenWidth;
@@ -35,7 +35,6 @@ public class GameScreen extends GridPane {
 		paintComponents();
 		addListener();
 	}
-	
 	
 	public void paintComponents(){
 		for(IRenderable entity : RenderableHolder.instance.getEntities()) {
