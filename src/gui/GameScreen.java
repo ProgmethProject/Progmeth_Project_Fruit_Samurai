@@ -1,14 +1,19 @@
 package gui;
 
+import Utility.DrawingUtility;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
 import javafx.scene.shape.Path;
 import Utility.InputUtility;
 import model.Background;
+import model.Fruit;
 import model.IRenderable;
 import model.MenuButton;
 import model.PlayerStatus;
@@ -21,40 +26,33 @@ public class GameScreen extends GridPane {
 	private static GraphicsContext gc;
 
 	public GameScreen() {
-
+		
 		screen_width = ConfigurableSettings.screenWidth;
 		screen_height = ConfigurableSettings.screenHeight;
 		canvas = new Canvas(screen_width, screen_height);
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);
-
+		
 		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
-
+		
 		paintComponents();
 		addListener();
 	}
-<<<<<<< HEAD
-
-	public void paintComponents() {
-		for (IRenderable entity : RenderableHolder.instance.getEntities()) {
-			if (!entity.isDestroyed()) {
-=======
 	
 	public void paintComponents(){
 		System.out.println(InputUtility.getMouseX());
 		System.out.println(InputUtility.isMouseLeftDown());
 		for(IRenderable entity : RenderableHolder.instance.getEntities()) {
 			if(!entity.isDestroyed()) {
->>>>>>> c2028dd3e383fd714e9b3b0887470bafb6413e08
 				entity.draw(gc);
 				System.out.println(entity.toString());
 			}
 		}
 	}
-
+	 
 	private void addListener() {
 		canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
 			@Override
@@ -62,7 +60,7 @@ public class GameScreen extends GridPane {
 				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY)
 					InputUtility.setMouseLeftDown(false);
-				Trail.instance.clearTrail();
+					Trail.instance.clearTrail();
 
 			}
 		});
@@ -109,14 +107,11 @@ public class GameScreen extends GridPane {
 				if (InputUtility.isMouseOnScreen()) {
 					InputUtility.setMouseX((int) event.getX());
 					InputUtility.setMouseY((int) event.getY());
-<<<<<<< HEAD
-					if (Trail.instance.getTrailX().size() < 15) {
-=======
 
 					if(Trail.instance.getTrailX().size() < 15) {
->>>>>>> c2028dd3e383fd714e9b3b0887470bafb6413e08
 						Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-					} else {
+					}
+					else {
 						Trail.instance.getTrailX().remove(0);
 						Trail.instance.getTrailY().remove(0);
 						Trail.instance.addTrail((int) event.getX(), (int) event.getY());
@@ -124,6 +119,6 @@ public class GameScreen extends GridPane {
 				}
 			}
 		});
-
+		
 	}
 }
