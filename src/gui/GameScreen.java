@@ -2,11 +2,15 @@ package gui;
 
 import Utility.DrawingUtility;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.shape.LineTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import Utility.InputUtility;
 import model.Background;
 import model.Fruit;
@@ -14,11 +18,13 @@ import model.IRenderable;
 import model.MenuButton;
 import model.PlayerStatus;
 import model.RenderableHolder;
+import model.Trail;
 
 public class GameScreen extends GridPane {
 	private static double screen_width, screen_height;
-	private static Canvas canvas;
-	private static GraphicsContext gc;
+	private static Canvas canvas, canvas2;
+	private static GraphicsContext gc, gc2;
+	private static Path path;
 
 	public GameScreen() {
 		
@@ -31,6 +37,7 @@ public class GameScreen extends GridPane {
 		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
+		RenderableHolder.instance.addEntity(Trail.instance);
 		
 		paintComponents();
 		addListener();
@@ -43,7 +50,7 @@ public class GameScreen extends GridPane {
 			}
 		}
 	}
-	
+	 
 	private void addListener() {
 		canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
 			@Override
@@ -51,6 +58,7 @@ public class GameScreen extends GridPane {
 				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY)
 					InputUtility.setMouseLeftDown(false);
+					model.Trail.instance.clearTrail();
 
 			}
 		});
@@ -96,8 +104,17 @@ public class GameScreen extends GridPane {
 				if (InputUtility.isMouseOnScreen()) {
 					InputUtility.setMouseX((int) event.getX());
 					InputUtility.setMouseY((int) event.getY());
+					if(model.Trail.instance.getTrailX().size() < 15) {
+						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					}
+					else {
+						model.Trail.instance.getTrailX().remove(0);
+						model.Trail.instance.getTrailY().remove(0);
+						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					}
 				}
 			}
 		});
+		
 	}
 }

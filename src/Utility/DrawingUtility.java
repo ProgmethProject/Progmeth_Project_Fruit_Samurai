@@ -1,8 +1,12 @@
 package Utility;
 
+import java.util.ArrayList;
+
 import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Line;
+import model.Trail;
 
 public class DrawingUtility {
 	public static Image background;
@@ -54,7 +58,20 @@ public class DrawingUtility {
 		gc.drawImage(fruit[(int) (Math.random()*10)], x, y, 50, 50);
 	}
 	
-	public static void clearTrail(GraphicsContext gc, int x, int y) {
+	public static void drawTrail(GraphicsContext gc) {
+		int lineWidth = 10;
+		ArrayList<Integer> trailX = Trail.instance.getTrailX();
+		ArrayList<Integer> trailY = Trail.instance.getTrailY();
+		int prevX = trailX.get(trailX.size() - 1);
+		int prevY = trailY.get(trailY.size() - 1);
+		
+		for(int i = trailX.size() - 2; i>=0; i--) {
+			gc.setLineWidth(lineWidth);
+			gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
+			prevX = trailX.get(i);
+			prevY = trailY.get(i);		
+			lineWidth -= 0.1;
+		}
 	}
 
 }
