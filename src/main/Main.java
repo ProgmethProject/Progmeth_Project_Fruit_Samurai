@@ -59,8 +59,7 @@ public class Main extends Application {
 				try {
 					Thread.sleep(16);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					return;
 				}
 				gameLogic.updateLogic();
 				Main.instance.drawGameScreen();
@@ -70,6 +69,7 @@ public class Main extends Application {
 
 	public void changeToStartScreen() {
 		this.primaryStage.setScene(startScene);
+		this.gameThread.interrupt();
 	}
 
 	public void changeToGameScreen() {
@@ -79,10 +79,12 @@ public class Main extends Application {
 
 	public void changeToCollectionScreen() {
 		this.primaryStage.setScene(collectionScene);
+		this.gameThread.interrupt();
 	}
 
 	public void closeScreen() {
 		this.primaryStage.close();
+		this.gameThread.interrupt();
 	}
 
 	public void drawGameScreen() {
