@@ -1,6 +1,7 @@
 package model;
 
 import gui.ConfigurableSettings;
+import logic.GameLogic;
 
 public abstract class Entity implements IRenderable {
 
@@ -69,14 +70,17 @@ public abstract class Entity implements IRenderable {
 	}
 
 	public void move() {
-		if (isDestroyed) {
-			return;
-		}
-		this.x += speedX/60;
-		this.y -= speedY/60;
-		speedY -= GRAVITY /60;
+		this.x += speedX / 60;
+		this.y -= speedY / 60;
+		speedY -= GRAVITY / 60;
+	}
+
+	public void update() {
 		if (this.x > ConfigurableSettings.screenWidth || this.x < 0) {
 			setDestroyed(true);
+		}
+		if (!isDestroyed) {
+			move();
 		}
 	}
 

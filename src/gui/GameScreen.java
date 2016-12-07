@@ -48,6 +48,7 @@ public class GameScreen extends GridPane {
 		for(IRenderable entity : RenderableHolder.instance.getEntities()) {
 			if(!entity.isDestroyed()) {
 				entity.draw(gc);
+				System.out.println(entity.toString());
 			}
 		}
 	}
@@ -59,7 +60,7 @@ public class GameScreen extends GridPane {
 				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY)
 					InputUtility.setMouseLeftDown(false);
-					model.Trail.instance.clearTrail();
+					Trail.instance.clearTrail();
 
 			}
 		});
@@ -106,14 +107,15 @@ public class GameScreen extends GridPane {
 				if (InputUtility.isMouseOnScreen()) {
 					InputUtility.setMouseX((int) event.getX());
 					InputUtility.setMouseY((int) event.getY());
-//					if(model.Trail.instance.getTrailX().size() < 15) {
-//						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-//					}
-//					else {
-//						model.Trail.instance.getTrailX().remove(0);
-//						model.Trail.instance.getTrailY().remove(0);
-//						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-//					}
+
+					if(Trail.instance.getTrailX().size() < 15) {
+						Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					}
+					else {
+						Trail.instance.getTrailX().remove(0);
+						Trail.instance.getTrailY().remove(0);
+						Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					}
 				}
 			}
 		});

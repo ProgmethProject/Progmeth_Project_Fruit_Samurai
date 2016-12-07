@@ -1,6 +1,5 @@
 package logic;
 
-import java.awt.print.Printable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,32 +10,32 @@ import model.Fruit;
 import model.IRenderable;
 import model.RenderableHolder;
 
-public class GameLogic implements Runnable {
-	private List<IRenderable> renderables;
+public class GameLogic {
+	private List<Entity> entities;
 
 	public GameLogic() {
-		renderables = RenderableHolder.instance.getEntities();
+		entities = new ArrayList<>();
+		addEntity(new Fruit(0, 0, 50, 500));
 	}
 
-	@Override
-	public void run() {
-		System.out.println(renderables.size());
-		RenderableHolder.instance.addEntity(new Fruit(200, ConfigurableSettings.screenHeight, 50, 500));
-		while (true) {
-			for (IRenderable iRenderable : renderables) {
-				if (iRenderable instanceof Entity) {
-					Entity entity = (Entity)iRenderable;
-					entity.move();
-				}
-			}
-			Main.instance.drawGameScreen();
-
-			try {
-				Thread.sleep(16);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+	public void updateLogic() {
+		for (Entity e : entities) {
+			if (e.isDestroyed()) {
+				removeEntity(e);
+			} else {
+				e.update();
 			}
 		}
 	}
+
+	public void addEntity(Entity e) {
+		entities.add(e);
+		RenderableHolder.instance.addEntity(e);
+	}
+
+	public void removeEntity(Entity e) {
+		entities.remove(e);
+		RenderableHolder.instance.removeEntity(e);
+	}
+
 }
