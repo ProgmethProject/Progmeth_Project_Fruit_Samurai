@@ -3,8 +3,10 @@ package Utility;
 import java.util.ArrayList;
 
 import gui.ConfigurableSettings;
+import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import model.Trail;
 
@@ -65,6 +67,17 @@ public class DrawingUtility {
 		int prevX = trailX.get(trailX.size() - 1);
 		int prevY = trailY.get(trailY.size() - 1);
 		
+//		if(InputUtility.isMouseLeftDown()) {
+//			if(model.Trail.instance.getTrailX().size() < 15) {
+//				model.Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+//			}
+//			else {
+//				model.Trail.instance.getTrailX().remove(0);
+//				model.Trail.instance.getTrailY().remove(0);
+//				model.Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+//			}
+//		}
+		
 		for(int i = trailX.size() - 2; i>=0; i--) {
 			gc.setLineWidth(lineWidth);
 			gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
@@ -73,5 +86,31 @@ public class DrawingUtility {
 			lineWidth -= 0.1;
 		}
 	}
+	
+//	public static void drawTrail(GraphicsContext gc) {
+//		final long startNanoTime = System.nanoTime();
+//		new AnimationTimer() {
+//			int lineWidth = 10;
+//			ArrayList<Integer> trailX = Trail.instance.getTrailX();
+//			ArrayList<Integer> trailY = Trail.instance.getTrailY();
+//			int prevX = trailX.get(trailX.size() - 1);
+//			int prevY = trailY.get(trailY.size() - 1);
+//
+//			public void handle(long currentNanoTime) {
+//				double t = ((currentNanoTime - startNanoTime) / 1000000000.0) % 3;
+//				// t/3 --> 0-1
+//				width = gc.getCanvas().getWidth() * t / 3;										
+//				height = gc.getCanvas().getHeight() * t / 3;
+//
+//				for(int i = trailX.size() - 2; i>=0; i--) {
+//					gc.setLineWidth(lineWidth);
+//					gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
+//					prevX = trailX.get(i);
+//					prevY = trailY.get(i);		
+//					lineWidth -= 0.1;
+//				}
+//			}
+//		}.start();
+//	}
 
 }

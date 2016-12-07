@@ -22,9 +22,8 @@ import model.Trail;
 
 public class GameScreen extends GridPane {
 	private static double screen_width, screen_height;
-	private static Canvas canvas, canvas2;
-	private static GraphicsContext gc, gc2;
-	private static Path path;
+	private static Canvas canvas;
+	private static GraphicsContext gc;
 
 	public GameScreen() {
 		
@@ -44,6 +43,8 @@ public class GameScreen extends GridPane {
 	}
 	
 	public void paintComponents(){
+		System.out.println(InputUtility.getMouseX());
+		System.out.println(InputUtility.isMouseLeftDown());
 		for(IRenderable entity : RenderableHolder.instance.getEntities()) {
 			if(!entity.isDestroyed()) {
 				entity.draw(gc);
@@ -69,6 +70,7 @@ public class GameScreen extends GridPane {
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseLeftLastDown(true);
+					model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
 				}
 
 			}
@@ -104,14 +106,14 @@ public class GameScreen extends GridPane {
 				if (InputUtility.isMouseOnScreen()) {
 					InputUtility.setMouseX((int) event.getX());
 					InputUtility.setMouseY((int) event.getY());
-					if(model.Trail.instance.getTrailX().size() < 15) {
-						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-					}
-					else {
-						model.Trail.instance.getTrailX().remove(0);
-						model.Trail.instance.getTrailY().remove(0);
-						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-					}
+//					if(model.Trail.instance.getTrailX().size() < 15) {
+//						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+//					}
+//					else {
+//						model.Trail.instance.getTrailX().remove(0);
+//						model.Trail.instance.getTrailY().remove(0);
+//						model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+//					}
 				}
 			}
 		});
