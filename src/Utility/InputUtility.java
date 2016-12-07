@@ -2,10 +2,19 @@ package Utility;
 
 public class InputUtility {
 
-	private static int mouseX, mouseY;
+	private static int mouseX, mouseY, prevMouseX, prevMouseY;
 	private static boolean mouseLeftDown, mouseOnScreen;
 	private static boolean mouseLeftLastDown;
+	private static boolean isDrag;
 	
+	public static boolean isDrag() {
+		return isDrag;
+	}
+
+	public static void setDrag(boolean isDrag) {
+		InputUtility.isDrag = isDrag;
+	}
+
 	public static int getMouseX() {
 		return InputUtility.mouseX;
 	}
@@ -49,4 +58,5 @@ public class InputUtility {
 	public static void postUpdate() {
 		setMouseLeftLastDown(false);
 	}
+
 }
