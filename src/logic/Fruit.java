@@ -7,6 +7,7 @@ import com.sun.javafx.geom.transform.BaseTransform;
 
 import Utility.DrawingUtility;
 import Utility.InputUtility;
+import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
@@ -59,6 +60,7 @@ public class Fruit extends Entity implements Cuttable {
 	public boolean isCut() {
 		// TODO Auto-generated method stub
 		Image image = DrawingUtility.fruit[index];
+		RenderableHolder.instance.addEntity(DrawingUtility.createCuttingAnimation((int)x, (int)y));
 //		double radiusRotate = Math.sqrt(Math.pow(image.getWidth() / 2, 2) + Math.pow(image.getHeight() / 2, 2));
 //
 //		int xx = (int) (x + radiusRotate * Math.sin((45 + rotation) * Math.PI / 180));

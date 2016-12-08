@@ -37,10 +37,6 @@ public class GameScreen extends GridPane {
 		
 
 		addListener();
-		
-		DrawingUtility.drawCuttingAnimation(200, 200);
-		GameAnimation x = new GameAnimation(DrawingUtility.cutanim, 8, 1);
-		x.draw(gc);
 	}
 
 

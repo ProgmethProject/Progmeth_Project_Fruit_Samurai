@@ -107,7 +107,7 @@ public class DrawingUtility {
 		}
 	}
 	
-	public static GameAnimation drawCuttingAnimation(int x, int y) {
+	public static GameAnimation createCuttingAnimation(int x, int y) {
 		GameAnimation anim = new GameAnimation(DrawingUtility.cutanim, 8, 1);
 		anim.centerAnimationAt(x, y);
 		anim.play();
