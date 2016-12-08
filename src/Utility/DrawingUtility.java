@@ -21,26 +21,28 @@ public class DrawingUtility {
 	public static Image pauseButton;
 	public static Image[] cross;
 	public static Image[] fruit;
+	private static Image bomb;
 	
 	static {
 		loadResource();
 	}
 	
-	private static void loadResource() {
+	public static void loadResource() {
 		cross = new Image[2];
 		cross[0] = new Image(ClassLoader.getSystemResource("image/black_cross.png").toString(), 50, 60, false, true);
 		cross[1] = new Image(ClassLoader.getSystemResource("image/red_cross.png").toString(), 50, 60, false, true);
-		fruit = new Image[11];
-		fruit[0] = new Image(ClassLoader.getSystemResource("image/apple.png").toString(), 50, 50, false, true);
-		fruit[1] = new Image(ClassLoader.getSystemResource("image/banana.png").toString(), 50, 50, false, true);
-		fruit[2] = new Image(ClassLoader.getSystemResource("image/fig.png").toString(), 50, 50, false, true);
-		fruit[3] = new Image(ClassLoader.getSystemResource("image/grapes.png").toString(), 50, 50, false, true);
-		fruit[4] = new Image(ClassLoader.getSystemResource("image/mango.png").toString(), 50, 50, false, true);
+		fruit = new Image[10];
+		fruit[0] = new Image(ClassLoader.getSystemResource("image/apple.png").toString(), 50, 60, false, true);
+		fruit[1] = new Image(ClassLoader.getSystemResource("image/banana.png").toString(), 80, 50, false, true);
+		fruit[2] = new Image(ClassLoader.getSystemResource("image/fig.png").toString(), 50, 60, false, true);
+		fruit[3] = new Image(ClassLoader.getSystemResource("image/grapes.png").toString(), 65, 50, false, true);
+		fruit[4] = new Image(ClassLoader.getSystemResource("image/mango.png").toString(), 70, 50, false, true);
 		fruit[5] = new Image(ClassLoader.getSystemResource("image/orange.png").toString(), 50, 50, false, true);
-		fruit[6] = new Image(ClassLoader.getSystemResource("image/peach.png").toString(), 50, 50, false, true);
-		fruit[7] = new Image(ClassLoader.getSystemResource("image/pineapple.png").toString(), 50, 50, false, true);
+		fruit[6] = new Image(ClassLoader.getSystemResource("image/peach.png").toString(), 55, 55, false, true);
+		fruit[7] = new Image(ClassLoader.getSystemResource("image/pineapple.png").toString(), 50, 75, false, true);
 		fruit[8] = new Image(ClassLoader.getSystemResource("image/raspberry.png").toString(), 50, 50, false, true);
-		fruit[9] = new Image(ClassLoader.getSystemResource("image/strawberry.png").toString(), 50, 50, false, true);
+		fruit[9] = new Image(ClassLoader.getSystemResource("image/strawberry.png").toString(), 45, 55, false, true);
+		bomb = new Image(ClassLoader.getSystemResource("image/bomb.png").toString(), 50, 50, false, true);
 		background = new Image(ClassLoader.getSystemResource("image/background.jpg").toString(), ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight, false, true);
 		playButton = new Image(ClassLoader.getSystemResource("image/play_button.png").toString(), 50, 50, false, true);
 		pauseButton = new Image(ClassLoader.getSystemResource("image/pause_button.png").toString(), 50, 50, false, true);
@@ -60,7 +62,7 @@ public class DrawingUtility {
 		double font_width = fontLoader.computeStringWidth("LIFE: ", gc.getFont());
 		double font_height = fontLoader.getFontMetrics(gc.getFont()).getLineHeight();
 		gc.fillText("LIFE:", 410, 45);
-		drawLife(gc, 410 + font_width - 5, 45 - font_height + 7, PlayerStatus.instance.getHealthPoint());
+		drawLife(gc, 410 + font_width - 5, 45 - font_height + 3, PlayerStatus.instance.getHealthPoint());
 	}
 	
 	public static void drawLife(GraphicsContext gc, double x, double y, int healthPoint) {

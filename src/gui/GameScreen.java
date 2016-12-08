@@ -8,6 +8,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import logic.Trail;
+import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.Background;
 import graphic.MenuButton;
@@ -34,8 +35,8 @@ public class GameScreen extends GridPane {
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
 
-		paintComponents();
 		addListener();
+		
 	}
 
 
