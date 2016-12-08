@@ -66,7 +66,6 @@ public class Fruit extends Entity implements Cuttable {
 
 	@Override
 	public boolean isCut() {
-		// TODO Auto-generated method stub
 		Image image = DrawingUtility.fruit[index];
 		// double radiusRotate = Math.sqrt(Math.pow(image.getWidth() / 2, 2) +
 		// Math.pow(image.getHeight() / 2, 2));

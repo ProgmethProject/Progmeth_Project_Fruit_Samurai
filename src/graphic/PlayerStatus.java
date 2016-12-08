@@ -14,9 +14,10 @@ public class PlayerStatus implements IRenderable {
 	private int score;
 	private int scoreModifier;
 	private int healthPoint;
-	private boolean onCombo = false;
+	private boolean isOnCombo = false;
 	private int comboCount = 0;
-	private boolean pause = false;
+	private boolean isPause = false;
+	private boolean isGameOver = false;
 
 	public static final PlayerStatus instance = new PlayerStatus(DEFAULT_HP);
 	
@@ -44,14 +45,17 @@ public class PlayerStatus implements IRenderable {
 
 	public void adjustHealthPoint(int healthPoint) {
 		this.healthPoint += healthPoint;
+		if(this.healthPoint == 0){
+			this.isGameOver = true;
+		}
 	}
 
 	public boolean isOnCombo() {
-		return onCombo;
+		return isOnCombo;
 	}
 
 	public void setOnCombo(boolean onCombo) {
-		this.onCombo = onCombo;
+		this.isOnCombo = onCombo;
 	}
 	
 	public int getComboCount() {
@@ -67,13 +71,21 @@ public class PlayerStatus implements IRenderable {
 	}
 	
 	public boolean isPause() {
-		return pause;
+		return isPause;
 	}
 
 	public void setPause(boolean pause) {
-		this.pause = pause;
+		this.isPause = pause;
 	}
 
+	public boolean isGameOver() {
+		return isGameOver;
+	}
+	
+	public void setGameOver(boolean isGameOver) {
+		this.isGameOver = isGameOver;
+	}
+	
 	@Override
 	public int getZ() {
 		return Integer.MAX_VALUE;

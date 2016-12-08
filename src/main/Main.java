@@ -1,11 +1,13 @@
 package main;
 
+import graphic.PlayerStatus;
 import gui.CollectionScreen;
 import gui.ConfigurableSettings;
 import gui.GameScreen;
 import gui.StartScreen;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -57,11 +59,16 @@ public class Main extends Application {
 
 		this.gameThread = new Thread(() -> {
 			while (true) {
+				//TODO Add GameOver transition
+				if (PlayerStatus.instance.isGameOver()) {
+					Platform.runLater(() -> {
+						changeToStartScreen();
+					});
+				}
 				try {
 					gameLogic.updateLogic();
 					Thread.sleep(5);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
@@ -75,12 +82,12 @@ public class Main extends Application {
 		};
 
 	}
-	
-	public GameLogic getGameLogic(){
+
+	public GameLogic getGameLogic() {
 		return this.gameLogic;
 	}
-	
-	public GameScreen getGameScreen(){
+
+	public GameScreen getGameScreen() {
 		return this.gameScreen;
 	}
 

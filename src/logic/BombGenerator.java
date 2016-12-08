@@ -25,7 +25,6 @@ public class BombGenerator extends Generator{
 					gameLogic.addEntity(new Bomb(x, y, speedX, speedY));
 					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 					System.out.println("Generator interrupted");
 					return;
