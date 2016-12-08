@@ -1,16 +1,9 @@
 package graphic;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import com.sun.xml.internal.ws.api.model.wsdl.editable.EditableWSDLService;
-
-import Utility.DrawingUtility;
-import gui.ConfigurableSettings;
-import javafx.scene.image.Image;
 import model.IRenderable;
 
 public class RenderableHolder {

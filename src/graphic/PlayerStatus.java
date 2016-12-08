@@ -2,8 +2,6 @@ package graphic;
 
 import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import model.IRenderable;
 
 public class PlayerStatus implements IRenderable {

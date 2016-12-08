@@ -1,6 +1,5 @@
 package gui;
 
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -8,7 +7,6 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import logic.Trail;
-import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.Background;
 import graphic.MenuButton;

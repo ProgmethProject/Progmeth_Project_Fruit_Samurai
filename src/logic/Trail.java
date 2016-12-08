@@ -4,9 +4,7 @@ import java.util.ArrayList;
 
 import Utility.DrawingUtility;
 import Utility.InputUtility;
-import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.shape.Line;
 import model.IRenderable;
 
 public class Trail implements IRenderable {

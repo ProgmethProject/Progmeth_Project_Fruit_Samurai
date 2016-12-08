@@ -7,11 +7,9 @@ import com.sun.javafx.tk.Toolkit;
 
 import graphic.PlayerStatus;
 import gui.ConfigurableSettings;
-import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import logic.Trail;
 
