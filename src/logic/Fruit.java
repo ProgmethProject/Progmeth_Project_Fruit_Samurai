@@ -7,6 +7,7 @@ import com.sun.javafx.geom.transform.BaseTransform;
 
 import Utility.DrawingUtility;
 import Utility.InputUtility;
+import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
@@ -47,9 +48,14 @@ public class Fruit extends Entity implements Cuttable {
 
 	@Override
 	public void cut() {
+		Image image = DrawingUtility.fruit[index];
 		setDestroyed(true);
-		HalfFruit left = new HalfFruit(x, y, -speedX , speedY, rotation, index, 0);
-		HalfFruit right = new HalfFruit(x, y, speedX , speedY, rotation, index, 1);
+		synchronized (RenderableHolder.instance.getEntities()) {
+			RenderableHolder.instance.getEntities().add(DrawingUtility
+					.createCuttingAnimation((int) (x + image.getWidth() / 2), (int) (y + image.getHeight() / 2)));
+		}
+		HalfFruit left = new HalfFruit(x, y, -speedX, speedY, rotation, index, 0);
+		HalfFruit right = new HalfFruit(x, y, speedX, speedY, rotation, index, 1);
 		Main.instance.getGameLogic().addEntity(left);
 		Main.instance.getGameLogic().addEntity(right);
 

@@ -29,6 +29,9 @@ public class RenderableHolder {
 	public void addEntity(IRenderable renderable) {
 		synchronized (entities) {
 			entities.add(renderable);
+			if (renderable.getZ() < Integer.MAX_VALUE - 1) {
+				maxZ = Math.max(maxZ, renderable.getZ());
+			}
 			sortEntity();
 		}
 	}
@@ -50,11 +53,6 @@ public class RenderableHolder {
 	public void sortEntity() {
 		synchronized (entities) {
 			Collections.sort(entities, comparator);
-			if (entities.size() >= 4) {
-				maxZ = entities.get(entities.size() - 4).getZ();
-			} else {
-				maxZ = 0;
-			}
 		}
 	}
 

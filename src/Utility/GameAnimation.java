@@ -68,7 +68,7 @@ public class GameAnimation implements IRenderable {
 	}
 	@Override
 	public boolean isDestroyed() {
-		return visible;
+		return !visible;
 	}
 
 	@Override
@@ -78,11 +78,13 @@ public class GameAnimation implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
+		System.out.println("xxx");
 		if(!visible || image == null) {
 			return;
 		}
 		WritableImage croppedImage = new WritableImage(image.getPixelReader(), currentFrame*130, 0, 130, 130);
 		gc.drawImage(croppedImage, x, y);
+		updateAnimation();
 	}
 
 }
