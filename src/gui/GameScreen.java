@@ -40,6 +40,7 @@ public class GameScreen extends GridPane {
 		for(IRenderable entity : RenderableHolder.instance.getEntities()) {
 			if(!entity.isDestroyed()) {
 				entity.draw(gc);
+				System.out.println(entity);
 			}
 		}
 	}

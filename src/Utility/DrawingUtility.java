@@ -53,14 +53,12 @@ public class DrawingUtility {
 	
 	public static void drawPlayerStatus(GraphicsContext gc) {
 		gc.setFill(Color.WHITE);
-//		gc.setFont(new Font("Tahoma", 30));
-		gc.setFont(Font.loadFont(ClassLoader.getSystemResource("fonts/Brush Strokes.ttf").toString(), 30));
+		gc.setFont(Font.loadFont(ClassLoader.getSystemResource("fonts/ChineseTakeaway.ttf").toString(), 30));
 		gc.fillText("SCORE: " + String.format("%03d", PlayerStatus.instance.getScore()), 70, 45);
 		
 		FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
 		double font_width = fontLoader.computeStringWidth("LIFE: ", gc.getFont());
 		double font_height = fontLoader.getFontMetrics(gc.getFont()).getLineHeight();
-
 		gc.fillText("LIFE:", 410, 45);
 		drawLife(gc, 410 + font_width - 5, 45 - font_height + 7, PlayerStatus.instance.getHealthPoint());
 	}
