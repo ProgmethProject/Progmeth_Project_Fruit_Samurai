@@ -54,10 +54,10 @@ public class GameScreen extends GridPane {
 			@Override
 			public void handle(MouseEvent event) {
 				System.out.println("MouseReleased : " + event.getButton().toString());
-				if (event.getButton() == MouseButton.PRIMARY)
+				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(false);
-				Trail.instance.clearTrail();
-
+					Trail.instance.clearTrail();
+				}
 			}
 		});
 		canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
@@ -84,27 +84,22 @@ public class GameScreen extends GridPane {
 			@Override
 			public void handle(MouseEvent event) {
 				InputUtility.setMouseOnScreen(true);
-//				Trail.instance.clearTrail();
 			}
 		});
 
 		canvas.setOnMouseMoved(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				if (InputUtility.isMouseOnScreen()) {
 					InputUtility.setMouseX((int) event.getX());
 					InputUtility.setMouseY((int) event.getY());
-				}
 			}
 		});
 
 		canvas.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				if (InputUtility.isMouseOnScreen()) {
 					InputUtility.setMouseX((int) event.getX());
 					InputUtility.setMouseY((int) event.getY());
-				}
 			}
 		});
 
