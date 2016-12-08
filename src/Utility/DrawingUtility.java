@@ -22,6 +22,7 @@ public class DrawingUtility {
 	public static Image[] fruit;
 	public static Image[] cut_fruit;
 	public static Image bomb;
+	public static Image cutanim;
 	
 	static {
 		loadResource();
@@ -54,7 +55,7 @@ public class DrawingUtility {
 		cut_fruit[11] = new Image(ClassLoader.getSystemResource("image/cut_entity/raspberry2.png").toString(), 25, 50, false, true);
 		cut_fruit[12] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry1.png").toString(), 22.5, 55, false, true);
 		cut_fruit[13] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry2.png").toString(), 22.5, 55, false, true);
-	
+		cutanim = new Image(ClassLoader.getSystemResource("image/cutanim.png").toString(), 1040, 130, false, true);
 		bomb = new Image(ClassLoader.getSystemResource("image/entity/bomb.png").toString(), 60, 65, false, true);
 		background = new Image(ClassLoader.getSystemResource("image/background/background.jpg").toString(), ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight, false, true);
 		playButton = new Image(ClassLoader.getSystemResource("image/ui/play_button.png").toString(), 50, 50, false, true);
@@ -105,6 +106,13 @@ public class DrawingUtility {
 			lineWidth -= 1;
 		}
 	}
+	
+//	public static GameAnimation createCuttingAnimationAt(int x, int y) {
+//		GameAnimation anim = new GameAnimation(DrawingUtility.cutanim, 8, 1);
+//		anim.centerAnimationAt(x, y);
+//		anim.play();
+//		return anim;
+//	}
 	
 	public static void rotate(GraphicsContext gc, double angle, double px, double py) {
         Rotate r = new Rotate(angle, px, py);
