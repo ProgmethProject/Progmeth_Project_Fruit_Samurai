@@ -7,6 +7,7 @@ import com.sun.javafx.geom.transform.BaseTransform;
 
 import Utility.DrawingUtility;
 import Utility.InputUtility;
+import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -19,13 +20,14 @@ import model.Entity;
 import sun.font.GlyphLayout.GVData;
 
 public class Fruit extends Entity implements Cuttable {
-
+	private int point;
 	private int index;
 
 	public Fruit(double x, double y, double speedX, double speedY) {
 		super(x, y, speedX, speedY);
 		Random random = new Random();
 		index = random.nextInt(DrawingUtility.fruit.length);
+		point = 1;
 	}
 
 	@Override
@@ -48,6 +50,7 @@ public class Fruit extends Entity implements Cuttable {
 
 	@Override
 	public void cut() {
+		PlayerStatus.instance.increaseScore(point);
 		Image image = DrawingUtility.fruit[index];
 		setDestroyed(true);
 		synchronized (RenderableHolder.instance.getEntities()) {

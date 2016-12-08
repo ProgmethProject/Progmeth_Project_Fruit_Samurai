@@ -22,6 +22,7 @@ public class PlayerStatus implements IRenderable {
 	
 	public PlayerStatus(int healthPoint) {
 		this.healthPoint = healthPoint;
+		scoreModifier = 1;
 		score = 0;
 	}
 	
