@@ -85,7 +85,7 @@ public class GameScreen extends GridPane {
 			@Override
 			public void handle(MouseEvent event) {
 				InputUtility.setMouseOnScreen(true);
-				Trail.instance.clearTrail();
+//				Trail.instance.clearTrail();
 			}
 		});
 

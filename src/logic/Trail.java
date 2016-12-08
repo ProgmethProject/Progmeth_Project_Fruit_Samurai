@@ -38,11 +38,11 @@ public class Trail implements IRenderable {
 				Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
 			}
 			else {
-				if(!Trail.instance.getTrailX().isEmpty()) {
+//				if(!Trail.instance.getTrailX().isEmpty()) {
 					Trail.instance.getTrailX().remove(0);
 					Trail.instance.getTrailY().remove(0);
 					Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
-				}
+//				}
 			}
 		}
 	}
