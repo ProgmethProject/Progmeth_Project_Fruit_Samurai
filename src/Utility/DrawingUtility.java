@@ -102,7 +102,7 @@ public class DrawingUtility {
 	}
 	
 	public static void drawFruit(GraphicsContext gc, double x, double y) {
-		gc.drawImage(fruit[(int) (Math.random()*10)], x, y, 50, 50);
+		gc.drawImage(fruit[(int) (Math.random()*10)], x, y);
 	}
 	
 	public static void drawTrail(GraphicsContext gc) {
