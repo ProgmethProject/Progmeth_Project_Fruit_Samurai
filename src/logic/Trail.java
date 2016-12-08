@@ -32,13 +32,29 @@ public class Trail implements IRenderable {
 	
 	public void update() {
 		if(InputUtility.isMouseLeftDown()) {
-			if(Trail.instance.getTrailX().size() < 15) {
-				Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+			if(getTrailX().size() < 10) {
+				addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
 			}
 			else {
-					Trail.instance.getTrailX().remove(0);
-					Trail.instance.getTrailY().remove(0);
-					Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+					getTrailX().remove(0);
+					getTrailY().remove(0);
+					addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+			}
+		}
+		else {
+			if(!trailX.isEmpty()) {
+				if((int)trailX.get(0)==(int)trailX.get(trailX.size() - 1)) {
+					trailX.clear();
+					trailY.clear();
+				}
+				else if(getTrailX().size() < 10) {
+					addTrail(InputUtility.getReleaseX(), InputUtility.getReleaseY());
+				}
+				else {
+					getTrailX().remove(0);
+					getTrailY().remove(0);
+					addTrail(InputUtility.getReleaseX(), InputUtility.getReleaseY());
+				}
 			}
 		}
 	}
@@ -58,7 +74,7 @@ public class Trail implements IRenderable {
 		update();
 		if(!Trail.instance.getTrailX().isEmpty()) {
 			DrawingUtility.drawTrail(gc);
-			System.out.println(trailX);
+//			System.out.println(trailX);
 		}
 	}
 

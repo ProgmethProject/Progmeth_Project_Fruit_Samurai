@@ -103,7 +103,7 @@ public class DrawingUtility {
 	}
 	
 	public static void drawTrail(GraphicsContext gc) {
-		int lineWidth = 10;
+		double lineWidth = 10;
 		ArrayList<Integer> trailX = Trail.instance.getTrailX();
 		ArrayList<Integer> trailY = Trail.instance.getTrailY();
 		int prevX = trailX.get(trailX.size() - 1);
@@ -114,8 +114,9 @@ public class DrawingUtility {
 			gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
 			prevX = trailX.get(i);
 			prevY = trailY.get(i);		
-			lineWidth -= 0.1;
+			lineWidth -= 1;
 		}
+		System.out.println(Trail.instance.getTrailX());
 	}
 	
 	public static void rotate(GraphicsContext gc, double angle, double px, double py) {

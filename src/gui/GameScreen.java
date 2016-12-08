@@ -56,7 +56,9 @@ public class GameScreen extends GridPane {
 				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(false);
-					Trail.instance.clearTrail();
+					InputUtility.setReleaseX((int) event.getX());
+					InputUtility.setReleaseY((int) event.getY());
+//					Trail.instance.clearTrail();
 				}
 			}
 		});

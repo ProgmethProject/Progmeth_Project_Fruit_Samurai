@@ -2,7 +2,7 @@ package Utility;
 
 public class InputUtility {
 
-	private static int mouseX, mouseY;
+	private static int mouseX, mouseY, releaseX, releaseY;
 	private static boolean mouseLeftDown, mouseOnScreen;
 	private static boolean mouseLeftLastDown;
 	private static boolean isDrag;
@@ -29,6 +29,22 @@ public class InputUtility {
 
 	public static void setMouseY(int mouseY) {
 		InputUtility.mouseY	= mouseY;
+	}
+	
+	public static int getReleaseX() {
+		return releaseX;
+	}
+
+	public static void setReleaseX(int releaseX) {
+		InputUtility.releaseX = releaseX;
+	}
+
+	public static int getReleaseY() {
+		return releaseY;
+	}
+
+	public static void setReleaseY(int releaseY) {
+		InputUtility.releaseY = releaseY;
 	}
 
 	public static boolean isMouseLeftDown() {
