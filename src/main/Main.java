@@ -59,21 +59,21 @@ public class Main extends Application {
 			while (true) {
 				try {
 					gameLogic.updateLogic();
-					Thread.sleep(16);
+					Thread.sleep(5);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		});
-		
+
 		this.drawingAnimation = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
 				drawGameScreen();
 			}
 		};
-		
+
 	}
 
 	public void changeToStartScreen() {

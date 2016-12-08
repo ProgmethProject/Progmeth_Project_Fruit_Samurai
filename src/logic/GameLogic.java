@@ -15,12 +15,15 @@ public class GameLogic {
 	private BombGenerator mainBombGenerator;
 
 	public GameLogic() {
+		
 		entities = new ArrayList<>();
+		
 		mainFruitGenerator = new FruitGenerator(this, 2000);
 		mainBombGenerator = new BombGenerator(this, 3000);
 		mainFruitGenerator.start();
 		mainBombGenerator.start();
-		Fruit fruit = new Fruit(0, ConfigurableSettings.screenHeight, 50, 400);
+		
+		Fruit fruit = new Fruit(100, 100, 50, 200);		
 		addEntity(fruit);
 	}
 

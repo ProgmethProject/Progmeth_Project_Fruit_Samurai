@@ -87,10 +87,14 @@ public abstract class Entity implements IRenderable {
 	public abstract Shape initHitBox();
 
 	public void move() {
-		this.x += speedX / 60;
-		this.y -= speedY / 60;
-		this.speedY -= GRAVITY / 60;
-		this.rotation += (270 / 60) * speedX > 0 ? 1 : -1;
+
+		this.x += speedX / 200;
+		this.y -= speedY / 200;
+		this.speedY -= GRAVITY / 200;
+
+		this.rotation += (270 / 200) * speedX > 0 ? 1 : -1;
+		this.hitBox.setLayoutX(x);
+		this.hitBox.setLayoutY(y);
 	}
 
 	public void update() {
@@ -101,7 +105,7 @@ public abstract class Entity implements IRenderable {
 			move();
 			if (this instanceof Cuttable) {
 				Cuttable cuttable = (Cuttable) this;
-				if(cuttable.isCut()){
+				if (cuttable.isCut()) {
 					cuttable.cut();
 				}
 			}

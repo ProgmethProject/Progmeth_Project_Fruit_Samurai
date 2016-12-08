@@ -1,12 +1,13 @@
 package Utility;
 
+
 public class InputUtility {
 
-	private static int mouseX, mouseY;
+	private static int mouseX, mouseY, prevMouseX, prevMouseY;
 	private static boolean mouseLeftDown, mouseOnScreen;
 	private static boolean mouseLeftLastDown;
 	private static boolean isDrag;
-	
+
 	public static boolean isDrag() {
 		return isDrag;
 	}
@@ -20,6 +21,7 @@ public class InputUtility {
 	}
 
 	public static void setMouseX(int mouseX) {
+		InputUtility.prevMouseX = InputUtility.mouseX;
 		InputUtility.mouseX = mouseX;
 	}
 
@@ -28,7 +30,22 @@ public class InputUtility {
 	}
 
 	public static void setMouseY(int mouseY) {
-		InputUtility.mouseY	= mouseY;
+		InputUtility.prevMouseY = InputUtility.mouseY;
+		InputUtility.mouseY = mouseY;
+	}
+
+	public static int getMouseSpeed(){
+		int delX = mouseX-prevMouseX;
+		int delY = mouseY-prevMouseY;
+		
+		return delX*delX+delY*delY;
+	}
+	
+	public static double getMouseAngle(){
+		int delX = mouseX-prevMouseX;
+		int delY = mouseY-prevMouseY;
+		
+		return Math.atan((double)delY/(double)delX);
 	}
 
 	public static boolean isMouseLeftDown() {
@@ -38,7 +55,7 @@ public class InputUtility {
 	public static void setMouseLeftDown(boolean mouseLeftDown) {
 		InputUtility.mouseLeftDown = mouseLeftDown;
 	}
-	
+
 	public static boolean isMouseOnScreen() {
 		return InputUtility.mouseOnScreen;
 	}
@@ -54,7 +71,7 @@ public class InputUtility {
 	public static void setMouseLeftLastDown(boolean v) {
 		InputUtility.mouseLeftLastDown = v;
 	}
-	
+
 	public static void postUpdate() {
 		setMouseLeftLastDown(false);
 	}
