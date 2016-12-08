@@ -47,8 +47,8 @@ public class DrawingUtility {
 		cut_fruit[3] = new Image(ClassLoader.getSystemResource("image/cut_entity/grapes2.png").toString(), 65, 60, false, true);
 		cut_fruit[4] = new Image(ClassLoader.getSystemResource("image/cut_entity/mango1.png").toString(), 70, 50, false, true);
 		cut_fruit[5] = new Image(ClassLoader.getSystemResource("image/cut_entity/mango2.png").toString(), 70, 50, false, true);
-		cut_fruit[6] = new Image(ClassLoader.getSystemResource("image/cut_entity/orange1.png").toString(), 50, 25, false, true);
-		cut_fruit[7] = new Image(ClassLoader.getSystemResource("image/cut_entity/orange2.png").toString(), 50, 25, false, true);
+		cut_fruit[6] = new Image(ClassLoader.getSystemResource("image/cut_entity/orange1.png").toString(), 50, 50, false, true);
+		cut_fruit[7] = new Image(ClassLoader.getSystemResource("image/cut_entity/orange2.png").toString(), 50, 50, false, true);
 		cut_fruit[8] = new Image(ClassLoader.getSystemResource("image/cut_entity/peach1.png").toString(), 55, 55, false, true);
 		cut_fruit[9] = new Image(ClassLoader.getSystemResource("image/cut_entity/peach2.png").toString(), 55, 55, false, true);
 		cut_fruit[10] = new Image(ClassLoader.getSystemResource("image/cut_entity/raspberry1.png").toString(), 50, 50, false, true);

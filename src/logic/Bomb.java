@@ -36,11 +36,6 @@ public class Bomb extends InstantItem {
 	}
 
 	@Override
-	public Shape initHitBox() {
-		return new Circle(x + 25, y + 25, 25);
-	}
-
-	@Override
 	public boolean isCut() {
 		// TODO Auto-generated method stub
 		return false;

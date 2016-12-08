@@ -52,11 +52,6 @@ public class Fruit extends Entity implements Cuttable {
 	}
 
 	@Override
-	public Shape initHitBox() {
-		return new Rectangle(x, y, 50, 50);
-	}
-
-	@Override
 	public boolean isCut() {
 		// TODO Auto-generated method stub
 		Image image = DrawingUtility.fruit[index];

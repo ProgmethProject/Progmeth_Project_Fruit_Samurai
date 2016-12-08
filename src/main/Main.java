@@ -75,6 +75,14 @@ public class Main extends Application {
 		};
 
 	}
+	
+	public GameLogic getGameLogic(){
+		return this.gameLogic;
+	}
+	
+	public GameScreen getGameScreen(){
+		return this.gameScreen;
+	}
 
 	public void changeToStartScreen() {
 		this.primaryStage.setScene(startScene);
