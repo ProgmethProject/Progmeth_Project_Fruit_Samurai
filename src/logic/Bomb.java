@@ -1,6 +1,7 @@
 package logic;
 
 import Utility.DrawingUtility;
+import Utility.InputUtility;
 import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -21,6 +22,7 @@ public class Bomb extends InstantItem {
 		PlayerStatus.instance.adjustHealthPoint(healthPointAdjustment);
 		PlayerStatus.instance.resetComboCount();
 		PlayerStatus.instance.setOnCombo(false);
+		setDestroyed(true);
 	}
 
 	@Override
@@ -37,7 +39,35 @@ public class Bomb extends InstantItem {
 
 	@Override
 	public boolean isCut() {
-		// TODO Auto-generated method stub
+		Image image = DrawingUtility.bomb;
+		// double radiusRotate = Math.sqrt(Math.pow(image.getWidth() / 2, 2) +
+		// Math.pow(image.getHeight() / 2, 2));
+		//
+		// int xx = (int) (x + radiusRotate * Math.sin((45 + rotation) * Math.PI
+		// / 180));
+		// int yy = (int) (y + radiusRotate * Math.cos((45 + rotation) * Math.PI
+		// / 180));
+
+		int xx = (int) (x + image.getWidth() / 2);
+		int yy = (int) (y + image.getHeight() / 2);
+
+		int radius = (int) Math.max(image.getWidth() / 2, image.getHeight() / 2);
+
+		int delX = (int) (InputUtility.getMouseX() - xx);
+		int delY = (int) (InputUtility.getMouseY() - yy);
+
+		// System.out.println(x + ":" + y + " rotation:" + rotation);
+		if (InputUtility.isMouseLeftDown()) {
+			if (delX * delX + delY * delY <= radius * radius) {
+				if (InputUtility.getMouseSpeed() > 10) {
+					System.out.println(
+							InputUtility.getMouseSpeed() + "with angle" + InputUtility.getMouseAngle() * 180 / Math.PI);
+					return true;
+				}
+				return false;
+			}
+			return false;
+		}
 		return false;
 	}
 
