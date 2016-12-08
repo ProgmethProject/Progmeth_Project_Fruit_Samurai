@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import logic.Trail;
 import Utility.DrawingUtility;
+import Utility.GameAnimation;
 import Utility.InputUtility;
 import graphic.Background;
 import graphic.MenuButton;
@@ -37,6 +38,9 @@ public class GameScreen extends GridPane {
 
 		addListener();
 		
+		DrawingUtility.drawCuttingAnimation(200, 200);
+		GameAnimation x = new GameAnimation(DrawingUtility.cutanim, 8, 1);
+		x.draw(gc);
 	}
 
 
@@ -71,7 +75,6 @@ public class GameScreen extends GridPane {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseLeftLastDown(true);
 					logic.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-					DrawingUtility.drawCuttingAnimation((int) event.getX(), (int) event.getY());
 				}
 
 			}

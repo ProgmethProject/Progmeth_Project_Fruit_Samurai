@@ -72,7 +72,7 @@ public class Fruit extends Entity implements Cuttable {
 		int delX = (int) (InputUtility.getMouseX() - xx);
 		int delY = (int) (InputUtility.getMouseY() - yy);
 
-		System.out.println(x + ":" + y + "  rotation:" + rotation);
+//		System.out.println(x + ":" + y + "  rotation:" + rotation);
 		if (delX * delX + delY * delY <= radius * radius) {
 			System.out.println(true);
 			return true;
