@@ -1,7 +1,9 @@
 package graphic;
 
+import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import model.IRenderable;
 
 public class PlayerStatus implements IRenderable {
@@ -79,9 +81,7 @@ public class PlayerStatus implements IRenderable {
 	}
 
 	public void draw(GraphicsContext gc) {
-		gc.setFill(Color.WHITE);
-		gc.fillText("SCORE: " + String.format("%03d", score), 70, 35);
-		
+		DrawingUtility.drawPlayerStatus(gc);
 	}
-	
+
 }

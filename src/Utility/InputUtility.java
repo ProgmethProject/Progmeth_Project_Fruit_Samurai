@@ -2,7 +2,7 @@ package Utility;
 
 public class InputUtility {
 
-	private static int mouseX, mouseY, prevMouseX, prevMouseY;
+	private static int mouseX, mouseY;
 	private static boolean mouseLeftDown, mouseOnScreen;
 	private static boolean mouseLeftLastDown;
 	private static boolean isDrag;
