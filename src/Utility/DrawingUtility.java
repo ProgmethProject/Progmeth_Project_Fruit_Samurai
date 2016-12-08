@@ -2,12 +2,17 @@ package Utility;
 
 import java.util.ArrayList;
 
+import com.sun.javafx.tk.FontLoader;
+import com.sun.javafx.tk.Toolkit;
+
+import graphic.PlayerStatus;
 import gui.ConfigurableSettings;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
 import logic.Trail;
 
 public class DrawingUtility {
@@ -23,8 +28,8 @@ public class DrawingUtility {
 	
 	private static void loadResource() {
 		cross = new Image[2];
-		cross[0] = new Image(ClassLoader.getSystemResource("image/black_cross.png").toString(), 50, 50, false, true);
-		cross[1] = new Image(ClassLoader.getSystemResource("image/red_cross.png").toString(), 50, 50, false, true);
+		cross[0] = new Image(ClassLoader.getSystemResource("image/black_cross.png").toString(), 50, 60, false, true);
+		cross[1] = new Image(ClassLoader.getSystemResource("image/red_cross.png").toString(), 50, 60, false, true);
 		fruit = new Image[11];
 		fruit[0] = new Image(ClassLoader.getSystemResource("image/apple.png").toString(), 50, 50, false, true);
 		fruit[1] = new Image(ClassLoader.getSystemResource("image/banana.png").toString(), 50, 50, false, true);
@@ -44,6 +49,48 @@ public class DrawingUtility {
 	public static void drawBackground(GraphicsContext gc) {
 		gc.drawImage(background, 0, 0, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
 		
+	}
+	
+	public static void drawPlayerStatus(GraphicsContext gc) {
+		gc.setFill(Color.WHITE);
+		gc.setFont(new Font("Tahoma", 30));
+		gc.fillText("SCORE: " + String.format("%03d", PlayerStatus.instance.getScore()), 70, 45);
+		
+		FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
+		double font_width = fontLoader.computeStringWidth("LIFE: ", gc.getFont());
+		double font_height = fontLoader.getFontMetrics(gc.getFont()).getLineHeight();
+
+		gc.fillText("LIFE:", 410, 45);
+		drawLife(gc, 410 + font_width - 5, 45 - font_height + 7, PlayerStatus.instance.getHealthPoint());
+	}
+	
+	public static void drawLife(GraphicsContext gc, double x, double y, int healthPoint) {
+		int cross1, cross2, cross3;
+		switch (healthPoint) {
+			case 3: cross1 = 0;
+					cross2 = 0;
+					cross3 = 0;
+					break;
+			case 2: cross1 = 0;
+					cross2 = 0;
+					cross3 = 1;
+					break;
+			case 1: cross1 = 0;
+					cross2 = 1;
+					cross3 = 1;
+					break;
+			case 0: cross1 = 1;
+					cross2 = 1;
+					cross3 = 1;
+					break;
+			default:cross1 = 0;
+					cross2 = 0;
+					cross3 = 0;
+					break;
+		}
+		gc.drawImage(cross[cross1], x, y, 30, 36);
+		gc.drawImage(cross[cross2], x + 35, y, 30, 36);
+		gc.drawImage(cross[cross3], x + 70, y, 30, 36);
 	}
 	
 	public static void drawMenuButton(GraphicsContext gc, boolean pause, double x, double y, int size) {
@@ -74,5 +121,7 @@ public class DrawingUtility {
 			lineWidth -= 0.1;
 		}
 	}
+
+
 
 }
