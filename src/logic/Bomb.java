@@ -16,7 +16,7 @@ public class Bomb extends InstantItem {
 	}
 
 	@Override
-	public void cut() {
+	public void cut(GraphicsContext gc) {
 		this.setDestroyed(true);
 		PlayerStatus.instance.adjustHealthPoint(healthPointAdjustment);
 		PlayerStatus.instance.resetComboCount();
@@ -33,11 +33,6 @@ public class Bomb extends InstantItem {
 		Image image = DrawingUtility.bomb;
 
 		DrawingUtility.drawRotatedImage(gc, image, rotation, x, y);
-	}
-
-	@Override
-	public Shape initHitBox() {
-		return new Circle(x + 25, y + 25, 25);
 	}
 
 	@Override

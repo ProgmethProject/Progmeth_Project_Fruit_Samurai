@@ -28,7 +28,7 @@ public class GameScreen extends GridPane {
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);
 
-//		RenderableHolder.instance.addEntity(Background.instance);
+		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);

@@ -14,7 +14,6 @@ public abstract class Entity implements IRenderable {
 	protected double rotation;
 	protected int z;
 	protected boolean isDestroyed;
-	protected Shape hitBox;
 
 	public Entity(double x, double y, double speedX, double speedY) {
 		super();
@@ -24,7 +23,6 @@ public abstract class Entity implements IRenderable {
 		this.speedY = speedY;
 		this.z = RenderableHolder.instance.getMaxZ() + 1;
 		this.isDestroyed = false;
-		this.hitBox = initHitBox();
 		this.rotation = 0;
 	}
 
@@ -76,16 +74,6 @@ public abstract class Entity implements IRenderable {
 		this.isDestroyed = isDestroyed;
 	}
 
-	public Shape getHitBox() {
-		return hitBox;
-	}
-
-	public void setHitBox(Shape hitBox) {
-		this.hitBox = hitBox;
-	}
-
-	public abstract Shape initHitBox();
-
 	public void move() {
 
 		this.x += speedX / 200;
@@ -93,8 +81,6 @@ public abstract class Entity implements IRenderable {
 		this.speedY -= GRAVITY / 200;
 
 		this.rotation += (270 / 200) * speedX > 0 ? 1 : -1;
-		this.hitBox.setLayoutX(x);
-		this.hitBox.setLayoutY(y);
 	}
 
 	public void update() {
