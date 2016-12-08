@@ -1,10 +1,11 @@
-package model;
+package logic;
 
 
 
 import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import model.Entity;
 
 public class Fruit extends Entity{
 

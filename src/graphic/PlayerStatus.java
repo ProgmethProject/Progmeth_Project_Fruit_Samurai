@@ -1,7 +1,8 @@
-package model;
+package graphic;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import model.IRenderable;
 
 public class PlayerStatus implements IRenderable {
 	private static final int DEFAULT_HP = 3; 

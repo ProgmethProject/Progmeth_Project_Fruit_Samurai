@@ -1,7 +1,8 @@
-package model;
+package graphic;
 
 import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
+import model.IRenderable;
 
 public class MenuButton implements IRenderable {
 	private int buttonSize = 50;

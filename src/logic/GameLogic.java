@@ -3,12 +3,11 @@ package logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import graphic.RenderableHolder;
 import gui.ConfigurableSettings;
 import main.Main;
 import model.Entity;
-import model.Fruit;
 import model.IRenderable;
-import model.RenderableHolder;
 
 public class GameLogic {
 	private List<Entity> entities;

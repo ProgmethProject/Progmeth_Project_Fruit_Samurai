@@ -1,5 +1,6 @@
 package main;
 
+import graphic.RenderableHolder;
 import gui.CollectionScreen;
 import gui.ConfigurableSettings;
 import gui.GameScreen;
@@ -10,7 +11,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import logic.GameLogic;
-import model.RenderableHolder;
 
 public class Main extends Application {
 

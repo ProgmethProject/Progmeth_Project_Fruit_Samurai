@@ -1,24 +1,18 @@
 package gui;
 
-import Utility.DrawingUtility;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.LineTo;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
+import logic.Trail;
 import Utility.InputUtility;
-import model.Background;
-import model.Fruit;
+import graphic.Background;
+import graphic.MenuButton;
+import graphic.PlayerStatus;
+import graphic.RenderableHolder;
 import model.IRenderable;
-import model.MenuButton;
-import model.PlayerStatus;
-import model.RenderableHolder;
-import model.Trail;
 
 public class GameScreen extends GridPane {
 	private static double screen_width, screen_height;
@@ -69,7 +63,7 @@ public class GameScreen extends GridPane {
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseLeftLastDown(true);
-					model.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					logic.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
 				}
 
 			}

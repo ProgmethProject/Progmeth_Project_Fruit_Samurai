@@ -1,5 +1,6 @@
 package model;
 
+import graphic.RenderableHolder;
 import gui.ConfigurableSettings;
 import logic.GameLogic;
 

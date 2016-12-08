@@ -1,4 +1,4 @@
-package model;
+package logic;
 
 import java.util.ArrayList;
 
@@ -7,6 +7,7 @@ import Utility.InputUtility;
 import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.shape.Line;
+import model.IRenderable;
 
 public class Trail implements IRenderable {
 	private static ArrayList<Integer> trailX = new ArrayList<Integer>();

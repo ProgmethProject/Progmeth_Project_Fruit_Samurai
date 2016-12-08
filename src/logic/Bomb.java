@@ -1,6 +1,8 @@
-package model;
+package logic;
 
+import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
+import model.InstantItem;
 
 public class Bomb extends InstantItem {
 	private int healthPointAdjustment = -1;

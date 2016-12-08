@@ -1,9 +1,10 @@
-package model;
+package graphic;
 
 import com.sun.org.apache.bcel.internal.generic.NEW;
 
 import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
+import model.IRenderable;
 
 public class Background implements IRenderable {
 	public static Background instance = new Background();
