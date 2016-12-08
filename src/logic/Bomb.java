@@ -16,7 +16,7 @@ public class Bomb extends InstantItem {
 	}
 
 	@Override
-	public void cut(GraphicsContext gc) {
+	public void cut() {
 		this.setDestroyed(true);
 		PlayerStatus.instance.adjustHealthPoint(healthPointAdjustment);
 		PlayerStatus.instance.resetComboCount();

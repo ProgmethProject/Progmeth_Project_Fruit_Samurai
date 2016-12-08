@@ -12,6 +12,7 @@ import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
+import main.Main;
 import model.Cuttable;
 import model.Entity;
 import sun.font.GlyphLayout.GVData;
@@ -45,12 +46,15 @@ public class Fruit extends Entity implements Cuttable {
 	}
 
 	@Override
-	public void cut(GraphicsContext gc) {
+	public void cut() {
 		// if(InputUtility.)
 		setDestroyed(true);
-		gc.strokeLine(x, y, 100 * Math.cos(InputUtility.getMouseAngle()), 100 * Math.sin(InputUtility.getMouseAngle()));
-	}
+		HalfFruit left = new HalfFruit(x, y, speedX, speedY, rotation, index, 0);
+		HalfFruit right = new HalfFruit(x, y, speedX, speedY, rotation, index, 0);
+		Main.instance.getGameLogic().addEntity(left);
+		Main.instance.getGameLogic().addEntity(right);
 
+	}
 
 	@Override
 	public boolean isCut() {
