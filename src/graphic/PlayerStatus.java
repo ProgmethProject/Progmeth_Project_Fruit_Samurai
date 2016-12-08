@@ -80,11 +80,8 @@ public class PlayerStatus implements IRenderable {
 		return false;
 	}
 
-		
 	public void draw(GraphicsContext gc) {
 		DrawingUtility.drawPlayerStatus(gc);
 	}
-
-	
 
 }

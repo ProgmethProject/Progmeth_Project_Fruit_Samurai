@@ -1,6 +1,5 @@
 package main;
 
-import graphic.RenderableHolder;
 import gui.CollectionScreen;
 import gui.ConfigurableSettings;
 import gui.GameScreen;
@@ -57,12 +56,13 @@ public class Main extends Application {
 		this.gameThread = new Thread(() -> {
 			while (true) {
 				try {
+					gameLogic.updateLogic();
+					drawGameScreen();
 					Thread.sleep(16);
 				} catch (InterruptedException e) {
+					e.printStackTrace();
 					return;
 				}
-				gameLogic.updateLogic();
-				Main.instance.drawGameScreen();
 			}
 		});
 	}

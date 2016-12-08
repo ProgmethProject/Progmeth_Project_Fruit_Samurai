@@ -11,14 +11,19 @@ import model.IRenderable;
 
 public class GameLogic {
 	private List<Entity> entities;
+	private FruitGenerator mainFruitGenerator;
 
 	public GameLogic() {
 		entities = new ArrayList<>();
-		addEntity(new Fruit(0, 0, 50, 500));
+		mainFruitGenerator = new FruitGenerator(this, 2000);
+		mainFruitGenerator.start();
+		Fruit fruit = new Fruit(0, ConfigurableSettings.screenHeight, 50, 400);
+		addEntity(fruit);
 	}
 
-	public void updateLogic() {
-		for (Entity e : entities) {
+	synchronized public void updateLogic() {
+		for (int i = entities.size() - 1; i >= 0; i--) {
+			Entity e = entities.get(i);
 			if (e.isDestroyed()) {
 				removeEntity(e);
 			} else {
@@ -27,12 +32,12 @@ public class GameLogic {
 		}
 	}
 
-	public void addEntity(Entity e) {
+	synchronized public void addEntity(Entity e) {
 		entities.add(e);
 		RenderableHolder.instance.addEntity(e);
 	}
 
-	public void removeEntity(Entity e) {
+	synchronized public void removeEntity(Entity e) {
 		entities.remove(e);
 		RenderableHolder.instance.removeEntity(e);
 	}

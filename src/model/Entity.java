@@ -1,7 +1,11 @@
 package model;
 
+
+
+import Utility.InputUtility;
 import graphic.RenderableHolder;
 import gui.ConfigurableSettings;
+import javafx.scene.shape.Shape;
 import logic.GameLogic;
 
 public abstract class Entity implements IRenderable {
@@ -11,6 +15,7 @@ public abstract class Entity implements IRenderable {
 	protected double x, y, speedX, speedY;
 	protected int z;
 	protected boolean isDestroyed;
+	protected Shape hitBox;
 
 	public Entity(double x, double y, double speedX, double speedY) {
 		super();
@@ -19,7 +24,8 @@ public abstract class Entity implements IRenderable {
 		this.speedX = speedX;
 		this.speedY = speedY;
 		this.z = RenderableHolder.instance.getMaxZ() + 1;
-		isDestroyed = false;
+		this.isDestroyed = false;
+		this.hitBox = initHitBox();
 	}
 
 	public double getX() {
@@ -69,6 +75,16 @@ public abstract class Entity implements IRenderable {
 	public void setDestroyed(boolean isDestroyed) {
 		this.isDestroyed = isDestroyed;
 	}
+	
+	public Shape getHitBox() {
+		return hitBox;
+	}
+	
+	public void setHitBox(Shape hitBox) {
+		this.hitBox = hitBox;
+	}
+	
+	public abstract Shape initHitBox();
 
 	public void move() {
 		this.x += speedX / 60;
@@ -77,11 +93,15 @@ public abstract class Entity implements IRenderable {
 	}
 
 	public void update() {
-		if (this.x > ConfigurableSettings.screenWidth || this.x < 0) {
+		if (this.x > ConfigurableSettings.screenWidth || this.x < -50) {
 			setDestroyed(true);
 		}
 		if (!isDestroyed) {
 			move();
+			if (this instanceof Cuttable) {
+				Cuttable cuttable = (Cuttable) this;
+				cuttable.cut();
+			}
 		}
 	}
 

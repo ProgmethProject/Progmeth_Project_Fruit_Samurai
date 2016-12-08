@@ -34,27 +34,34 @@ public class RenderableHolder {
 	}
 
 	public void addEntity(IRenderable renderable) {
-		entities.add(renderable);
-		sortEntity();
+		synchronized (entities) {
+			entities.add(renderable);
+			sortEntity();
+		}
 	}
 
 	public void removeEntity(IRenderable renderable) {
-		entities.remove(renderable);
-		sortEntity();
+		synchronized (entities) {
+			entities.remove(renderable);
+			sortEntity();
+		}
 	}
 
 	public void removeEntity(int index) {
-		entities.remove(index);
-		sortEntity();
+		synchronized (entities) {
+			entities.remove(index);
+			sortEntity();
+		}
 	}
 
 	public void sortEntity() {
-		Collections.sort(entities, comparator);
-		if(entities.size() >= 3) {
-			maxZ = entities.get(entities.size() - 3).getZ();
-		}
-		else {
-			maxZ = 0;
+		synchronized (entities) {
+			Collections.sort(entities, comparator);
+			if (entities.size() >= 3) {
+				maxZ = entities.get(entities.size() - 3).getZ();
+			} else {
+				maxZ = 0;
+			}
 		}
 	}
 
