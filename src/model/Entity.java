@@ -1,7 +1,5 @@
 package model;
 
-
-
 import Utility.InputUtility;
 import graphic.RenderableHolder;
 import gui.ConfigurableSettings;
@@ -13,6 +11,7 @@ public abstract class Entity implements IRenderable {
 	public static double GRAVITY = 300;
 
 	protected double x, y, speedX, speedY;
+	protected double rotation;
 	protected int z;
 	protected boolean isDestroyed;
 	protected Shape hitBox;
@@ -26,6 +25,7 @@ public abstract class Entity implements IRenderable {
 		this.z = RenderableHolder.instance.getMaxZ() + 1;
 		this.isDestroyed = false;
 		this.hitBox = initHitBox();
+		this.rotation = 0;
 	}
 
 	public double getX() {
@@ -75,21 +75,22 @@ public abstract class Entity implements IRenderable {
 	public void setDestroyed(boolean isDestroyed) {
 		this.isDestroyed = isDestroyed;
 	}
-	
+
 	public Shape getHitBox() {
 		return hitBox;
 	}
-	
+
 	public void setHitBox(Shape hitBox) {
 		this.hitBox = hitBox;
 	}
-	
+
 	public abstract Shape initHitBox();
 
 	public void move() {
 		this.x += speedX / 60;
 		this.y -= speedY / 60;
-		speedY -= GRAVITY / 60;
+		this.speedY -= GRAVITY / 60;
+		this.rotation += (270 / 60) * speedX > 0 ? 1 : -1;
 	}
 
 	public void update() {

@@ -14,6 +14,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.transform.Rotate;
 import model.Cuttable;
 import model.Entity;
 
@@ -41,7 +42,8 @@ public class Fruit extends Entity implements Cuttable{
 	@Override
 	public void draw(GraphicsContext gc) {
 		Image image = DrawingUtility.fruit[index];
-		gc.drawImage(image, x, y);
+		
+		DrawingUtility.drawRotatedImage(gc, image, rotation, x, y);
 	}
 
 

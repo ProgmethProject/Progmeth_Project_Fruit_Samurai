@@ -1,14 +1,16 @@
 package logic;
 
+import Utility.DrawingUtility;
 import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Shape;
 import model.InstantItem;
 
 public class Bomb extends InstantItem {
 	private int healthPointAdjustment = -1;
-	
+
 	public Bomb(double x, double y, double speedX, double speedY, int z) {
 		super(x, y, speedX, speedY, z);
 	}
@@ -26,11 +28,11 @@ public class Bomb extends InstantItem {
 		return isDestroyed;
 	}
 
-
 	@Override
 	public void draw(GraphicsContext gc) {
-		// TODO Auto-generated method stub
-		
+		Image image = DrawingUtility.bomb;
+
+		DrawingUtility.drawRotatedImage(gc, image, rotation, x, y);
 	}
 
 	@Override
