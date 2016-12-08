@@ -7,12 +7,12 @@ import com.sun.javafx.geom.transform.BaseTransform;
 
 import Utility.DrawingUtility;
 import Utility.InputUtility;
-import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
+import main.Main;
 import model.Cuttable;
 import model.Entity;
 import sun.font.GlyphLayout.GVData;
@@ -42,39 +42,51 @@ public class Fruit extends Entity implements Cuttable {
 		Image image = DrawingUtility.fruit[index];
 
 		DrawingUtility.drawRotatedImage(gc, image, rotation, x, y);
-		gc.fillRect(x + image.getWidth()/2, y + image.getHeight()/2, 5, 5);
+		gc.fillRect(x + image.getWidth() / 2, y + image.getHeight() / 2, 5, 5);
 	}
 
 	@Override
 	public void cut() {
-		// if(InputUtility.)
 		setDestroyed(true);
+		HalfFruit left = new HalfFruit(x, y, -speedX , speedY, rotation, index, 0);
+		HalfFruit right = new HalfFruit(x, y, speedX , speedY, rotation, index, 1);
+		Main.instance.getGameLogic().addEntity(left);
+		Main.instance.getGameLogic().addEntity(right);
+
 	}
 
 	@Override
 	public boolean isCut() {
 		// TODO Auto-generated method stub
 		Image image = DrawingUtility.fruit[index];
-		RenderableHolder.instance.addEntity(DrawingUtility.createCuttingAnimation((int)x, (int)y));
-//		double radiusRotate = Math.sqrt(Math.pow(image.getWidth() / 2, 2) + Math.pow(image.getHeight() / 2, 2));
-//
-//		int xx = (int) (x + radiusRotate * Math.sin((45 + rotation) * Math.PI / 180));
-//		int yy = (int) (y + radiusRotate * Math.cos((45 + rotation) * Math.PI / 180));
+		// double radiusRotate = Math.sqrt(Math.pow(image.getWidth() / 2, 2) +
+		// Math.pow(image.getHeight() / 2, 2));
+		//
+		// int xx = (int) (x + radiusRotate * Math.sin((45 + rotation) * Math.PI
+		// / 180));
+		// int yy = (int) (y + radiusRotate * Math.cos((45 + rotation) * Math.PI
+		// / 180));
 
-		int xx = (int) (x + image.getWidth()/2);
-		int yy = (int) (y + image.getHeight()/2);
-		
+		int xx = (int) (x + image.getWidth() / 2);
+		int yy = (int) (y + image.getHeight() / 2);
+
 		int radius = (int) Math.max(image.getWidth() / 2, image.getHeight() / 2);
 
 		int delX = (int) (InputUtility.getMouseX() - xx);
 		int delY = (int) (InputUtility.getMouseY() - yy);
 
-//		System.out.println(x + ":" + y + "  rotation:" + rotation);
-		if (delX * delX + delY * delY <= radius * radius) {
-			System.out.println(true);
-			return true;
+		// System.out.println(x + ":" + y + " rotation:" + rotation);
+		if (InputUtility.isMouseLeftDown()) {
+			if (delX * delX + delY * delY <= radius * radius) {
+				if (InputUtility.getMouseSpeed() > 10) {
+					System.out.println(
+							InputUtility.getMouseSpeed() + "with angle" + InputUtility.getMouseAngle() * 180 / Math.PI);
+					return true;
+				}
+				return false;
+			}
+			return false;
 		}
-
 		return false;
 	}
 
