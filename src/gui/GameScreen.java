@@ -28,7 +28,7 @@ public class GameScreen extends GridPane {
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);
 
-		RenderableHolder.instance.addEntity(Background.instance);
+//		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
@@ -56,7 +56,9 @@ public class GameScreen extends GridPane {
 				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(false);
-					Trail.instance.clearTrail();
+					InputUtility.setReleaseX((int) event.getX());
+					InputUtility.setReleaseY((int) event.getY());
+//					Trail.instance.clearTrail();
 				}
 			}
 		});

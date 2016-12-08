@@ -32,13 +32,29 @@ public class Trail implements IRenderable {
 	
 	public void update() {
 		if(InputUtility.isMouseLeftDown()) {
-			if(Trail.instance.getTrailX().size() < 15) {
-				Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+			if(getTrailX().size() < 10) {
+				addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
 			}
 			else {
-					Trail.instance.getTrailX().remove(0);
-					Trail.instance.getTrailY().remove(0);
-					Trail.instance.addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+					getTrailX().remove(0);
+					getTrailY().remove(0);
+					addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+			}
+		}
+		else {
+			if(!trailX.isEmpty()) {
+				if((int)trailX.get(0)==(int)trailX.get(trailX.size() - 1)) {
+					trailX.clear();
+					trailY.clear();
+				}
+				else if(getTrailX().size() < 10) {
+					addTrail(InputUtility.getReleaseX(), InputUtility.getReleaseY());
+				}
+				else {
+					getTrailX().remove(0);
+					getTrailY().remove(0);
+					addTrail(InputUtility.getReleaseX(), InputUtility.getReleaseY());
+				}
 			}
 		}
 	}
@@ -57,8 +73,19 @@ public class Trail implements IRenderable {
 	public void draw(GraphicsContext gc) {
 		update();
 		if(!Trail.instance.getTrailX().isEmpty()) {
-			DrawingUtility.drawTrail(gc);
-			System.out.println(trailX);
+			double lineWidth = 10;
+			ArrayList<Integer> trailX = Trail.instance.getTrailX();
+			ArrayList<Integer> trailY = Trail.instance.getTrailY();
+			int prevX = trailX.get(trailX.size() - 1);
+			int prevY = trailY.get(trailY.size() - 1);
+			
+			for(int i = trailX.size() - 2; i>=0; i--) {
+				gc.setLineWidth(lineWidth);
+				gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
+				prevX = trailX.get(i);
+				prevY = trailY.get(i);		
+				lineWidth -= 1;
+			}
 		}
 	}
 

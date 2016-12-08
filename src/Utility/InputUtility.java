@@ -3,7 +3,7 @@ package Utility;
 
 public class InputUtility {
 
-	private static int mouseX, mouseY, prevMouseX, prevMouseY;
+	private static int mouseX, mouseY, prevMouseX, prevMouseY, releaseX, releaseY;
 	private static boolean mouseLeftDown, mouseOnScreen;
 	private static boolean mouseLeftLastDown;
 	private static boolean isDrag;
@@ -46,6 +46,22 @@ public class InputUtility {
 		int delY = mouseY-prevMouseY;
 		
 		return Math.atan((double)delY/(double)delX);
+	}
+	
+	public static int getReleaseX() {
+		return releaseX;
+	}
+
+	public static void setReleaseX(int releaseX) {
+		InputUtility.releaseX = releaseX;
+	}
+
+	public static int getReleaseY() {
+		return releaseY;
+	}
+
+	public static void setReleaseY(int releaseY) {
+		InputUtility.releaseY = releaseY;
 	}
 
 	public static boolean isMouseLeftDown() {
