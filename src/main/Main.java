@@ -4,6 +4,7 @@ import gui.CollectionScreen;
 import gui.ConfigurableSettings;
 import gui.GameScreen;
 import gui.StartScreen;
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -22,6 +23,7 @@ public class Main extends Application {
 
 	private GameLogic gameLogic;
 	private Thread gameThread;
+	private AnimationTimer drawingAnimation;
 
 	Scene collectionScene, gameScene, startScene;
 
@@ -57,34 +59,45 @@ public class Main extends Application {
 			while (true) {
 				try {
 					gameLogic.updateLogic();
-					drawGameScreen();
 					Thread.sleep(16);
 				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
-					return;
 				}
 			}
 		});
+		
+		this.drawingAnimation = new AnimationTimer() {
+			@Override
+			public void handle(long now) {
+				drawGameScreen();
+			}
+		};
+		
 	}
 
 	public void changeToStartScreen() {
 		this.primaryStage.setScene(startScene);
 		this.gameThread.interrupt();
+		this.drawingAnimation.stop();
 	}
 
 	public void changeToGameScreen() {
 		this.primaryStage.setScene(gameScene);
-		gameThread.start();
+		this.gameThread.start();
+		drawingAnimation.start();
 	}
 
 	public void changeToCollectionScreen() {
 		this.primaryStage.setScene(collectionScene);
 		this.gameThread.interrupt();
+		this.drawingAnimation.stop();
 	}
 
 	public void closeScreen() {
 		this.primaryStage.close();
 		this.gameThread.interrupt();
+		this.drawingAnimation.stop();
 	}
 
 	public void drawGameScreen() {
