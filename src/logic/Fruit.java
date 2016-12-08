@@ -58,4 +58,11 @@ public class Fruit extends Entity implements Cuttable{
 		return new Rectangle(x, y, 50, 50);
 	}
 
+
+	@Override
+	public boolean isCut() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

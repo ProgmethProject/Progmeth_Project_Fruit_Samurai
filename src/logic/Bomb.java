@@ -11,8 +11,8 @@ import model.InstantItem;
 public class Bomb extends InstantItem {
 	private int healthPointAdjustment = -1;
 
-	public Bomb(double x, double y, double speedX, double speedY, int z) {
-		super(x, y, speedX, speedY, z);
+	public Bomb(double x, double y, double speedX, double speedY) {
+		super(x, y, speedX, speedY);
 	}
 
 	@Override
@@ -38,6 +38,12 @@ public class Bomb extends InstantItem {
 	@Override
 	public Shape initHitBox() {
 		return new Circle(x + 25, y + 25, 25);
+	}
+
+	@Override
+	public boolean isCut() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

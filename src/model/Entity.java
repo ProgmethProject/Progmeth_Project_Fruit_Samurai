@@ -101,7 +101,9 @@ public abstract class Entity implements IRenderable {
 			move();
 			if (this instanceof Cuttable) {
 				Cuttable cuttable = (Cuttable) this;
-				cuttable.cut();
+				if(cuttable.isCut()){
+					cuttable.cut();
+				}
 			}
 		}
 	}

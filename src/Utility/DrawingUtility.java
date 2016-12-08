@@ -41,7 +41,7 @@ public class DrawingUtility {
 		fruit[7] = new Image(ClassLoader.getSystemResource("image/pineapple.png").toString(), 50, 75, false, true);
 		fruit[8] = new Image(ClassLoader.getSystemResource("image/raspberry.png").toString(), 50, 50, false, true);
 		fruit[9] = new Image(ClassLoader.getSystemResource("image/strawberry.png").toString(), 45, 55, false, true);
-		bomb = new Image(ClassLoader.getSystemResource("image/bomb.png").toString(), 50, 50, false, true);
+		bomb = new Image(ClassLoader.getSystemResource("image/bomb.png").toString(), 60, 65, false, true);
 		background = new Image(ClassLoader.getSystemResource("image/background.jpg").toString(), ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight, false, true);
 		playButton = new Image(ClassLoader.getSystemResource("image/play_button.png").toString(), 50, 50, false, true);
 		pauseButton = new Image(ClassLoader.getSystemResource("image/pause_button.png").toString(), 50, 50, false, true);
