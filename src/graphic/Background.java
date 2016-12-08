@@ -1,6 +1,7 @@
 package graphic;
 
 import Utility.DrawingUtility;
+import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import model.IRenderable;
 
@@ -20,8 +21,7 @@ public class Background implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		// TODO Auto-generated method stub
-		DrawingUtility.drawBackground(gc);
+		gc.drawImage(DrawingUtility.background, 0, 0, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
 	}
 	
 }

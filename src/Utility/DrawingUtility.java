@@ -47,23 +47,6 @@ public class DrawingUtility {
 		pauseButton = new Image(ClassLoader.getSystemResource("image/pause_button.png").toString(), 50, 50, false, true);
 	}
 	
-	public static void drawBackground(GraphicsContext gc) {
-		gc.drawImage(background, 0, 0, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
-		
-	}
-	
-	public static void drawPlayerStatus(GraphicsContext gc) {
-		gc.setFill(Color.WHITE);
-		gc.setFont(Font.loadFont(ClassLoader.getSystemResource("fonts/ChineseTakeaway.ttf").toString(), 30));
-		gc.fillText("SCORE: " + String.format("%03d", PlayerStatus.instance.getScore()), 70, 45);
-		
-		FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
-		double font_width = fontLoader.computeStringWidth("LIFE: ", gc.getFont());
-		double font_height = fontLoader.getFontMetrics(gc.getFont()).getLineHeight();
-		gc.fillText("LIFE:", 410, 45);
-		drawLife(gc, 410 + font_width - 5, 45 - font_height + 3, PlayerStatus.instance.getHealthPoint());
-	}
-	
 	public static void drawLife(GraphicsContext gc, double x, double y, int healthPoint) {
 		int cross1, cross2, cross3;
 		switch (healthPoint) {
@@ -94,12 +77,7 @@ public class DrawingUtility {
 	}
 	
 	public static void drawMenuButton(GraphicsContext gc, boolean pause, double x, double y, int size) {
-		if(!pause) {
-			gc.drawImage(pauseButton, x, y, size, size);
-		}
-		else {
-			gc.drawImage(playButton, x, y, size, size);
-		}
+		
 	}
 	
 	public static void drawTrail(GraphicsContext gc) {
@@ -116,7 +94,6 @@ public class DrawingUtility {
 			prevY = trailY.get(i);		
 			lineWidth -= 1;
 		}
-		System.out.println(Trail.instance.getTrailX());
 	}
 	
 	public static void rotate(GraphicsContext gc, double angle, double px, double py) {
