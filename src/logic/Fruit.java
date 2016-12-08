@@ -2,17 +2,29 @@ package logic;
 
 
 
+
+
+import java.util.Random;
+
+import com.sun.javafx.geom.transform.BaseTransform;
+
 import Utility.DrawingUtility;
+import Utility.InputUtility;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
+import model.Cuttable;
 import model.Entity;
 
-public class Fruit extends Entity{
+public class Fruit extends Entity implements Cuttable{
 
-	int point;
+	private int index;	
 	
 	public Fruit(double x, double y, double speedX, double speedY) {
 		super(x, y, speedX, speedY);
+		Random random = new Random();
+		index = random.nextInt(DrawingUtility.fruit.length);
 	}
 
 	
@@ -23,13 +35,25 @@ public class Fruit extends Entity{
 
 	@Override
 	public boolean isDestroyed() {
-		return false;
+		return isDestroyed;
 	}
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		Image image = DrawingUtility.fruit[1];
+		Image image = DrawingUtility.fruit[index];
 		gc.drawImage(image, x, y);
+	}
+
+
+	@Override
+	public void cut() {
+//		if(InputUtility.)
+	}
+
+
+	@Override
+	public Shape initHitBox() {
+		return new Rectangle(x, y, 50, 50);
 	}
 
 }

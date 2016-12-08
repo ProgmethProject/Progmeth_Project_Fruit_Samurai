@@ -1,5 +1,6 @@
 package gui;
 
+import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -15,44 +16,47 @@ import graphic.RenderableHolder;
 import model.IRenderable;
 
 public class GameScreen extends GridPane {
-	private static double screen_width, screen_height;
-	private static Canvas canvas;
-	private static GraphicsContext gc;
+
+	private double screen_width, screen_height;
+	private Canvas canvas;
+	private GraphicsContext gc;
 
 	public GameScreen() {
-		
+
 		screen_width = ConfigurableSettings.screenWidth;
 		screen_height = ConfigurableSettings.screenHeight;
 		canvas = new Canvas(screen_width, screen_height);
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);
-		
+
 		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
-		
+
 		paintComponents();
 		addListener();
 	}
-	
-	public void paintComponents(){
-		for(IRenderable entity : RenderableHolder.instance.getEntities()) {
-			if(!entity.isDestroyed()) {
-				entity.draw(gc);
+
+	public void paintComponents() {
+		synchronized (RenderableHolder.instance.getEntities()) {
+			for (IRenderable entity : RenderableHolder.instance.getEntities()) {
+				if (!entity.isDestroyed()) {
+					entity.draw(gc);
+				}
 			}
 		}
 	}
-	 
+
 	private void addListener() {
-		
+
 		canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
 				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY)
 					InputUtility.setMouseLeftDown(false);
-					Trail.instance.clearTrail();
+				Trail.instance.clearTrail();
 
 			}
 		});
@@ -102,6 +106,6 @@ public class GameScreen extends GridPane {
 				}
 			}
 		});
-		
+
 	}
 }
