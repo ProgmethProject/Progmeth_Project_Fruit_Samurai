@@ -22,8 +22,8 @@ public class GameAnimation implements IRenderable {
 		x = 0;
 		y = 0;
 		if (image != null) {
-			frameHeight = 100;
-			frameWidth = 100;
+			frameHeight = 130;
+			frameWidth = 130;
 		} 
 		else {
 			frameHeight = 0;

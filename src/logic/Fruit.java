@@ -47,10 +47,9 @@ public class Fruit extends Entity implements Cuttable {
 
 	@Override
 	public void cut() {
-		// if(InputUtility.)
 		setDestroyed(true);
-		HalfFruit left = new HalfFruit(x, y, speedX, speedY, rotation, index, 0);
-		HalfFruit right = new HalfFruit(x, y, speedX, speedY, rotation, index, 0);
+		HalfFruit left = new HalfFruit(x, y, -speedX , speedY, rotation, index, 0);
+		HalfFruit right = new HalfFruit(x, y, speedX , speedY, rotation, index, 1);
 		Main.instance.getGameLogic().addEntity(left);
 		Main.instance.getGameLogic().addEntity(right);
 
@@ -88,7 +87,6 @@ public class Fruit extends Entity implements Cuttable {
 			}
 			return false;
 		}
-
 		return false;
 	}
 
