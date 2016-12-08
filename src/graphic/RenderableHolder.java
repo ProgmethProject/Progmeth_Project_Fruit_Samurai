@@ -57,8 +57,8 @@ public class RenderableHolder {
 	public void sortEntity() {
 		synchronized (entities) {
 			Collections.sort(entities, comparator);
-			if (entities.size() >= 3) {
-				maxZ = entities.get(entities.size() - 3).getZ();
+			if (entities.size() >= 4) {
+				maxZ = entities.get(entities.size() - 4).getZ();
 			} else {
 				maxZ = 0;
 			}
