@@ -107,12 +107,12 @@ public class DrawingUtility {
 		}
 	}
 	
-//	public static GameAnimation createCuttingAnimationAt(int x, int y) {
-//		GameAnimation anim = new GameAnimation(DrawingUtility.cutanim, 8, 1);
-//		anim.centerAnimationAt(x, y);
-//		anim.play();
-//		return anim;
-//	}
+	public static GameAnimation drawCuttingAnimation(int x, int y) {
+		GameAnimation anim = new GameAnimation(DrawingUtility.cutanim, 8, 1);
+		anim.centerAnimationAt(x, y);
+		anim.play();
+		return anim;
+	}
 	
 	public static void rotate(GraphicsContext gc, double angle, double px, double py) {
         Rotate r = new Rotate(angle, px, py);

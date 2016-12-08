@@ -7,6 +7,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import logic.Trail;
+import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.Background;
 import graphic.MenuButton;
@@ -32,6 +33,7 @@ public class GameScreen extends GridPane {
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
+		
 
 		addListener();
 		
@@ -58,7 +60,6 @@ public class GameScreen extends GridPane {
 					InputUtility.setMouseLeftDown(false);
 					InputUtility.setReleaseX((int) event.getX());
 					InputUtility.setReleaseY((int) event.getY());
-//					Trail.instance.clearTrail();
 				}
 			}
 		});
@@ -70,6 +71,7 @@ public class GameScreen extends GridPane {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseLeftLastDown(true);
 					logic.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					DrawingUtility.drawCuttingAnimation((int) event.getX(), (int) event.getY());
 				}
 
 			}
