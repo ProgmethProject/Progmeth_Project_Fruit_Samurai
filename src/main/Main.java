@@ -63,6 +63,7 @@ public class Main extends Application {
 				if (PlayerStatus.instance.isGameOver()) {
 					Platform.runLater(() -> {
 						changeToStartScreen();
+						PlayerStatus.instance.setGameOver(false);
 					});
 				}
 				try {
