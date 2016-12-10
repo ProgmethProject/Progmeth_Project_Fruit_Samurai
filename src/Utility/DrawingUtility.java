@@ -2,15 +2,10 @@ package Utility;
 
 import java.util.ArrayList;
 
-import com.sun.javafx.tk.FontLoader;
-import com.sun.javafx.tk.Toolkit;
 
-import graphic.PlayerStatus;
 import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.transform.Rotate;
 import logic.Trail;
 
