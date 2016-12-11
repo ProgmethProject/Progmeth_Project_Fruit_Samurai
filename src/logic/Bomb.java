@@ -3,6 +3,7 @@ package logic;
 import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.PlayerStatus;
+import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.shape.Circle;
@@ -23,6 +24,10 @@ public class Bomb extends InstantItem {
 		PlayerStatus.instance.resetComboCount();
 		PlayerStatus.instance.setOnCombo(false);
 		setDestroyed(true);
+		synchronized (RenderableHolder.instance.getEntities()) {
+			RenderableHolder.instance.getEntities().add(DrawingUtility
+					.createBombAnimation((int) x, (int) y));
+		}
 	}
 
 	@Override
@@ -33,7 +38,6 @@ public class Bomb extends InstantItem {
 	@Override
 	public void draw(GraphicsContext gc) {
 		Image image = DrawingUtility.bomb;
-
 		DrawingUtility.drawRotatedImage(gc, image, rotation, x, y);
 	}
 

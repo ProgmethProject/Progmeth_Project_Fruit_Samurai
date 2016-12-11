@@ -2,7 +2,6 @@ package logic;
 
 import java.util.ArrayList;
 
-import Utility.DrawingUtility;
 import Utility.InputUtility;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;

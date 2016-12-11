@@ -13,17 +13,17 @@ public class GameAnimation implements IRenderable {
 	private int x, y, frameWidth, frameHeight;
 	private boolean visible = false, playing = false;
 
-	public GameAnimation(Image cutanim, int frameCount, int frameDelay) {
+	public GameAnimation(Image animation, int frameCount, int frameDelay) {
 		this.frameCount = frameCount;
 		this.frameDelay = frameDelay;
 		currentFrame = 0;
 		frameDelayCount = 0;
-		image = DrawingUtility.cutanim;
+		image = animation;
 		x = 0;
 		y = 0;
 		if (image != null) {
-			frameHeight = 130;
-			frameWidth = 130;
+			frameHeight = (int) animation.getHeight();
+			frameWidth = (int) (animation.getWidth()/frameCount);
 		} 
 		else {
 			frameHeight = 0;
@@ -78,11 +78,10 @@ public class GameAnimation implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		System.out.println("xxx");
 		if(!visible || image == null) {
 			return;
 		}
-		WritableImage croppedImage = new WritableImage(image.getPixelReader(), currentFrame*130, 0, 130, 130);
+		WritableImage croppedImage = new WritableImage(image.getPixelReader(), currentFrame*frameWidth, 0, frameWidth, frameHeight);
 		gc.drawImage(croppedImage, x, y);
 		updateAnimation();
 	}

@@ -2,15 +2,10 @@ package Utility;
 
 import java.util.ArrayList;
 
-import com.sun.javafx.tk.FontLoader;
-import com.sun.javafx.tk.Toolkit;
 
-import graphic.PlayerStatus;
 import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.transform.Rotate;
 import logic.Trail;
 
@@ -22,7 +17,7 @@ public class DrawingUtility {
 	public static Image[] fruit;
 	public static Image[] cut_fruit;
 	public static Image bomb;
-	public static Image cutanim;
+	public static Image[] animation;
 	
 	static {
 		loadResource();
@@ -55,7 +50,9 @@ public class DrawingUtility {
 		cut_fruit[11] = new Image(ClassLoader.getSystemResource("image/cut_entity/raspberry2.png").toString(), 50, 50, false, true);
 		cut_fruit[12] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry1.png").toString(), 45, 55, false, true);
 		cut_fruit[13] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry2.png").toString(), 45, 55, false, true);
-		cutanim = new Image(ClassLoader.getSystemResource("image/cutanim.png").toString(), 1040, 130, false, true);
+		animation = new Image[2];
+		animation[0] = new Image(ClassLoader.getSystemResource("image/cutanim.png").toString(), 1040, 130, false, true);
+		animation[1] = new Image(ClassLoader.getSystemResource("image/bombanim2.png").toString(), 1280, 146, false, true);
 		bomb = new Image(ClassLoader.getSystemResource("image/entity/bomb.png").toString(), 60, 65, false, true);
 		background = new Image(ClassLoader.getSystemResource("image/background/background.jpg").toString(), ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight, false, true);
 		playButton = new Image(ClassLoader.getSystemResource("image/ui/play_button.png").toString(), 50, 50, false, true);
@@ -108,8 +105,15 @@ public class DrawingUtility {
 	}
 	
 	public static GameAnimation createCuttingAnimation(int x, int y) {
-		GameAnimation anim = new GameAnimation(DrawingUtility.cutanim, 8, 1);
+		GameAnimation anim = new GameAnimation(DrawingUtility.animation[0], 8, 1);
 		anim.centerAnimationAt(x, y);
+		anim.play();
+		return anim;
+	}
+	
+	public static GameAnimation createBombAnimation(int x, int y) {
+		GameAnimation anim = new GameAnimation(DrawingUtility.animation[1], 8, 1);
+		anim.centerAnimationAt((int) (x + bomb.getWidth()/2), (int) (y + bomb.getHeight()/2));
 		anim.play();
 		return anim;
 	}

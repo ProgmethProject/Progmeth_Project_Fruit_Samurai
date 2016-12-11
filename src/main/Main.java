@@ -6,12 +6,15 @@ import gui.ConfigurableSettings;
 import gui.GameScreen;
 import gui.StartScreen;
 import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.Duration;
 import logic.GameLogic;
 
 public class Main extends Application {
@@ -63,6 +66,7 @@ public class Main extends Application {
 				if (PlayerStatus.instance.isGameOver()) {
 					Platform.runLater(() -> {
 						changeToStartScreen();
+						PlayerStatus.instance.setGameOver(false);
 					});
 				}
 				try {
@@ -99,9 +103,10 @@ public class Main extends Application {
 	}
 
 	public void changeToGameScreen() {
-		this.primaryStage.setScene(gameScene);
-		this.gameThread.start();
-		drawingAnimation.start();
+		
+        	this.primaryStage.setScene(gameScene);
+        	this.gameThread.start();
+        	drawingAnimation.start();
 	}
 
 	public void changeToCollectionScreen() {
