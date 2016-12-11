@@ -24,7 +24,6 @@ public class HighScoreUtility {
 		private int score = 0;
 
 		private HighScoreRecord(String name, int score) {
-			/* fill code */
 			this.name = name;
 			this.score = score;
 		}
@@ -33,7 +32,6 @@ public class HighScoreUtility {
 		 * Parse the given string "record" record format is name:score
 		 */
 		public HighScoreRecord(String record) throws ScoreParsingException {
-			/* fill code */
 			String[] strings = record.split(":");
 			if (strings.length != 2)
 				throw new ScoreParsingException(1);
@@ -56,7 +54,6 @@ public class HighScoreUtility {
 
 		@Override
 		public int compareTo(HighScoreRecord o) {
-			/* fill code */
 			if (this.score > o.score) {
 				return -1;
 			} else if (this.score == o.score) {
