@@ -70,6 +70,7 @@ public class Main extends Application {
 					Thread.sleep(5);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
+					return;
 				}
 			}
 		});
