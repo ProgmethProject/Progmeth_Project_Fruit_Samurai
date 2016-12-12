@@ -79,18 +79,18 @@ public class DrawingUtility {
 				45 * modifier, 55 * modifier, false, true);
 		cut_fruit[13] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry2.png").toString(),
 				45 * modifier, 55 * modifier, false, true);
-		cut_fruit[14] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king1.png").toString(), 80 * modifier,
-				55 * modifier, false, true);
-		cut_fruit[15] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king2.png").toString(), 80 * modifier,
-				55 * modifier, false, true);
-		cut_fruit[16] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire1.png").toString(), 78 * modifier,
-				65 * modifier, false, true);
-		cut_fruit[17] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire2.png").toString(), 78 * modifier,
-				65 * modifier, false, true);
-		cut_fruit[18] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana1.png").toString(), 65 * modifier,
-				65 * modifier, false, true);
-		cut_fruit[19] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana2.png").toString(), 65 * modifier,
-				65 * modifier, false, true);
+		cut_fruit[14] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king1.png").toString(),
+				80 * modifier, 55 * modifier, false, true);
+		cut_fruit[15] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king2.png").toString(),
+				80 * modifier, 55 * modifier, false, true);
+		cut_fruit[16] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire1.png").toString(),
+				78 * modifier, 65 * modifier, false, true);
+		cut_fruit[17] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire2.png").toString(),
+				78 * modifier, 65 * modifier, false, true);
+		cut_fruit[18] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana1.png").toString(),
+				65 * modifier, 65 * modifier, false, true);
+		cut_fruit[19] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana2.png").toString(),
+				65 * modifier, 65 * modifier, false, true);
 		animation = new Image[5];
 		animation[0] = new Image(ClassLoader.getSystemResource("image/bombanim2.png").toString(), 1280, 146, false,
 				true);
@@ -172,9 +172,9 @@ public class DrawingUtility {
 	public static GameAnimation createCuttingAnimation(int x, int y, int comboCount) {
 		GameAnimation anim;
 		if (Trail.instance.getSlashColor() == 5) {
-			anim = new GameAnimation(DrawingUtility.animation[(int) (Math.random()*4) + 1], 8, 1,comboCount);
+			anim = new GameAnimation(DrawingUtility.animation[(int) (Math.random() * 4) + 1], 8, 1, comboCount);
 		} else {
-			anim = new GameAnimation(DrawingUtility.animation[Trail.instance.getSlashColor()], 8, 1,comboCount);
+			anim = new GameAnimation(DrawingUtility.animation[Trail.instance.getSlashColor()], 8, 1, comboCount);
 		}
 		anim.centerAnimationAt(x, y);
 		anim.play();

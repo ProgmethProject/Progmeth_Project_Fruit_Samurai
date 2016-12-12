@@ -25,7 +25,8 @@ public class BombGenerator extends Generator {
 						System.out.println("frenzy :" + ItemStatus.instance.getFrenzyCounter());
 						continue;
 					}
-					if (PlayerStatus.instance.isPause())continue;
+					if (PlayerStatus.instance.isPause())
+						continue;
 					Random random = new Random();
 					int x = random.nextInt((int) ScreenProperties.screenWidth);
 					int y = (int) ScreenProperties.screenHeight;

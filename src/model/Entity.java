@@ -89,11 +89,11 @@ public abstract class Entity implements IRenderable {
 	}
 
 	public void update() {
-		if(debug == 0){
-			System.out.println(++debug + "" + "(" +this.x + "," + this.y + ")" + this);
+		if (debug == 0) {
+			System.out.println(++debug + "" + "(" + this.x + "," + this.y + ")" + this);
 		}
-		if(!RenderableHolder.instance.getEntities().contains(this)){
-			System.out.println(++debug + "" + "(" +this.x + "," + this.y + ")" + this);
+		if (!RenderableHolder.instance.getEntities().contains(this)) {
+			System.out.println(++debug + "" + "(" + this.x + "," + this.y + ")" + this);
 		}
 
 		if (this.x > ScreenProperties.screenWidth || this.x < -50 || this.y > ScreenProperties.screenHeight) {

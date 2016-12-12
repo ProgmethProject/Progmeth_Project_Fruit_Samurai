@@ -10,9 +10,10 @@ import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import model.InstantItem;
+import model.Cuttable;
+import model.Entity;
 
-public class Bomb extends InstantItem {
+public class Bomb extends Entity implements Cuttable {
 	private int healthPointAdjustment = -1;
 
 	public Bomb(double x, double y, double speedX, double speedY) {

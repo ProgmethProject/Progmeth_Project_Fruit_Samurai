@@ -36,7 +36,7 @@ public class ThreadHolder {
 						HighScoreUtility.recordHighScore(PlayerStatus.instance.getScore());
 					});
 					PlayerStatus.instance.setGameOver(false);
-					
+
 					return;
 				}
 				try {

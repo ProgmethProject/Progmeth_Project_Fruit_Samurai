@@ -24,20 +24,17 @@ public class StartScreen extends GridPane {
 		setAlignment(Pos.CENTER);
 
 		String image = ClassLoader.getSystemResource("image/menu.jpg").toString();
-		this.setStyle("-fx-background-image: url('" + image + "'); "
-					 + "-fx-background-position: center center;"
-		    	     + "-fx-background-repeat: stretch; -fx-background-size:" 
-		    	     + ScreenProperties.screenWidth + " " + ScreenProperties.screenHeight
-		    	     + "; -fx-background-radius: 0");
-		
+		this.setStyle("-fx-background-image: url('" + image + "'); " + "-fx-background-position: center center;"
+				+ "-fx-background-repeat: stretch; -fx-background-size:" + ScreenProperties.screenWidth + " "
+				+ ScreenProperties.screenHeight + "; -fx-background-radius: 0");
+
 		titleLabel = new Label("Fruit Samurai");
 		startButton = new Button("Start");
 		collectionButton = new Button("Collections");
 		exitButton = new Button("Exit");
-		
+
 		titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-				+ "-fx-text-alignment:center; -fx-padding: 20; "
-				+ "-fx-background-color: white;"
+				+ "-fx-text-alignment:center; -fx-padding: 20; " + "-fx-background-color: white;"
 				+ "-fx-border-color: black; -fx-border-width: 5;");
 
 		startButton.setStyle("-fx-background-color:darkorange; -fx-background-radius: 0,0,0,0; "
@@ -59,17 +56,17 @@ public class StartScreen extends GridPane {
 		startPane = new StackPane(startButton);
 		collectionPane = new StackPane(collectionButton);
 		exitPane = new StackPane(exitButton);
-		
+
 		GridPane.setVgrow(titlePane, Priority.ALWAYS);
 		GridPane.setVgrow(startPane, Priority.ALWAYS);
 		GridPane.setVgrow(collectionPane, Priority.ALWAYS);
 		GridPane.setVgrow(exitPane, Priority.ALWAYS);
-		
+
 		add(titlePane, 0, 0);
 		add(startPane, 0, 1);
 		add(collectionPane, 0, 2);
 		add(exitPane, 0, 3);
-		
+
 		addListener();
 	}
 
@@ -78,32 +75,30 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				int colorA = (int) (Math.random()*255);
-				int colorB = (int) (Math.random()*255);
-				int colorC = (int) (Math.random()*255);
-				String color = colorA + ", " + colorB + ", " + colorC; 
+				int colorA = (int) (Math.random() * 255);
+				int colorB = (int) (Math.random() * 255);
+				int colorC = (int) (Math.random() * 255);
+				String color = colorA + ", " + colorB + ", " + colorC;
 				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-						+ "-fx-text-alignment:center; -fx-padding: 20; "
-						+ "-fx-background-color: rgb(" + color + ");"
+						+ "-fx-text-alignment:center; -fx-padding: 20; " + "-fx-background-color: rgb(" + color + ");"
 						+ "-fx-border-color: black; -fx-border-width: 5;");
 			}
 		});
-		
+
 		titlePane.setOnMouseExited(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
-				int colorA = (int) (Math.random()*255);
-				int colorB = (int) (Math.random()*255);
-				int colorC = (int) (Math.random()*255);
-				String color = colorA + ", " + colorB + ", " + colorC; 
+				int colorA = (int) (Math.random() * 255);
+				int colorB = (int) (Math.random() * 255);
+				int colorC = (int) (Math.random() * 255);
+				String color = colorA + ", " + colorB + ", " + colorC;
 				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-						+ "-fx-text-alignment:center; -fx-padding: 20; "
-						+ "-fx-background-color: rgb(" + color + ");"
+						+ "-fx-text-alignment:center; -fx-padding: 20; " + "-fx-background-color: rgb(" + color + ");"
 						+ "-fx-border-color: black; -fx-border-width: 5;");
 			}
 		});
-		
+
 		startButton.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override
@@ -229,7 +224,7 @@ public class StartScreen extends GridPane {
 		collctionTrans.play();
 		exitTrans.play();
 	}
-	
+
 	public void screenTransitionIn() {
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
 		startTrans.setByX(ScreenProperties.screenWidth);

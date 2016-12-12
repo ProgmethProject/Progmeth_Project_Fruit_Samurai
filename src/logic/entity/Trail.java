@@ -6,7 +6,6 @@ import Utility.InputUtility;
 import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Line;
 import model.IRenderable;
 
 public class Trail implements IRenderable {
@@ -15,8 +14,8 @@ public class Trail implements IRenderable {
 	private static Color trailColorOut = Color.DARKMAGENTA;
 	private static ArrayList<Integer> trailX = new ArrayList<Integer>();
 	private static ArrayList<Integer> trailY = new ArrayList<Integer>();
-	private static final Color[] rainbow = {Color.RED, Color.RED, Color.RED, Color.YELLOW, Color.YELLOW, Color.LIMEGREEN,
-			Color.LIMEGREEN, Color.CYAN, Color.BLUE, Color.BLUE};
+	private static final Color[] rainbow = { Color.RED, Color.RED, Color.RED, Color.YELLOW, Color.YELLOW,
+			Color.LIMEGREEN, Color.LIMEGREEN, Color.CYAN, Color.BLUE, Color.BLUE };
 	public static final Trail instance = new Trail();
 
 	public ArrayList<Integer> getTrailX() {
@@ -38,7 +37,7 @@ public class Trail implements IRenderable {
 		trailX.clear();
 		trailY.clear();
 	}
-	
+
 	public void setTrailColorIn(Color trailColorIn) {
 		Trail.trailColorIn = trailColorIn;
 	}
@@ -101,9 +100,9 @@ public class Trail implements IRenderable {
 			int prevY = trailY.get(trailY.size() - 1);
 
 			for (int i = trailX.size() - 2; i >= 0; i--) {
-				if(slashColor == 5) {
-					trailColorOut = rainbow[i%10];
-					trailColorIn = rainbow[i%10];
+				if (slashColor == 5) {
+					trailColorOut = rainbow[i % 10];
+					trailColorIn = rainbow[i % 10];
 				}
 				gc.setStroke(trailColorOut);
 				gc.setLineWidth(lineWidth);
