@@ -14,6 +14,7 @@ import model.Cuttable;
 import model.Entity;
 
 public class Bomb extends Entity implements Cuttable {
+
 	private int healthPointAdjustment = -1;
 
 	public Bomb(double x, double y, double speedX, double speedY) {
