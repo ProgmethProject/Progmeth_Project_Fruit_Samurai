@@ -9,6 +9,7 @@ import logic.entity.Fruit;
 import logic.generator.BombGenerator;
 import logic.generator.FruitGenerator;
 import model.Entity;
+import thread.ThreadHolder;
 
 public class GameLogic {
 	private List<Entity> entities;
@@ -18,14 +19,9 @@ public class GameLogic {
 	public GameLogic() {
 
 		entities = new ArrayList<>();
-
-		mainFruitGenerator = new FruitGenerator(this, 2000);
-		mainBombGenerator = new BombGenerator(this, 3000);
-		mainFruitGenerator.start();
-		mainBombGenerator.start();
-
-		Fruit fruit = new Fruit(100, 100, 50, 200);
-		addEntity(fruit);
+		initGame();
+//		Fruit fruit = new Fruit(100, 100, 50, 200);
+//		addEntity(fruit);
 	}
 
 	synchronized public void updateLogic() {
@@ -59,6 +55,12 @@ public class GameLogic {
 	public void initGame(){
 		clearEntity();
 		PlayerStatus.instance.initPlayer(PlayerStatus.DEFAULT_HP);
+		mainFruitGenerator = new FruitGenerator(this, 2000);
+		mainBombGenerator = new BombGenerator(this, 3000);
+		ThreadHolder.instance.addGenerator(mainFruitGenerator);
+		ThreadHolder.instance.addGenerator(mainBombGenerator);
+		mainFruitGenerator.start();
+		mainBombGenerator.start();
 	}
 
 }
