@@ -100,8 +100,8 @@ public class HighScoreUtility {
 					Main.instance.getDrawingAnimation().stop();
 					System.out.println("Dialog is closed");
 					InputUtility.setMouseLeftDown(false);
-					Main.instance.changeToStartScreen();
 					Main.instance.getStartScreen().screenTransitionIn();
+					Main.instance.changeToStartScreen();
 				}
 			});
 			alert.show();
@@ -144,8 +144,9 @@ public class HighScoreUtility {
 					}
 					Main.instance.getDrawingAnimation().stop();
 					System.out.println("Dialog is closed");
-					Main.instance.changeToStartScreen();
+					InputUtility.setMouseLeftDown(false);
 					Main.instance.getStartScreen().screenTransitionIn();
+					Main.instance.changeToStartScreen();
 				}
 			});
 			dialog.show();
