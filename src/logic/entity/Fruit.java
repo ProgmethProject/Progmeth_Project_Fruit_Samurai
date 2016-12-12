@@ -60,7 +60,6 @@ public class Fruit extends Entity implements Cuttable {
 		Main.instance.getGameLogic().addEntity(left);
 		Main.instance.getGameLogic().addEntity(right);
 		AudioUtility.playSound("slash");
-
 	}
 
 	@Override
@@ -82,7 +81,8 @@ public class Fruit extends Entity implements Cuttable {
 		double scaleX = (curX - prevX) / 100;
 		double scaleY = (curY - prevY) / 100;
 
-		double tempX = prevX, tempY = prevY;
+		Double tempX = prevX;
+		Double tempY = prevY;
 
 		for (int i = 0; i < 100; i++) {
 			xList.add(tempX);

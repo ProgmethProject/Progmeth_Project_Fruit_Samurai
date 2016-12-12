@@ -25,7 +25,7 @@ public class CollectionScreen extends BorderPane {
 
 	public CollectionScreen() {
 		String image = ClassLoader.getSystemResource("image/menu.jpg").toString();
-		this.setStyle("-fx-background-image: url('" + image + "'); " + "-fx-background-position: center center;"
+		setStyle("-fx-background-image: url('" + image + "'); " + "-fx-background-position: center center;"
 				+ "-fx-background-repeat: stretch; -fx-background-size:" + ScreenProperties.screenWidth + " "
 				+ ScreenProperties.screenHeight + ";");
 
@@ -54,6 +54,7 @@ public class CollectionScreen extends BorderPane {
 			}
 
 		});
+		backPane.setAlignment(Pos.CENTER);
 		backPane.getChildren().add(backButton);
 
 		setLeft(highScorePane);
@@ -99,8 +100,11 @@ public class CollectionScreen extends BorderPane {
 		private Label[] labels = new Label[10];
 
 		public highScorePane() {
+			setPrefWidth(ScreenProperties.screenWidth/2);
+			setAlignment(Pos.CENTER);
 			for (int i = 0; i < 10; i++) {
 				labels[i] = new Label();
+				labels[i].setStyle("-fx-background-color:white");
 				add(labels[i], 0, i);
 			}
 			updatePane();
@@ -121,7 +125,7 @@ public class CollectionScreen extends BorderPane {
 
 		public bladeSelectionPane() {
 			setAlignment(Pos.CENTER);
-			setPrefSize(ScreenProperties.screenWidth / 2, ScreenProperties.screenHeight);
+			setPrefWidth(ScreenProperties.screenWidth / 2);
 			setVgap(10);
 			setHgap(10);
 			setStyle("-fx-background-color: transparent; -fx-padding: 30");

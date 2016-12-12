@@ -42,7 +42,6 @@ public class GameLogic {
 	}
 
 	synchronized public void removeEntity(Entity e) {
-		System.out.println(e);
 		entities.remove(e);
 		RenderableHolder.instance.removeEntity(e);
 	}
