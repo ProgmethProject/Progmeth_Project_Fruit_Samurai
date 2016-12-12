@@ -95,9 +95,7 @@ public class Main extends Application {
 
 	public void changeToGameScreen() {
 		this.primaryStage.setScene(gameScene);
-		if (!ThreadHolder.instance.getGameThread().isAlive()) {
-			ThreadHolder.instance.resetGameThread();
-		}
+		ThreadHolder.instance.resetThread();
 		ThreadHolder.instance.getGameThread().start();
 		drawingAnimation.start();
 	}
