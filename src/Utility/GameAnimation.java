@@ -1,5 +1,6 @@
 package Utility;
 
+import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
@@ -11,6 +12,7 @@ public class GameAnimation implements IRenderable {
 	private int frameCount, frameDelay;
 	private int currentFrame, frameDelayCount;
 	private int x, y, frameWidth, frameHeight;
+	private int comboCount = 0;
 	private boolean visible = false, playing = false;
 
 	public GameAnimation(Image animation, int frameCount, int frameDelay) {
@@ -23,12 +25,16 @@ public class GameAnimation implements IRenderable {
 		y = 0;
 		if (image != null) {
 			frameHeight = (int) animation.getHeight();
-			frameWidth = (int) (animation.getWidth()/frameCount);
-		} 
-		else {
+			frameWidth = (int) (animation.getWidth() / frameCount);
+		} else {
 			frameHeight = 0;
 			frameWidth = 0;
 		}
+	}
+
+	public GameAnimation(Image animation, int frameCount, int frameDelay, int comboCount) {
+		this(animation, frameCount, frameDelay);
+		this.comboCount = comboCount;
 	}
 
 	protected void topLeftAnimationAt(int x, int y) {
@@ -66,6 +72,7 @@ public class GameAnimation implements IRenderable {
 			stop();
 		}
 	}
+
 	@Override
 	public boolean isDestroyed() {
 		return !visible;
@@ -78,11 +85,15 @@ public class GameAnimation implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		if(!visible || image == null) {
+		if (!visible || image == null) {
 			return;
 		}
-		WritableImage croppedImage = new WritableImage(image.getPixelReader(), currentFrame*frameWidth, 0, frameWidth, frameHeight);
+		WritableImage croppedImage = new WritableImage(image.getPixelReader(), currentFrame * frameWidth, 0, frameWidth,
+				frameHeight);
 		gc.drawImage(croppedImage, x, y);
+
+		if (comboCount > 0)
+			gc.fillText("" + comboCount, x, y);
 		updateAnimation();
 	}
 

@@ -113,7 +113,7 @@ public class HighScoreUtility {
 			TextInputDialog dialog = new TextInputDialog();
 			dialog.setTitle("High score");
 			dialog.setHeaderText(null);
-			dialog.setContentText("Congratulation, you are ranked " + index + "\n" + "Please enter your name");
+			dialog.setContentText("Congratulation, you are ranked " + (index + 1) + "\n" + "Please enter your name");
 
 			final int final_index = index;
 			dialog.setOnHidden(new EventHandler<DialogEvent>() {

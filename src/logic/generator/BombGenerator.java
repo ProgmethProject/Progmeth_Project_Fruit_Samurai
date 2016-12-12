@@ -21,6 +21,7 @@ public class BombGenerator extends Generator {
 			while (true) {
 				try {
 					if (ItemStatus.instance.getFrenzyCounter() > 0) {
+						System.out.println("frenzy :" + ItemStatus.instance.getFrenzyCounter());
 						continue;
 					}
 					Random random = new Random();

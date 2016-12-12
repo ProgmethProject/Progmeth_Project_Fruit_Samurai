@@ -54,8 +54,8 @@ public class GameLogic {
 	public void initGame(){
 		clearEntity();
 		PlayerStatus.instance.initPlayer(PlayerStatus.DEFAULT_HP);
-		mainFruitGenerator = new FruitGenerator(this, 2000);
-		mainBombGenerator = new BombGenerator(this, 3000);
+		mainFruitGenerator = new FruitGenerator(this, 1500);
+		mainBombGenerator = new BombGenerator(this, 2000);
 		ThreadHolder.instance.addGenerator(mainFruitGenerator);
 		ThreadHolder.instance.addGenerator(mainBombGenerator);
 		RenderableHolder.instance.addEntity(Background.instance);

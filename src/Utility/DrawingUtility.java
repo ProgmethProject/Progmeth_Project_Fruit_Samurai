@@ -165,7 +165,7 @@ public class DrawingUtility {
 		
 	}
 
-	public static GameAnimation createCuttingAnimation(int x, int y) {
+	public static GameAnimation createCuttingAnimation(int x, int y, int comboCount) {
 		GameAnimation anim;
 		if (Trail.instance.getSlashColor() == 5) {
 			anim = new GameAnimation(DrawingUtility.animation[(int) (Math.random()*4) + 1], 8, 1);

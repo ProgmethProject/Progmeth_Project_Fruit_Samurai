@@ -64,6 +64,7 @@ public class ItemStatus {
 		}
 		if (frenzyCounter > 0) {
 			if (frenzyGenerator.size() == 0) {
+				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 1000));
 				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 2000));
 				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 3000));
 				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 4000));

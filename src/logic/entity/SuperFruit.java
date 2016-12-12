@@ -15,11 +15,11 @@ public class SuperFruit extends Fruit {
 	public void cut() {
 		super.cut();
 		if (index == 7) {
-			ItemStatus.instance.setFreezeCounter(5000);
+			ItemStatus.instance.setDoubleCounter(5000);
 		} else if (index == 8) {
 			ItemStatus.instance.setFrenzyCounter(5000);
 		} else if (index == 9) {
-			ItemStatus.instance.setDoubleCounter(5000);
+			ItemStatus.instance.setFreezeCounter(5000);
 		}
 	}
 
