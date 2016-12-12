@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
+import Utility.InputUtility;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -98,6 +99,7 @@ public class HighScoreUtility {
 				public void handle(DialogEvent event) {
 					Main.instance.getDrawingAnimation().stop();
 					System.out.println("Dialog is closed");
+					InputUtility.setMouseLeftDown(false);
 					Main.instance.changeToStartScreen();
 					Main.instance.getStartScreen().screenTransitionIn();
 				}

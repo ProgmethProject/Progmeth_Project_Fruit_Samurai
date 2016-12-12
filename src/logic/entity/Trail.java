@@ -6,6 +6,7 @@ import Utility.InputUtility;
 import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import model.IRenderable;
 
 public class Trail implements IRenderable {
@@ -88,7 +89,7 @@ public class Trail implements IRenderable {
 				gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
 				prevX = trailX.get(i);
 				prevY = trailY.get(i);
-				lineWidth -= 1;
+				lineWidth -= 2;
 
 			}
 		}
