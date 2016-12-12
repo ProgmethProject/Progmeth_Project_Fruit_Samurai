@@ -1,9 +1,5 @@
 package gui;
 
-import com.sun.org.apache.bcel.internal.generic.NEW;
-import com.sun.prism.impl.Disposer.Record;
-
-import Utility.DrawingUtility;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -15,8 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import logic.highscore.HighScoreUtility;
 import logic.highscore.HighScoreUtility.HighScoreRecord;
@@ -60,50 +54,55 @@ public class CollectionScreen extends BorderPane {
 		});
 		backPane.getChildren().add(backButton);
 
-		// setLeft(highScorePane);
+		setLeft(highScorePane);
 		setRight(bladeSelectionPane);
 		setBottom(backPane);
 
 	}
 
+	public highScorePane getHighScorePane() {
+		return highScorePane;
+	}
+
 	public void screenTransitionIn() {
-		// TranslateTransition highScoreTrans = new
-		// TranslateTransition(Duration.millis(700), highScorePane);
-		// highScoreTrans.setFromX(ScreenProperties.screenWidth);
-		// highScoreTrans.setByX(-ScreenProperties.screenWidth);
+		highScorePane.updatePane();
+		
+		TranslateTransition highScoreTrans = new TranslateTransition(Duration.millis(700), highScorePane);
+		highScoreTrans.setFromX(ScreenProperties.screenWidth);
+		highScoreTrans.setByX(-ScreenProperties.screenWidth);
 		TranslateTransition selectionTrans = new TranslateTransition(Duration.millis(700), bladeSelectionPane);
 		selectionTrans.setFromX(ScreenProperties.screenWidth);
 		selectionTrans.setByX(-ScreenProperties.screenWidth);
 		TranslateTransition backTrans = new TranslateTransition(Duration.millis(700), backPane);
 		backTrans.setFromX(ScreenProperties.screenWidth);
 		backTrans.setByX(-ScreenProperties.screenWidth);
-		// highScoreTrans.play();
+		highScoreTrans.play();
 		selectionTrans.play();
 		backTrans.play();
 	}
 
 	public void screenTransitionOut() {
-		// TranslateTransition highScoreTrans = new
-		// TranslateTransition(Duration.millis(700), highScorePane);
-		// highScoreTrans.setByX(ScreenProperties.screenWidth);
+		TranslateTransition highScoreTrans = new TranslateTransition(Duration.millis(700), highScorePane);
+		highScoreTrans.setByX(ScreenProperties.screenWidth);
 		TranslateTransition selectionTrans = new TranslateTransition(Duration.millis(700), bladeSelectionPane);
 		selectionTrans.setByX(ScreenProperties.screenWidth);
 		TranslateTransition backTrans = new TranslateTransition(Duration.millis(700), backPane);
 		backTrans.setByX(ScreenProperties.screenWidth);
-		// highScoreTrans.play();
+		highScoreTrans.play();
 		selectionTrans.play();
 		backTrans.play();
 	}
 
-	private class highScorePane extends GridPane {
+	public static class highScorePane extends GridPane {
 		private Label[] labels = new Label[10];
 
 		public highScorePane() {
 			for (int i = 0; i < 10; i++) {
 				labels[i] = new Label();
+				add(labels[i], 0, i);
 			}
+			updatePane();
 		}
-
 		public void updatePane() {
 			HighScoreRecord[] records = HighScoreUtility.loadTop10();
 			if (records != null) {
@@ -114,7 +113,7 @@ public class CollectionScreen extends BorderPane {
 		}
 	}
 
-	private class bladeSelectionPane extends GridPane {
+	public static class bladeSelectionPane extends GridPane {
 		private Button purpleBtn, blueBtn, greenBtn, redBtn, rainbowBtn;
 		private Label selectColor;
 

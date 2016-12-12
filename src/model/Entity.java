@@ -8,7 +8,7 @@ import logic.entity.Fruit;
 public abstract class Entity implements IRenderable {
 
 	public static double GRAVITY = 700;
-
+	public static int debug = 0;
 	protected double x, y, speedX, speedY, modifier;
 	protected double rotation;
 	protected int z;
@@ -84,7 +84,14 @@ public abstract class Entity implements IRenderable {
 	}
 
 	public void update() {
-		if (this.x > ScreenProperties.screenWidth || this.x < -50) {
+		if(debug == 0){
+			System.out.println(++debug + "" + "(" +this.x + "," + this.y + ")" + this);
+		}
+		if(!RenderableHolder.instance.getEntities().contains(this)){
+			System.out.println(++debug + "" + "(" +this.x + "," + this.y + ")" + this);
+		}
+
+		if (this.x > ScreenProperties.screenWidth || this.x < -50 || this.y > ScreenProperties.screenHeight) {
 			setDestroyed(true);
 			if (this instanceof Fruit) {
 				PlayerStatus.instance.resetComboCount();

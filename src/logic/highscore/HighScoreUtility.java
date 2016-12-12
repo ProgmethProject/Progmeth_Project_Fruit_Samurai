@@ -169,11 +169,12 @@ public class HighScoreUtility {
 			rank++;
 		}
 		return highScoreRecord;
-//		Alert alert = new Alert(AlertType.INFORMATION);
-//		alert.setTitle("Top 10");
-//		alert.setHeaderText(null);
-//		alert.setContentText(msg.trim());
-//		alert.showAndWait();
+		// Main.instance.getCollectionScreen().getHighScorePane().updatePane(highScoreRecord);
+		// Alert alert = new Alert(AlertType.INFORMATION);
+		// alert.setTitle("Top 10");
+		// alert.setHeaderText(null);
+		// alert.setContentText(msg.trim());
+		// alert.showAndWait();
 	}
 
 	private static boolean loadHighScore() {

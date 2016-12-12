@@ -30,13 +30,12 @@ public class ThreadHolder {
 			Main.instance.getGameLogic().initGame();
 			Main.instance.getGameScreen().initRenderable();
 			while (true) {
-				// TODO Add GameOver transition
 				if (PlayerStatus.instance.isGameOver()) {
 					Platform.runLater(() -> {
 						HighScoreUtility.recordHighScore(PlayerStatus.instance.getScore());
 					});
 					PlayerStatus.instance.setGameOver(false);
-					InputUtility.setMouseLeftDown(false);
+//					InputUtility.setMouseLeftDown(false);
 					return;
 				}
 				try {

@@ -48,7 +48,7 @@ public class Fruit extends Entity implements Cuttable {
 	public void cut() {
 		PlayerStatus.instance.increaseComboCount(1);
 		PlayerStatus.instance.increaseScore(point);
-		
+
 		Image image = DrawingUtility.fruit[index];
 		setDestroyed(true);
 		synchronized (RenderableHolder.instance.getEntities()) {
