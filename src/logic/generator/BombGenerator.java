@@ -23,7 +23,7 @@ public class BombGenerator extends Generator{
 					int x = random.nextInt((int) ScreenProperties.screenWidth);
 					int y = (int) ScreenProperties.screenHeight;
 					int speedX = (50 + random.nextInt(200)) * (random.nextInt(2) == 0 ? -1 : 1);
-					int speedY = 300 + random.nextInt(200);
+					int speedY = 700 + random.nextInt(200);
 					gameLogic.addEntity(new Bomb(x, y, speedX, speedY));
 					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {

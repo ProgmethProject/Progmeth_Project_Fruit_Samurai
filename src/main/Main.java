@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import logic.GameLogic;
 import logic.highscore.HighScoreUtility;
+import thread.ThreadHolder;
 
 public class Main extends Application {
 
@@ -26,7 +27,6 @@ public class Main extends Application {
 	private ScreenProperties configurableSettings;
 
 	private GameLogic gameLogic;
-	private Thread gameThread;
 	private AnimationTimer drawingAnimation;
 
 	Scene collectionScene, gameScene, startScene, configScene;
@@ -52,32 +52,11 @@ public class Main extends Application {
 		this.startScreen = new StartScreen();
 
 		this.gameScene = new Scene(gameScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
-		this.collectionScene = new Scene(collectionScreen, ScreenProperties.screenWidth,
-				ScreenProperties.screenHeight);
+		this.collectionScene = new Scene(collectionScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 		this.startScene = new Scene(startScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 
 		this.primaryStage.setScene(this.startScene);
 		this.primaryStage.show();
-
-		this.gameThread = new Thread(() -> {
-			while (true) {
-				// TODO Add GameOver transition
-				if (PlayerStatus.instance.isGameOver()) {
-					Platform.runLater(() -> {
-						HighScoreUtility.recordHighScore(PlayerStatus.instance.getScore());
-					});
-					PlayerStatus.instance.setGameOver(false);
-					return;
-				}
-				try {
-					gameLogic.updateLogic();
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					return;
-				}
-			}
-		});
 
 		this.drawingAnimation = new AnimationTimer() {
 			@Override
@@ -110,25 +89,28 @@ public class Main extends Application {
 
 	public void changeToStartScreen() {
 		this.primaryStage.setScene(startScene);
-		this.gameThread.interrupt();
+		ThreadHolder.instance.getGameThread().interrupt();
 		this.drawingAnimation.stop();
 	}
 
 	public void changeToGameScreen() {
 		this.primaryStage.setScene(gameScene);
-		this.gameThread.start();
+		if (!ThreadHolder.instance.getGameThread().isAlive()) {
+			ThreadHolder.instance.resetGameThread();
+		}
+		ThreadHolder.instance.getGameThread().start();
 		drawingAnimation.start();
 	}
 
 	public void changeToCollectionScreen() {
 		this.primaryStage.setScene(collectionScene);
-		this.gameThread.interrupt();
+		ThreadHolder.instance.getGameThread().interrupt();
 		this.drawingAnimation.stop();
 	}
 
 	public void closeScreen() {
 		this.primaryStage.close();
-		this.gameThread.interrupt();
+		ThreadHolder.instance.getGameThread().interrupt();
 		this.drawingAnimation.stop();
 	}
 

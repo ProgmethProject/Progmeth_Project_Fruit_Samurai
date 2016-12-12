@@ -8,7 +8,7 @@ import logic.GameLogic;
 
 public abstract class Entity implements IRenderable {
 
-	public static double GRAVITY = 300;
+	public static double GRAVITY = 700;
 
 	protected double x, y, speedX, speedY;
 	protected double rotation;
