@@ -1,19 +1,16 @@
 package main;
 
-import graphic.PlayerStatus;
 import gui.CollectionScreen;
-import gui.ScreenProperties;
 import gui.GameScreen;
+import gui.ScreenProperties;
 import gui.StartScreen;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import logic.GameLogic;
-import logic.highscore.HighScoreUtility;
 import thread.ThreadHolder;
 
 public class Main extends Application {

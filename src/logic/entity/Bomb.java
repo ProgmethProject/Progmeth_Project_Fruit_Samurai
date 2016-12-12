@@ -10,8 +10,6 @@ import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import model.InstantItem;
 
 public class Bomb extends InstantItem {

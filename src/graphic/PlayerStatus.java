@@ -2,7 +2,6 @@ package graphic;
 
 import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
-import com.sun.org.apache.xml.internal.security.Init;
 
 import Utility.DrawingUtility;
 import gui.ScreenProperties;

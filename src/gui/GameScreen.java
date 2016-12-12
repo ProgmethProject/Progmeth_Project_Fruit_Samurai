@@ -1,20 +1,17 @@
 package gui;
 
-import javafx.event.EventHandler;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseButton;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
-import logic.entity.Trail;
-import Utility.DrawingUtility;
-import Utility.GameAnimation;
 import Utility.InputUtility;
 import graphic.Background;
 import graphic.MenuButton;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
+import javafx.event.EventHandler;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
+import logic.entity.Trail;
 import model.IRenderable;
 
 public class GameScreen extends GridPane {
@@ -30,14 +27,14 @@ public class GameScreen extends GridPane {
 		canvas = new Canvas(screen_width, screen_height);
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);
-		
+
 		initRenderable();
-		
+
 		addListener();
 	}
-	
-	public void initRenderable(){
-		RenderableHolder.instance.getEntities().clear();
+
+	public void initRenderable() {
+		RenderableHolder.instance.clearEntity();
 		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);

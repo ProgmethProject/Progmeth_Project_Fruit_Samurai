@@ -5,7 +5,6 @@ import java.util.List;
 
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
-import logic.entity.Fruit;
 import logic.generator.BombGenerator;
 import logic.generator.FruitGenerator;
 import model.Entity;
@@ -20,8 +19,6 @@ public class GameLogic {
 
 		entities = new ArrayList<>();
 		initGame();
-//		Fruit fruit = new Fruit(100, 100, 50, 200);
-//		addEntity(fruit);
 	}
 
 	synchronized public void updateLogic() {

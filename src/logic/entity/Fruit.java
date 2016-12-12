@@ -4,9 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.sun.corba.se.spi.orbutil.fsm.Input;
-import com.sun.javafx.geom.transform.BaseTransform;
-
 import Utility.AudioUtility;
 import Utility.DrawingUtility;
 import Utility.InputUtility;
@@ -14,13 +11,9 @@ import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
-import javafx.scene.transform.Rotate;
 import main.Main;
 import model.Cuttable;
 import model.Entity;
-import sun.font.GlyphLayout.GVData;
 
 public class Fruit extends Entity implements Cuttable {
 	private int point;

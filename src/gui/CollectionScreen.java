@@ -1,23 +1,27 @@
 package gui;
 
+<<<<<<< HEAD
 import Utility.DrawingUtility;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
+=======
+>>>>>>> origin/master
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+<<<<<<< HEAD
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import main.Main;
+=======
+>>>>>>> origin/master
 
 public class CollectionScreen extends BorderPane {
 	private highScorePane highScorePane;

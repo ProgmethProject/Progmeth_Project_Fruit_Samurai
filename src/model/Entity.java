@@ -1,10 +1,7 @@
 package model;
 
-import Utility.InputUtility;
 import graphic.RenderableHolder;
 import gui.ScreenProperties;
-import javafx.scene.shape.Shape;
-import logic.GameLogic;
 
 public abstract class Entity implements IRenderable {
 

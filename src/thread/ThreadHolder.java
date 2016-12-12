@@ -50,8 +50,9 @@ public class ThreadHolder {
 	}
 
 	public void clearAllThread() {
-		if (gameThread != null)
+		if (gameThread != null) {
 			gameThread.interrupt();
+		}
 		for (Generator generator : generators) {
 			generator.stop();
 		}
