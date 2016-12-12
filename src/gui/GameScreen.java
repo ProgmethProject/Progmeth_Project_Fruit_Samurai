@@ -37,11 +37,11 @@ public class GameScreen extends GridPane {
 	}
 
 	public void initRenderable() {
-			RenderableHolder.instance.clearEntity();
-			RenderableHolder.instance.addEntity(Background.instance);
-			RenderableHolder.instance.addEntity(PlayerStatus.instance);
-			RenderableHolder.instance.addEntity(MenuButton.instance);
-			RenderableHolder.instance.addEntity(Trail.instance);
+		RenderableHolder.instance.clearEntity();
+		RenderableHolder.instance.addEntity(Background.instance);
+		RenderableHolder.instance.addEntity(PlayerStatus.instance);
+		RenderableHolder.instance.addEntity(MenuButton.instance);
+		RenderableHolder.instance.addEntity(Trail.instance);
 	}
 
 	public void paintComponents() {
