@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import logic.entity.Trail;
@@ -27,7 +28,7 @@ public class CollectionScreen extends BorderPane {
 		String image = ClassLoader.getSystemResource("image/menu.jpg").toString();
 		setStyle("-fx-background-image: url('" + image + "'); " + "-fx-background-position: center center;"
 				+ "-fx-background-repeat: stretch; -fx-background-size:" + ScreenProperties.screenWidth + " "
-				+ ScreenProperties.screenHeight + ";");
+				+ ScreenProperties.screenHeight + "; -fx-padding: 0");
 
 		highScorePane = new highScorePane();
 		bladeSelectionPane = new bladeSelectionPane();
@@ -54,6 +55,7 @@ public class CollectionScreen extends BorderPane {
 			}
 
 		});
+		backPane.setStyle("-fx-background-color: transparent; -fx-padding: 30");
 		backPane.setAlignment(Pos.CENTER);
 		backPane.getChildren().add(backButton);
 
@@ -98,15 +100,38 @@ public class CollectionScreen extends BorderPane {
 
 	public static class highScorePane extends GridPane {
 		private Label[] labels = new Label[10];
+		private Label highScoreHeader;
 
 		public highScorePane() {
+			setStyle("-fx-background-color: transparent; -fx-padding: 30");
 			setPrefWidth(ScreenProperties.screenWidth/2);
 			setAlignment(Pos.CENTER);
+			setVgap(5);
+			
+			StackPane labelPane = new StackPane();
+			highScoreHeader = new Label("High Score");
+			highScoreHeader.setStyle("-fx-font-size: 30px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
+					+ "-fx-text-alignment:center; -fx-background-color: white; -fx-padding: 0 5 0 5;"
+					+ "-fx-border-color: black; -fx-border-width: 3;");
+			labelPane.getChildren().add(highScoreHeader);
+			add(labelPane, 0, 0);
+			
+			GridPane scorePane = new GridPane();
+			scorePane.setPrefSize(250, 300);
+			scorePane.setStyle("-fx-background-color: white; -fx-padding: 5;"
+					+ "-fx-border-color: black; -fx-border-width: 3;");
+			scorePane.setAlignment(Pos.CENTER);
+			
 			for (int i = 0; i < 10; i++) {
+				StackPane score = new StackPane();
+				score.setStyle("-fx-background-color: transparent; -fx-padding: 5 13 5 13;"
+						+ "-fx-font-size: 20px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;");
 				labels[i] = new Label();
-				labels[i].setStyle("-fx-background-color:white");
-				add(labels[i], 0, i);
+				labels[i].setAlignment(Pos.CENTER);
+				score.getChildren().add(labels[i]);
+				scorePane.add(score, 0, i);
 			}
+			add(scorePane, 0, 1);
 			updatePane();
 		}
 		public void updatePane() {

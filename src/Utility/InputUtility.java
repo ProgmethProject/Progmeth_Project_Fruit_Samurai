@@ -5,12 +5,6 @@ public class InputUtility {
 
 	private static int mouseX, mouseY, prevMouseX, prevMouseY, releaseX, releaseY;
 	private static boolean mouseLeftDown, mouseOnScreen;
-	private static boolean mouseLeftLastDown;
-	private static boolean isDrag;
-
-	public static boolean isDrag() {
-		return isDrag;
-	}
 
 	public static int getPrevMouseX() {
 		return prevMouseX;
@@ -18,10 +12,6 @@ public class InputUtility {
 
 	public static int getPrevMouseY() {
 		return prevMouseY;
-	}
-
-	public static void setDrag(boolean isDrag) {
-		InputUtility.isDrag = isDrag;
 	}
 
 	public static int getMouseX() {
@@ -86,18 +76,6 @@ public class InputUtility {
 
 	public static void setMouseOnScreen(boolean mouseOnScreen) {
 		InputUtility.mouseOnScreen = mouseOnScreen;
-	}
-
-	public static boolean isMouseLeftClicked() {
-		return InputUtility.mouseLeftLastDown;
-	}
-
-	public static void setMouseLeftLastDown(boolean v) {
-		InputUtility.mouseLeftLastDown = v;
-	}
-
-	public static void postUpdate() {
-		setMouseLeftLastDown(false);
 	}
 
 }
