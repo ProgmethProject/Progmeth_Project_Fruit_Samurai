@@ -3,6 +3,7 @@ package logic.entity;
 import java.util.ArrayList;
 
 import Utility.InputUtility;
+import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import model.IRenderable;
@@ -15,42 +16,38 @@ public class Trail implements IRenderable {
 	public ArrayList<Integer> getTrailX() {
 		return trailX;
 	}
-	
+
 	public ArrayList<Integer> getTrailY() {
 		return trailY;
 	}
-	
+
 	public void addTrail(int x, int y) {
 		trailX.add(x);
 		trailY.add(y);
 	}
-	
+
 	public void clearTrail() {
 		trailX.clear();
 		trailY.clear();
 	}
-	
+
 	public void update() {
-		if(InputUtility.isMouseLeftDown()) {
-			if(getTrailX().size() < 10) {
+		if (InputUtility.isMouseLeftDown()) {
+			if (getTrailX().size() < 10) {
+				addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
+			} else {
+				getTrailX().remove(0);
+				getTrailY().remove(0);
 				addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
 			}
-			else {
-					getTrailX().remove(0);
-					getTrailY().remove(0);
-					addTrail(InputUtility.getMouseX(), InputUtility.getMouseY());
-			}
-		}
-		else {
-			if(!trailX.isEmpty()) {
-				if((int)trailX.get(0)==(int)trailX.get(trailX.size() - 1)) {
+		} else {
+			if (!trailX.isEmpty()) {
+				if ((int) trailX.get(0) == (int) trailX.get(trailX.size() - 1)) {
 					trailX.clear();
 					trailY.clear();
-				}
-				else if(getTrailX().size() < 10) {
+				} else if (getTrailX().size() < 10) {
 					addTrail(InputUtility.getReleaseX(), InputUtility.getReleaseY());
-				}
-				else {
+				} else {
 					getTrailX().remove(0);
 					getTrailY().remove(0);
 					addTrail(InputUtility.getReleaseX(), InputUtility.getReleaseY());
@@ -71,24 +68,26 @@ public class Trail implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		update();
-		if(!Trail.instance.getTrailX().isEmpty()) {
-			double lineWidth = 10;
-			ArrayList<Integer> trailX = Trail.instance.getTrailX();
-			ArrayList<Integer> trailY = Trail.instance.getTrailY();
-			int prevX = trailX.get(trailX.size() - 1);
-			int prevY = trailY.get(trailY.size() - 1);
-			
-			for(int i = trailX.size() - 2; i>=0; i--) {
-				gc.setStroke(Color.DARKMAGENTA);
-				gc.setLineWidth(lineWidth);
-				gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
-				gc.setStroke(Color.BLACK);
-				gc.setLineWidth(lineWidth - 4);
-				gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
-				prevX = trailX.get(i);
-				prevY = trailY.get(i);		
-				lineWidth -= 1;
+		if (!PlayerStatus.instance.isPause()) {
+			update();
+			if (!Trail.instance.getTrailX().isEmpty()) {
+				double lineWidth = 10;
+				ArrayList<Integer> trailX = Trail.instance.getTrailX();
+				ArrayList<Integer> trailY = Trail.instance.getTrailY();
+				int prevX = trailX.get(trailX.size() - 1);
+				int prevY = trailY.get(trailY.size() - 1);
+
+				for (int i = trailX.size() - 2; i >= 0; i--) {
+					gc.setStroke(Color.DARKMAGENTA);
+					gc.setLineWidth(lineWidth);
+					gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
+					gc.setStroke(Color.BLACK);
+					gc.setLineWidth(lineWidth - 4);
+					gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
+					prevX = trailX.get(i);
+					prevY = trailY.get(i);
+					lineWidth -= 1;
+				}
 			}
 		}
 	}

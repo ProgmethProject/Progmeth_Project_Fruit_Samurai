@@ -3,6 +3,7 @@ package logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import gui.ScreenProperties;
 import logic.entity.Fruit;
@@ -18,25 +19,27 @@ public class GameLogic {
 	private BombGenerator mainBombGenerator;
 
 	public GameLogic() {
-		
+
 		entities = new ArrayList<>();
-		
+
 		mainFruitGenerator = new FruitGenerator(this, 2000);
 		mainBombGenerator = new BombGenerator(this, 3000);
 		mainFruitGenerator.start();
 		mainBombGenerator.start();
-		
-		Fruit fruit = new Fruit(100, 100, 50, 200);		
+
+		Fruit fruit = new Fruit(100, 100, 50, 200);
 		addEntity(fruit);
 	}
 
 	synchronized public void updateLogic() {
-		for (int i = entities.size() - 1; i >= 0; i--) {
-			Entity e = entities.get(i);
-			if (e.isDestroyed()) {
-				removeEntity(e);
-			} else {
-				e.update();
+		if (!PlayerStatus.instance.isPause()) {
+			for (int i = entities.size() - 1; i >= 0; i--) {
+				Entity e = entities.get(i);
+				if (e.isDestroyed()) {
+					removeEntity(e);
+				} else {
+					e.update();
+				}
 			}
 		}
 	}
