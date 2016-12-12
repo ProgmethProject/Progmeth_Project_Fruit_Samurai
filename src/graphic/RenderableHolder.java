@@ -49,6 +49,12 @@ public class RenderableHolder {
 			sortEntity();
 		}
 	}
+	
+	public void clearEntity(){
+		synchronized (entities) {
+			entities.clear();
+		}
+	}
 
 	public void sortEntity() {
 		synchronized (entities) {

@@ -10,10 +10,9 @@ import java.util.Arrays;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.DialogEvent;
 import javafx.scene.control.TextInputDialog;
-import jdk.nashorn.internal.ir.debug.JSONWriter;
-import javafx.scene.control.Alert.AlertType;
 import main.Main;
 
 public class HighScoreUtility {

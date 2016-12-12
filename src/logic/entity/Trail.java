@@ -70,26 +70,25 @@ public class Trail implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		if (!PlayerStatus.instance.isPause()) {
-			update();
-			if (!Trail.instance.getTrailX().isEmpty()) {
-				double lineWidth = 10;
-				ArrayList<Integer> trailX = Trail.instance.getTrailX();
-				ArrayList<Integer> trailY = Trail.instance.getTrailY();
-				int prevX = trailX.get(trailX.size() - 1);
-				int prevY = trailY.get(trailY.size() - 1);
+		update();
+		if (!Trail.instance.getTrailX().isEmpty()) {
+			double lineWidth = 20;
+			ArrayList<Integer> trailX = Trail.instance.getTrailX();
+			ArrayList<Integer> trailY = Trail.instance.getTrailY();
+			int prevX = trailX.get(trailX.size() - 1);
+			int prevY = trailY.get(trailY.size() - 1);
 
-				for (int i = trailX.size() - 2; i >= 0; i--) {
-					gc.setStroke(Color.DARKMAGENTA);
-					gc.setLineWidth(lineWidth);
-					gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
-					gc.setStroke(Color.BLACK);
-					gc.setLineWidth(lineWidth - 4);
-					gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
-					prevX = trailX.get(i);
-					prevY = trailY.get(i);
-					lineWidth -= 1;
-				}
+			for (int i = trailX.size() - 2; i >= 0; i--) {
+				gc.setStroke(Color.DARKMAGENTA);
+				gc.setLineWidth(lineWidth);
+				gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
+				gc.setStroke(Color.BLACK);
+				gc.setLineWidth(lineWidth - 4);
+				gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
+				prevX = trailX.get(i);
+				prevY = trailY.get(i);
+				lineWidth -= 1;
+
 			}
 		}
 	}

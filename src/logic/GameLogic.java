@@ -5,13 +5,10 @@ import java.util.List;
 
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
-import gui.ScreenProperties;
 import logic.entity.Fruit;
 import logic.generator.BombGenerator;
 import logic.generator.FruitGenerator;
-import main.Main;
 import model.Entity;
-import model.IRenderable;
 
 public class GameLogic {
 	private List<Entity> entities;
@@ -52,6 +49,16 @@ public class GameLogic {
 	synchronized public void removeEntity(Entity e) {
 		entities.remove(e);
 		RenderableHolder.instance.removeEntity(e);
+	}
+
+	synchronized public void clearEntity() {
+		entities.clear();
+		RenderableHolder.instance.clearEntity();
+	}
+	
+	public void initGame(){
+		clearEntity();
+		PlayerStatus.instance.initPlayer(PlayerStatus.DEFAULT_HP);
 	}
 
 }

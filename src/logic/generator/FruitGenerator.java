@@ -2,12 +2,9 @@ package logic.generator;
 
 import java.util.Random;
 
-import com.sun.org.glassfish.gmbal.GmbalException;
-
 import gui.ScreenProperties;
 import logic.GameLogic;
 import logic.entity.Fruit;
-import model.Entity;
 
 public class FruitGenerator extends Generator {
 
@@ -27,7 +24,7 @@ public class FruitGenerator extends Generator {
 					int x = random.nextInt((int) ScreenProperties.screenWidth);
 					int y = (int) ScreenProperties.screenHeight;
 					int speedX = (50 + random.nextInt(200)) * (random.nextInt(2) == 0 ? -1 : 1);
-					int speedY = 300 + random.nextInt(200);
+					int speedY = 700 + random.nextInt(200);
 					gameLogic.addEntity(new Fruit(x, y, speedX, speedY));
 					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {
