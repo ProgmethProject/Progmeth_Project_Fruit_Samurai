@@ -2,6 +2,7 @@ package logic.generator;
 
 import java.util.Random;
 
+import graphic.PlayerStatus;
 import gui.ScreenProperties;
 import logic.GameLogic;
 import logic.entity.Fruit;
@@ -21,6 +22,7 @@ public class FruitGenerator extends Generator {
 		return () -> {
 			while (true) {
 				try {
+					if (PlayerStatus.instance.isPause())continue;
 					Random random = new Random();
 					int x = random.nextInt((int) ScreenProperties.screenWidth);
 					int y = (int) ScreenProperties.screenHeight;

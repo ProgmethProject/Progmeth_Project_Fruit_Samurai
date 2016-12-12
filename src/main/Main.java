@@ -105,6 +105,7 @@ public class Main extends Application {
 		this.primaryStage.close();
 		ThreadHolder.instance.getGameThread().interrupt();
 		this.drawingAnimation.stop();
+		ThreadHolder.instance.clearAllThread();
 	}
 
 	public void drawGameScreen() {
