@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import logic.entity.Trail;
 import logic.highscore.HighScoreUtility;
 import logic.highscore.HighScoreUtility.HighScoreRecord;
 import main.Main;
@@ -157,6 +158,9 @@ public class CollectionScreen extends BorderPane {
 				@Override
 				public void handle(ActionEvent event) {
 					setLabel(selectColor, "mediumorchid");
+					Trail.instance.setSlashColor(1);
+					Trail.instance.setTrailColorIn(Color.BLACK);
+					Trail.instance.setTrailColorOut(Color.DARKMAGENTA);
 				}
 			});
 
@@ -165,6 +169,9 @@ public class CollectionScreen extends BorderPane {
 				@Override
 				public void handle(ActionEvent event) {
 					setLabel(selectColor, "deepskyblue");
+					Trail.instance.setSlashColor(2);
+					Trail.instance.setTrailColorIn(Color.DEEPSKYBLUE);
+					Trail.instance.setTrailColorOut(Color.CYAN);
 				}
 			});
 
@@ -173,6 +180,9 @@ public class CollectionScreen extends BorderPane {
 				@Override
 				public void handle(ActionEvent event) {
 					setLabel(selectColor, "limegreen");
+					Trail.instance.setSlashColor(3);
+					Trail.instance.setTrailColorIn(Color.GREEN);
+					Trail.instance.setTrailColorOut(Color.LIMEGREEN);
 				}
 			});
 
@@ -181,6 +191,9 @@ public class CollectionScreen extends BorderPane {
 				@Override
 				public void handle(ActionEvent event) {
 					setLabel(selectColor, "red");
+					Trail.instance.setSlashColor(4);
+					Trail.instance.setTrailColorIn(Color.RED);
+					Trail.instance.setTrailColorOut(Color.ORANGE);
 				}
 			});
 
@@ -190,6 +203,7 @@ public class CollectionScreen extends BorderPane {
 				public void handle(ActionEvent event) {
 					setLabel(selectColor,
 							"linear-gradient(from 0% 50% to 100% 50%, red 3%, orange 16%, yellow 30%, limegreen 44%, lightblue 64%, blue 77%, purple 92%)");
+					Trail.instance.setSlashColor(5);
 				}
 			});
 

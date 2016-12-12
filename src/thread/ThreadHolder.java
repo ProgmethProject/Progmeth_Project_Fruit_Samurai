@@ -35,7 +35,6 @@ public class ThreadHolder {
 						HighScoreUtility.recordHighScore(PlayerStatus.instance.getScore());
 					});
 					PlayerStatus.instance.setGameOver(false);
-//					InputUtility.setMouseLeftDown(false);
 					return;
 				}
 				try {
