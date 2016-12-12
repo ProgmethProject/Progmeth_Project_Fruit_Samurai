@@ -42,7 +42,7 @@ public class HighScoreUtility {
 			}
 		}
 
-		private String getRecord() {
+		public String getRecord() {
 			return name.trim() + ":" + score;
 		}
 
@@ -76,7 +76,7 @@ public class HighScoreUtility {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText(null);
-			alert.setContentText("Error loading highscore recordLLLL");
+			alert.setContentText("Error loading highscore record");
 			alert.show();
 			return;
 		}
@@ -143,22 +143,22 @@ public class HighScoreUtility {
 					Main.instance.getDrawingAnimation().stop();
 					System.out.println("Dialog is closed");
 					Main.instance.changeToStartScreen();
+					Main.instance.getStartScreen().screenTransitionIn();
 				}
 			});
 			dialog.show();
 		}
 	}
 
-	public static void displayTop10() {
+	public static HighScoreRecord[] loadTop10() {
 		setReadFileName("highscore");
 		if (!loadHighScore() || highScoreRecord == null) {
-			/* fill code */
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText(null);
 			alert.setContentText("Error loading highscore record" + loadHighScore());
 			alert.showAndWait();
-			return;
+			return null;
 		}
 		String msg = "======= Top 10 players =======" + System.getProperty("line.separator");
 		int rank = 1;
@@ -166,11 +166,12 @@ public class HighScoreUtility {
 			msg += rank + " " + record.getRecord() + System.getProperty("line.separator");
 			rank++;
 		}
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Top 10");
-		alert.setHeaderText(null);
-		alert.setContentText(msg.trim());
-		alert.showAndWait();
+		return highScoreRecord;
+//		Alert alert = new Alert(AlertType.INFORMATION);
+//		alert.setTitle("Top 10");
+//		alert.setHeaderText(null);
+//		alert.setContentText(msg.trim());
+//		alert.showAndWait();
 	}
 
 	private static boolean loadHighScore() {

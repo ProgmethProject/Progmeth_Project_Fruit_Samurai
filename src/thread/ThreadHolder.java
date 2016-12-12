@@ -3,6 +3,7 @@ package thread;
 import java.util.ArrayList;
 import java.util.List;
 
+import Utility.InputUtility;
 import graphic.PlayerStatus;
 import javafx.application.Platform;
 import logic.generator.Generator;
@@ -35,6 +36,7 @@ public class ThreadHolder {
 						HighScoreUtility.recordHighScore(PlayerStatus.instance.getScore());
 					});
 					PlayerStatus.instance.setGameOver(false);
+					InputUtility.setMouseLeftDown(false);
 					return;
 				}
 				try {
