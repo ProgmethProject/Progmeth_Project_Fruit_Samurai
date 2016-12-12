@@ -99,6 +99,7 @@ public class HighScoreUtility {
 					Main.instance.getDrawingAnimation().stop();
 					System.out.println("Dialog is closed");
 					Main.instance.changeToStartScreen();
+					Main.instance.getStartScreen().screenTransitionIn();
 				}
 			});
 			alert.show();
