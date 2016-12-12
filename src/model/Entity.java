@@ -1,13 +1,15 @@
 package model;
 
+import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import gui.ScreenProperties;
+import logic.entity.Fruit;
 
 public abstract class Entity implements IRenderable {
 
 	public static double GRAVITY = 700;
 
-	protected double x, y, speedX, speedY;
+	protected double x, y, speedX, speedY, modifier;
 	protected double rotation;
 	protected int z;
 	protected boolean isDestroyed;
@@ -21,6 +23,7 @@ public abstract class Entity implements IRenderable {
 		this.z = RenderableHolder.instance.getMaxZ() + 1;
 		this.isDestroyed = false;
 		this.rotation = 0;
+		this.modifier = 1;
 	}
 
 	public double getX() {
@@ -73,16 +76,20 @@ public abstract class Entity implements IRenderable {
 
 	public void move() {
 
-		this.x += speedX / 1000;
-		this.y -= speedY / 1000;
-		this.speedY -= GRAVITY / 1000;
+		this.x += speedX * modifier / 1000;
+		this.y -= speedY * modifier / 1000;
+		this.speedY -= GRAVITY * modifier / 1000;
 
-		this.rotation += ((double)270 / 1000) * (speedX > 0 ? 1 : -1);
+		this.rotation += ((double) 270 / 1000) * (speedX > 0 ? 1 : -1);
 	}
 
 	public void update() {
 		if (this.x > ScreenProperties.screenWidth || this.x < -50) {
 			setDestroyed(true);
+			if (this instanceof Fruit) {
+				PlayerStatus.instance.resetComboCount();
+				PlayerStatus.instance.setOnCombo(false);
+			}
 		}
 		if (!isDestroyed) {
 			move();

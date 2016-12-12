@@ -41,7 +41,7 @@ public class PlayerStatus implements IRenderable {
 	}
 
 	public void increaseScore(int score) {
-		this.score += score * scoreModifier;
+		this.score += score * scoreModifier * comboCount;
 	}
 
 	public void setScoreModifier(int scoreModifier) {
