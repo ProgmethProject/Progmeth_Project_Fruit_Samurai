@@ -20,7 +20,7 @@ public class BombGenerator extends Generator {
 		return () -> {
 			while (true) {
 				try {
-					if (ItemStatus.instance.getFrenzyCounter() == 0) {
+					if (ItemStatus.instance.getFrenzyCounter() > 0) {
 						continue;
 					}
 					Random random = new Random();

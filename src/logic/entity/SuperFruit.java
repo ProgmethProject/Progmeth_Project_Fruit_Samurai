@@ -8,6 +8,7 @@ public class SuperFruit extends Fruit {
 		super(x, y, speedX, speedY);
 		Random random = new Random();
 		index = 7 + random.nextInt(3);
+		System.out.println(index);
 	}
 
 	@Override
@@ -17,7 +18,7 @@ public class SuperFruit extends Fruit {
 			ItemStatus.instance.setFreezeCounter(5000);
 		} else if (index == 8) {
 			ItemStatus.instance.setFrenzyCounter(5000);
-		} else {
+		} else if (index == 9) {
 			ItemStatus.instance.setDoubleCounter(5000);
 		}
 	}

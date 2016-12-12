@@ -78,17 +78,17 @@ public class DrawingUtility {
 				45 * modifier, 55 * modifier, false, true);
 		cut_fruit[13] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry2.png").toString(),
 				45 * modifier, 55 * modifier, false, true);
-		cut_fruit[14] = new Image(ClassLoader.getSystemResource("image/entity/banana_king1.png").toString(), 48 * modifier,
+		cut_fruit[14] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king1.png").toString(), 48 * modifier,
 				60 * modifier, false, true);
-		cut_fruit[15] = new Image(ClassLoader.getSystemResource("image/entity/banana_king2.png").toString(), 48 * modifier,
+		cut_fruit[15] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king2.png").toString(), 48 * modifier,
 				60 * modifier, false, true);
-		cut_fruit[16] = new Image(ClassLoader.getSystemResource("image/entity/banana_fire1.png").toString(), 56 * modifier,
+		cut_fruit[16] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire1.png").toString(), 56 * modifier,
 				69 * modifier, false, true);
-		cut_fruit[17] = new Image(ClassLoader.getSystemResource("image/entity/banana_fire2.png").toString(), 56 * modifier,
+		cut_fruit[17] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire2.png").toString(), 56 * modifier,
 				69 * modifier, false, true);
-		cut_fruit[18] = new Image(ClassLoader.getSystemResource("image/entity/frozen_banana1.png").toString(), 45 * modifier,
+		cut_fruit[18] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana1.png").toString(), 45 * modifier,
 				45 * modifier, false, true);
-		cut_fruit[19] = new Image(ClassLoader.getSystemResource("image/entity/frozen_banana2.png").toString(), 45 * modifier,
+		cut_fruit[19] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana2.png").toString(), 45 * modifier,
 				45 * modifier, false, true);
 		animation = new Image[5];
 		animation[0] = new Image(ClassLoader.getSystemResource("image/bombanim2.png").toString(), 1280, 146, false,

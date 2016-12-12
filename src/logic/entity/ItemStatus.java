@@ -56,13 +56,13 @@ public class ItemStatus {
 	}
 
 	public void update() {
-		if (freezeCounter != 0) {
+		if (freezeCounter > 0) {
 			Entity.setModifier(0.5);
 			freezeCounter--;
 		} else {
 			Entity.setModifier(1);
 		}
-		if (frenzyCounter != 0) {
+		if (frenzyCounter > 0) {
 			if (frenzyGenerator.size() == 0) {
 				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 2000));
 				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 3000));
@@ -78,7 +78,7 @@ public class ItemStatus {
 			}
 			frenzyGenerator.clear();
 		}
-		if (doubleCounter != 0) {
+		if (doubleCounter > 0) {
 			PlayerStatus.instance.setScoreModifier(2);
 		} else {
 			PlayerStatus.instance.setScoreModifier(1);
