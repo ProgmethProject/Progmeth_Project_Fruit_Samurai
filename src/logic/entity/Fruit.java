@@ -17,12 +17,12 @@ import model.Entity;
 
 public class Fruit extends Entity implements Cuttable {
 	private int point;
-	private int index;
+	protected int index;
 
 	public Fruit(double x, double y, double speedX, double speedY) {
 		super(x, y, speedX, speedY);
 		Random random = new Random();
-		index = random.nextInt(DrawingUtility.fruit.length);
+		index = random.nextInt(7);
 		point = 1;
 	}
 

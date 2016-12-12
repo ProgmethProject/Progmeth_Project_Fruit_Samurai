@@ -5,8 +5,9 @@ import java.util.Random;
 import gui.ScreenProperties;
 import logic.GameLogic;
 import logic.entity.Bomb;
+import logic.entity.ItemStatus;
 
-public class BombGenerator extends Generator{
+public class BombGenerator extends Generator {
 	private GameLogic gameLogic;
 
 	public BombGenerator(GameLogic gameLogic, long generateInterval) {
@@ -19,6 +20,9 @@ public class BombGenerator extends Generator{
 		return () -> {
 			while (true) {
 				try {
+					if (ItemStatus.instance.getFrenzyCounter() > 0) {
+						continue;
+					}
 					Random random = new Random();
 					int x = random.nextInt((int) ScreenProperties.screenWidth);
 					int y = (int) ScreenProperties.screenHeight;

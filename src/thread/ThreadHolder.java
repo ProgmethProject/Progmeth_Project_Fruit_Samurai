@@ -6,6 +6,7 @@ import java.util.List;
 import Utility.InputUtility;
 import graphic.PlayerStatus;
 import javafx.application.Platform;
+import logic.entity.ItemStatus;
 import logic.generator.Generator;
 import logic.highscore.HighScoreUtility;
 import main.Main;
@@ -39,6 +40,7 @@ public class ThreadHolder {
 				}
 				try {
 					Main.instance.getGameLogic().updateLogic();
+					ItemStatus.instance.update();
 					Thread.sleep(1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
