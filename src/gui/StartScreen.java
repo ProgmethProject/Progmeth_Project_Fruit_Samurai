@@ -74,22 +74,8 @@ public class StartScreen extends GridPane {
 	}
 
 	public void addListener() {
-		titlePane.setOnMouseEntered(new EventHandler<Event>() {
-
-			@Override
-			public void handle(Event event) {
-				int colorA = (int) (Math.random()*255);
-				int colorB = (int) (Math.random()*255);
-				int colorC = (int) (Math.random()*255);
-				String color = colorA + ", " + colorB + ", " + colorC; 
-				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-						+ "-fx-text-alignment:center; -fx-padding: 20; "
-						+ "-fx-background-color: rgb(" + color + ");"
-						+ "-fx-border-color: black; -fx-border-width: 5;");
-			}
-		});
 		
-		titlePane.setOnMouseExited(new EventHandler<Event>() {
+		titleLabel.setOnMousePressed(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
@@ -219,24 +205,30 @@ public class StartScreen extends GridPane {
 	}
 
 	public void screenTransitionOut() {
+		TranslateTransition titleTrans = new TranslateTransition(Duration.millis(700), titlePane);
+		titleTrans.setByX(-ScreenProperties.screenWidth);
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
 		startTrans.setByX(-ScreenProperties.screenWidth);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
 		collctionTrans.setByX(-ScreenProperties.screenWidth);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
 		exitTrans.setByX(-ScreenProperties.screenWidth);
+		titleTrans.play();
 		startTrans.play();
 		collctionTrans.play();
 		exitTrans.play();
 	}
 	
 	public void screenTransitionIn() {
+		TranslateTransition titleTrans = new TranslateTransition(Duration.millis(700), titlePane);
+		titleTrans.setByX(ScreenProperties.screenWidth);
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
 		startTrans.setByX(ScreenProperties.screenWidth);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
 		collctionTrans.setByX(ScreenProperties.screenWidth);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
 		exitTrans.setByX(ScreenProperties.screenWidth);
+		titleTrans.play();
 		startTrans.play();
 		collctionTrans.play();
 		exitTrans.play();
