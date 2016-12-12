@@ -2,7 +2,7 @@ package main;
 
 import graphic.PlayerStatus;
 import gui.CollectionScreen;
-import gui.ConfigurableSettings;
+import gui.ScreenProperties;
 import gui.GameScreen;
 import gui.StartScreen;
 import javafx.animation.AnimationTimer;
@@ -23,7 +23,7 @@ public class Main extends Application {
 	private CollectionScreen collectionScreen;
 	private GameScreen gameScreen;
 	private StartScreen startScreen;
-	private ConfigurableSettings configurableSettings;
+	private ScreenProperties configurableSettings;
 
 	private GameLogic gameLogic;
 	private Thread gameThread;
@@ -50,13 +50,11 @@ public class Main extends Application {
 		this.gameScreen = new GameScreen();
 		this.collectionScreen = new CollectionScreen();
 		this.startScreen = new StartScreen();
-		this.configurableSettings = new ConfigurableSettings();
 
-		this.gameScene = new Scene(gameScreen, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
-		this.collectionScene = new Scene(collectionScreen, ConfigurableSettings.screenWidth,
-				ConfigurableSettings.screenHeight);
-		this.configScene = new Scene(configurableSettings, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
-		this.startScene = new Scene(startScreen, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
+		this.gameScene = new Scene(gameScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+		this.collectionScene = new Scene(collectionScreen, ScreenProperties.screenWidth,
+				ScreenProperties.screenHeight);
+		this.startScene = new Scene(startScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 
 		this.primaryStage.setScene(this.startScene);
 		this.primaryStage.show();
@@ -120,13 +118,6 @@ public class Main extends Application {
 		this.primaryStage.setScene(gameScene);
 		this.gameThread.start();
 		drawingAnimation.start();
-	}
-	
-	public void changeToCongfigurationSetting() {
-		configurableSettings.transIn();
-		this.primaryStage.setScene(configScene);
-		this.gameThread.interrupt();
-		this.drawingAnimation.stop();
 	}
 
 	public void changeToCollectionScreen() {

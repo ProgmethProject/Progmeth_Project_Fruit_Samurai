@@ -3,6 +3,7 @@ package logic.entity;
 import java.util.ArrayList;
 import java.util.List;
 
+import Utility.AudioUtility;
 import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.PlayerStatus;
@@ -30,6 +31,7 @@ public class Bomb extends InstantItem {
 		synchronized (RenderableHolder.instance.getEntities()) {
 			RenderableHolder.instance.getEntities().add(DrawingUtility.createBombAnimation((int) x, (int) y));
 		}
+		AudioUtility.playSound("bomb");
 	}
 
 	@Override

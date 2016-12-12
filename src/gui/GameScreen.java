@@ -25,8 +25,8 @@ public class GameScreen extends GridPane {
 
 	public GameScreen() {
 
-		screen_width = ConfigurableSettings.screenWidth;
-		screen_height = ConfigurableSettings.screenHeight;
+		screen_width = ScreenProperties.screenWidth;
+		screen_height = ScreenProperties.screenHeight;
 		canvas = new Canvas(screen_width, screen_height);
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);
@@ -35,11 +35,9 @@ public class GameScreen extends GridPane {
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
-		
 
 		addListener();
 	}
-
 
 	public void paintComponents() {
 		synchronized (RenderableHolder.instance.getEntities()) {
@@ -59,8 +57,10 @@ public class GameScreen extends GridPane {
 				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(false);
-					InputUtility.setReleaseX((int) event.getX());
-					InputUtility.setReleaseY((int) event.getY());
+					if (!PlayerStatus.instance.isPause()) {
+						InputUtility.setReleaseX((int) event.getX());
+						InputUtility.setReleaseY((int) event.getY());
+					}
 				}
 			}
 		});
@@ -71,7 +71,13 @@ public class GameScreen extends GridPane {
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseLeftLastDown(true);
-					logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					if (!PlayerStatus.instance.isPause()) {
+						logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					}
+				}
+				if (InputUtility.getMouseX() > 10 && InputUtility.getMouseX() < 60 && InputUtility.getMouseY() > 10
+						&& InputUtility.getMouseY() < 60) {
+					PlayerStatus.instance.setPause(!PlayerStatus.instance.isPause());
 				}
 
 			}
@@ -94,16 +100,16 @@ public class GameScreen extends GridPane {
 		canvas.setOnMouseMoved(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-					InputUtility.setMouseX((int) event.getX());
-					InputUtility.setMouseY((int) event.getY());
+				InputUtility.setMouseX((int) event.getX());
+				InputUtility.setMouseY((int) event.getY());
 			}
 		});
 
 		canvas.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-					InputUtility.setMouseX((int) event.getX());
-					InputUtility.setMouseY((int) event.getY());
+				InputUtility.setMouseX((int) event.getX());
+				InputUtility.setMouseY((int) event.getY());
 			}
 		});
 

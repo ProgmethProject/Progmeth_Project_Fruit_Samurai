@@ -7,7 +7,7 @@ import model.IRenderable;
 public class MenuButton implements IRenderable {
 	private int buttonSize = 50;
 	public static final MenuButton instance = new MenuButton();
-
+	
 	@Override
 	public int getZ() {
 		return Integer.MAX_VALUE;

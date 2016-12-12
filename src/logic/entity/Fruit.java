@@ -7,6 +7,7 @@ import java.util.Random;
 import com.sun.corba.se.spi.orbutil.fsm.Input;
 import com.sun.javafx.geom.transform.BaseTransform;
 
+import Utility.AudioUtility;
 import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.PlayerStatus;
@@ -63,6 +64,7 @@ public class Fruit extends Entity implements Cuttable {
 		HalfFruit right = new HalfFruit(x, y, speedX, speedY, rotation, index, 1);
 		Main.instance.getGameLogic().addEntity(left);
 		Main.instance.getGameLogic().addEntity(right);
+		AudioUtility.playSound("slash");
 
 	}
 

@@ -4,6 +4,7 @@ import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
 
 import Utility.DrawingUtility;
+import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -104,9 +105,18 @@ public class PlayerStatus implements IRenderable {
 		FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
 		double font_width = fontLoader.computeStringWidth("LIFE: ", gc.getFont());
 		double font_height = fontLoader.getFontMetrics(gc.getFont()).getLineHeight();
-		gc.fillText("LIFE:", 410, 45);
-		DrawingUtility.drawLife(gc, 410 + font_width - 5, 45 - font_height + 3, PlayerStatus.instance.getHealthPoint());
+		gc.fillText("LIFE:", 810, 45);
+		DrawingUtility.drawLife(gc, 810 + font_width - 5, 45 - font_height + 3, PlayerStatus.instance.getHealthPoint());
 		
+		if(isPause) {
+			gc.setGlobalAlpha(0.4);
+			gc.setFill(Color.BLACK);
+			gc.fillRect(0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+			gc.setGlobalAlpha(1.0);
+			gc.setFill(Color.WHITE);
+			gc.setFont(Font.loadFont(ClassLoader.getSystemResource("fonts/ChineseTakeaway.ttf").toString(), 50));
+			gc.fillText("PAUSE" , ScreenProperties.screenWidth/2-font_width, ScreenProperties.screenHeight/2);
+		}
 	}
 
 }

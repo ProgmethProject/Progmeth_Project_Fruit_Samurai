@@ -3,7 +3,7 @@ package Utility;
 import java.util.ArrayList;
 
 
-import gui.ConfigurableSettings;
+import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.transform.Rotate;
@@ -51,10 +51,12 @@ public class DrawingUtility {
 		cut_fruit[12] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry1.png").toString(), 45*modifier, 55*modifier, false, true);
 		cut_fruit[13] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry2.png").toString(), 45*modifier, 55*modifier, false, true);
 		animation = new Image[2];
-		animation[0] = new Image(ClassLoader.getSystemResource("image/cutanim.png").toString(), 1040*modifier, 130*modifier, false, true);
-		animation[1] = new Image(ClassLoader.getSystemResource("image/bombanim2.png").toString(), 1280*modifier, 146*modifier, false, true);
-		bomb = new Image(ClassLoader.getSystemResource("image/entity/bomb.png").toString(), 60*modifier, 65*modifier, false, true);
-		background = new Image(ClassLoader.getSystemResource("image/background/background.jpg").toString(), ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight, false, true);
+
+		animation[0] = new Image(ClassLoader.getSystemResource("image/cutanim.png").toString(), 1040, 130, false, true);
+		animation[1] = new Image(ClassLoader.getSystemResource("image/bombanim2.png").toString(), 1280, 146, false, true);
+		bomb = new Image(ClassLoader.getSystemResource("image/entity/bomb.png").toString(), 60, 65, false, true);
+		
+		background = new Image(ClassLoader.getSystemResource("image/background/background.jpg").toString(), ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
 		playButton = new Image(ClassLoader.getSystemResource("image/ui/play_button.png").toString(), 50, 50, false, true);
 		pauseButton = new Image(ClassLoader.getSystemResource("image/ui/pause_button.png").toString(), 50, 50, false, true);
 	}
