@@ -1,5 +1,7 @@
 package logic.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.sun.corba.se.spi.orbutil.fsm.Input;
@@ -67,33 +69,41 @@ public class Fruit extends Entity implements Cuttable {
 	@Override
 	public boolean isCut() {
 		Image image = DrawingUtility.fruit[index];
-		// double radiusRotate = Math.sqrt(Math.pow(image.getWidth() / 2, 2) +
-		// Math.pow(image.getHeight() / 2, 2));
-		//
-		// int xx = (int) (x + radiusRotate * Math.sin((45 + rotation) * Math.PI
-		// / 180));
-		// int yy = (int) (y + radiusRotate * Math.cos((45 + rotation) * Math.PI
-		// / 180));
 
 		int xx = (int) (x + image.getWidth() / 2);
 		int yy = (int) (y + image.getHeight() / 2);
 
 		int radius = (int) Math.max(image.getWidth() / 2, image.getHeight() / 2);
 
-		int delX = (int) (InputUtility.getMouseX() - xx);
-		int delY = (int) (InputUtility.getMouseY() - yy);
+		List<Double> xList = new ArrayList<>();
+		List<Double> yList = new ArrayList<>();
 
-		// System.out.println(x + ":" + y + " rotation:" + rotation);
-		if (InputUtility.isMouseLeftDown()) {
-			if (delX * delX + delY * delY <= radius * radius) {
-				if (InputUtility.getMouseSpeed() > 10) {
-					System.out.println(
-							InputUtility.getMouseSpeed() + "with angle" + InputUtility.getMouseAngle() * 180 / Math.PI);
-					return true;
+		double prevX = InputUtility.getPrevMouseX();
+		double prevY = InputUtility.getPrevMouseY();
+		double curX = InputUtility.getMouseX();
+		double curY = InputUtility.getMouseY();
+		double scaleX = (curX - prevX) / 100;
+		double scaleY = (curY - prevY) / 100;
+
+		double tempX = prevX, tempY = prevY;
+
+		for (int i = 0; i < 100; i++) {
+			xList.add(tempX);
+			yList.add(tempY);
+			tempX += scaleX;
+			tempY += scaleY;
+		}
+
+		for (int i = 0; i < 100; i++) {
+			if (InputUtility.isMouseLeftDown()) {
+				int delX = (int) (xList.get(i) - xx);
+				int delY = (int) (yList.get(i) - yy);
+				if (delX * delX + delY * delY <= radius * radius) {
+					if (InputUtility.getMouseSpeed() > 10) {
+						return true;
+					}
 				}
-				return false;
 			}
-			return false;
 		}
 		return false;
 	}

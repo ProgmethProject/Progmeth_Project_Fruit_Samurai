@@ -73,7 +73,7 @@ public class Trail implements IRenderable {
 	public void draw(GraphicsContext gc) {
 		update();
 		if(!Trail.instance.getTrailX().isEmpty()) {
-			double lineWidth = 10;
+			double lineWidth = 20;
 			ArrayList<Integer> trailX = Trail.instance.getTrailX();
 			ArrayList<Integer> trailY = Trail.instance.getTrailY();
 			int prevX = trailX.get(trailX.size() - 1);

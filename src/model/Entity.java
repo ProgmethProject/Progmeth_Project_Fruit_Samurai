@@ -76,11 +76,11 @@ public abstract class Entity implements IRenderable {
 
 	public void move() {
 
-		this.x += speedX / 200;
-		this.y -= speedY / 200;
-		this.speedY -= GRAVITY / 200;
+		this.x += speedX / 1000;
+		this.y -= speedY / 1000;
+		this.speedY -= GRAVITY / 1000;
 
-		this.rotation += (270 / 200) * speedX > 0 ? 1 : -1;
+		this.rotation += ((double)270 / 1000) * (speedX > 0 ? 1 : -1);
 	}
 
 	public void update() {

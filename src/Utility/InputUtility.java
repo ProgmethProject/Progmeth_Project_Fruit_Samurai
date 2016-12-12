@@ -12,6 +12,14 @@ public class InputUtility {
 		return isDrag;
 	}
 
+	public static int getPrevMouseX() {
+		return prevMouseX;
+	}
+
+	public static int getPrevMouseY() {
+		return prevMouseY;
+	}
+
 	public static void setDrag(boolean isDrag) {
 		InputUtility.isDrag = isDrag;
 	}

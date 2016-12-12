@@ -6,15 +6,12 @@ import gui.ConfigurableSettings;
 import gui.GameScreen;
 import gui.StartScreen;
 import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
-import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import javafx.util.Duration;
 import logic.GameLogic;
 import logic.highscore.HighScoreUtility;
 
@@ -76,7 +73,7 @@ public class Main extends Application {
 				}
 				try {
 					gameLogic.updateLogic();
-					Thread.sleep(5);
+					Thread.sleep(1);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 					return;
