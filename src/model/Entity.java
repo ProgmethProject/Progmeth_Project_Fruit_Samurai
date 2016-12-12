@@ -9,7 +9,8 @@ public abstract class Entity implements IRenderable {
 
 	public static double GRAVITY = 700;
 	public static int debug = 0;
-	protected double x, y, speedX, speedY, modifier;
+	private static double modifier;
+	protected double x, y, speedX, speedY;
 	protected double rotation;
 	protected int z;
 	protected boolean isDestroyed;
@@ -24,6 +25,10 @@ public abstract class Entity implements IRenderable {
 		this.isDestroyed = false;
 		this.rotation = 0;
 		this.modifier = 1;
+	}
+
+	public static void setModifier(double modifier) {
+		Entity.modifier = modifier;
 	}
 
 	public double getX() {

@@ -90,9 +90,9 @@ public class Main extends Application {
 
 	public void changeToGameScreen() {
 		this.primaryStage.setScene(gameScene);
-		drawingAnimation.start();
 		ThreadHolder.instance.resetThread();
 		ThreadHolder.instance.getGameThread().start();
+		drawingAnimation.start();
 	}
 
 	public void changeToCollectionScreen() {

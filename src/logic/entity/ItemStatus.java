@@ -1,52 +1,87 @@
 package logic.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import graphic.PlayerStatus;
+import logic.generator.FruitGenerator;
+import logic.generator.Generator;
+import main.Main;
+import model.Entity;
+
 public class ItemStatus {
 
 	public static ItemStatus instance = new ItemStatus();
-	private boolean isFreeze, isFrenzy, isDouble, isInk;
-	private int itemTimeCounter;
+	private int freezeCounter, frenzyCounter, doubleCounter, inkCounter;
+	List<Generator> frenzyGenerator;
 
 	public ItemStatus() {
-		isFreeze = false;
-		isFrenzy = false;
-		isDouble = false;
-		isInk = false;
+		freezeCounter = 0;
+		frenzyCounter = 0;
+		doubleCounter = 0;
+		inkCounter = 0;
+		frenzyGenerator = new ArrayList<>();
 	}
 
-	public boolean isFreeze() {
-		return isFreeze;
+	public int getFreezeCounter() {
+		return freezeCounter;
 	}
 
-	public void setFreeze(boolean isFreeze) {
-		this.isFreeze = isFreeze;
+	public void setFreezeCounter(int freezeCounter) {
+		this.freezeCounter = freezeCounter;
 	}
 
-	public boolean isFrenzy() {
-		return isFrenzy;
+	public int getFrenzyCounter() {
+		return frenzyCounter;
 	}
 
-	public void setFrenzy(boolean isFrenzy) {
-		this.isFrenzy = isFrenzy;
+	public void setFrenzyCounter(int frenzyCounter) {
+		this.frenzyCounter = frenzyCounter;
 	}
 
-	public boolean isDouble() {
-		return isDouble;
+	public int getDoubleCounter() {
+		return doubleCounter;
 	}
 
-	public void setDouble(boolean isDouble) {
-		this.isDouble = isDouble;
+	public void setDoubleCounter(int doubleCounter) {
+		this.doubleCounter = doubleCounter;
 	}
 
-	public boolean isInk() {
-		return isInk;
+	public int getInkCounter() {
+		return inkCounter;
 	}
 
-	public void setInk(boolean isInk) {
-		this.isInk = isInk;
+	public void setInkCounter(int inkCounter) {
+		this.inkCounter = inkCounter;
 	}
 
-	public int getItemTimeCounter() {
-		return itemTimeCounter;
+	public void update() {
+		if (freezeCounter != 0) {
+			Entity.setModifier(0.5);
+			freezeCounter--;
+		} else {
+			Entity.setModifier(1);
+		}
+		if (frenzyCounter != 0) {
+			if (frenzyGenerator.size() == 0) {
+				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 2000));
+				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 3000));
+				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 4000));
+				for (Generator generator : frenzyGenerator) {
+					generator.start();
+				}
+			}
+			frenzyCounter--;
+		} else {
+			for (Generator generator : frenzyGenerator) {
+				generator.stop();
+			}
+			frenzyGenerator.clear();
+		}
+		if (doubleCounter != 0) {
+			PlayerStatus.instance.setScoreModifier(2);
+		} else {
+			PlayerStatus.instance.setScoreModifier(1);
+		}
 	}
-
 }
