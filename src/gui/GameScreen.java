@@ -25,8 +25,8 @@ public class GameScreen extends GridPane {
 
 	public GameScreen() {
 
-		screen_width = ConfigurableSettings.screenWidth;
-		screen_height = ConfigurableSettings.screenHeight;
+		screen_width = ScreenProperties.screenWidth;
+		screen_height = ScreenProperties.screenHeight;
 		canvas = new Canvas(screen_width, screen_height);
 		gc = canvas.getGraphicsContext2D();
 		this.getChildren().add(canvas);

@@ -104,8 +104,8 @@ public class PlayerStatus implements IRenderable {
 		FontLoader fontLoader = Toolkit.getToolkit().getFontLoader();
 		double font_width = fontLoader.computeStringWidth("LIFE: ", gc.getFont());
 		double font_height = fontLoader.getFontMetrics(gc.getFont()).getLineHeight();
-		gc.fillText("LIFE:", 410, 45);
-		DrawingUtility.drawLife(gc, 410 + font_width - 5, 45 - font_height + 3, PlayerStatus.instance.getHealthPoint());
+		gc.fillText("LIFE:", 810, 45);
+		DrawingUtility.drawLife(gc, 810 + font_width - 5, 45 - font_height + 3, PlayerStatus.instance.getHealthPoint());
 		
 	}
 

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import graphic.RenderableHolder;
-import gui.ConfigurableSettings;
+import gui.ScreenProperties;
 import logic.entity.Fruit;
 import logic.generator.BombGenerator;
 import logic.generator.FruitGenerator;

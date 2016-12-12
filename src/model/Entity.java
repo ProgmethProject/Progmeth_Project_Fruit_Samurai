@@ -2,7 +2,7 @@ package model;
 
 import Utility.InputUtility;
 import graphic.RenderableHolder;
-import gui.ConfigurableSettings;
+import gui.ScreenProperties;
 import javafx.scene.shape.Shape;
 import logic.GameLogic;
 
@@ -84,7 +84,7 @@ public abstract class Entity implements IRenderable {
 	}
 
 	public void update() {
-		if (this.x > ConfigurableSettings.screenWidth || this.x < -50) {
+		if (this.x > ScreenProperties.screenWidth || this.x < -50) {
 			setDestroyed(true);
 		}
 		if (!isDestroyed) {
