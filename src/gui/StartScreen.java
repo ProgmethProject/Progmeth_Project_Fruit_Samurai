@@ -96,7 +96,6 @@ public class StartScreen extends GridPane {
 				PauseTransition pause = new PauseTransition(Duration.millis(700));
 				pause.setOnFinished(event -> {
 					Main.instance.changeToGameScreen();
-					screenTransitionIn();
 				});
 				pause.play();
 
@@ -135,6 +134,7 @@ public class StartScreen extends GridPane {
 				screenTransitionOut();
 				PauseTransition pause = new PauseTransition(Duration.millis(700));
 				pause.setOnFinished(event -> {
+					Main.instance.getCollectionScreen().screenTransitionIn();
 					Main.instance.changeToCollectionScreen();
 				});
 				pause.play();
@@ -178,33 +178,27 @@ public class StartScreen extends GridPane {
 
 	}
 
-	private void screenTransitionOut() {
+	public void screenTransitionOut() {
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
 		startTrans.setByX(-ScreenProperties.screenWidth);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
 		collctionTrans.setByX(-ScreenProperties.screenWidth);
-		TranslateTransition settingTrans = new TranslateTransition(Duration.millis(700), settingPane);
-		settingTrans.setByX(-ScreenProperties.screenWidth);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
 		exitTrans.setByX(-ScreenProperties.screenWidth);
 		startTrans.play();
 		collctionTrans.play();
-		settingTrans.play();
 		exitTrans.play();
 	}
 	
-	private void screenTransitionIn() {
+	public void screenTransitionIn() {
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
 		startTrans.setByX(ScreenProperties.screenWidth);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
 		collctionTrans.setByX(ScreenProperties.screenWidth);
-		TranslateTransition settingTrans = new TranslateTransition(Duration.millis(700), settingPane);
-		settingTrans.setByX(ScreenProperties.screenWidth);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
 		exitTrans.setByX(ScreenProperties.screenWidth);
 		startTrans.play();
 		collctionTrans.play();
-		settingTrans.play();
 		exitTrans.play();
 	}
 }

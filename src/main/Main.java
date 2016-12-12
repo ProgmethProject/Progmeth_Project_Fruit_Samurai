@@ -24,6 +24,7 @@ public class Main extends Application {
 	private CollectionScreen collectionScreen;
 	private GameScreen gameScreen;
 	private StartScreen startScreen;
+
 	private ScreenProperties configurableSettings;
 
 	private GameLogic gameLogic;
