@@ -85,6 +85,7 @@ public class ItemStatus implements IRenderable {
 		}
 		if (doubleCounter > 0) {
 			PlayerStatus.instance.setScoreModifier(2);
+			doubleCounter--;
 		} else {
 			PlayerStatus.instance.setScoreModifier(1);
 		}
