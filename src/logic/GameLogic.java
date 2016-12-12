@@ -5,7 +5,6 @@ import java.util.List;
 
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
-import logic.entity.Fruit;
 import logic.generator.BombGenerator;
 import logic.generator.FruitGenerator;
 import model.Entity;
