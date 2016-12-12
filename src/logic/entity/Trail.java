@@ -9,6 +9,7 @@ import javafx.scene.paint.Color;
 import model.IRenderable;
 
 public class Trail implements IRenderable {
+	private static int trailColor;
 	private static ArrayList<Integer> trailX = new ArrayList<Integer>();
 	private static ArrayList<Integer> trailY = new ArrayList<Integer>();
 	public static final Trail instance = new Trail();
