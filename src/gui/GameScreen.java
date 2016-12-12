@@ -61,7 +61,6 @@ public class GameScreen extends GridPane {
 				System.out.println("MousePressed : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
-					InputUtility.setMouseLeftLastDown(true);
 					logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
 
 				}
