@@ -10,6 +10,7 @@ import logic.entity.Trail;
 
 public class DrawingUtility {
 	public static Image background;
+	public static Image[] overlay;
 	public static Image playButton;
 	public static Image pauseButton;
 	public static Image[] cross;
@@ -109,6 +110,13 @@ public class DrawingUtility {
 				true);
 		pauseButton = new Image(ClassLoader.getSystemResource("image/ui/pause_button.png").toString(), 50, 50, false,
 				true);
+		overlay = new Image[3];
+		overlay[0] = new Image(ClassLoader.getSystemResource("image/background/confetti.png").toString(),
+				ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
+		overlay[1] = new Image(ClassLoader.getSystemResource("image/background/flame.png").toString(),
+				ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
+		overlay[2] = new Image(ClassLoader.getSystemResource("image/background/snow.png").toString(),
+				ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
 	}
 
 	public static void drawLife(GraphicsContext gc, double x, double y, int healthPoint) {
@@ -159,10 +167,6 @@ public class DrawingUtility {
 			prevY = trailY.get(i);
 			lineWidth -= 1;
 		}
-	}
-	
-	public static void drawOverlay() {
-		
 	}
 
 	public static GameAnimation createCuttingAnimation(int x, int y, int comboCount) {
