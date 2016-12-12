@@ -62,9 +62,11 @@ public class StartScreen extends BorderPane {
 			setAlignment(Pos.CENTER);
 			
 			String image = ClassLoader.getSystemResource("image/menu.jpg").toString();
-			this.setStyle("-fx-background-image: url('" + image + "'); " +
-			           "-fx-background-position: center center; " +
-			           "-fx-background-repeat: stretch;");
+			this.setStyle("-fx-background-image: url('" + image + "'); "
+						 + "-fx-background-position: center center;"
+			    	     + "-fx-background-repeat: stretch; -fx-background-size:" 
+			    	     + ConfigurableSettings.screenWidth + " " + ConfigurableSettings.screenHeight
+			    	     + ";");
 			
 			startButton = new Button("Start");
 			collectionButton = new Button("Collections");
@@ -221,7 +223,7 @@ public class StartScreen extends BorderPane {
 					screenTransition();
 					PauseTransition pause = new PauseTransition(Duration.millis(700));
 					pause.setOnFinished(event -> {
-						//TODO
+						Main.instance.changeToCongfigurationSetting();
 					});
 					pause.play();
 					

@@ -26,12 +26,13 @@ public class Main extends Application {
 	private CollectionScreen collectionScreen;
 	private GameScreen gameScreen;
 	private StartScreen startScreen;
+	private ConfigurableSettings configurableSettings;
 
 	private GameLogic gameLogic;
 	private Thread gameThread;
 	private AnimationTimer drawingAnimation;
 
-	Scene collectionScene, gameScene, startScene;
+	Scene collectionScene, gameScene, startScene, configScene;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -52,10 +53,12 @@ public class Main extends Application {
 		this.gameScreen = new GameScreen();
 		this.collectionScreen = new CollectionScreen();
 		this.startScreen = new StartScreen();
+		this.configurableSettings = new ConfigurableSettings();
 
 		this.gameScene = new Scene(gameScreen, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
 		this.collectionScene = new Scene(collectionScreen, ConfigurableSettings.screenWidth,
 				ConfigurableSettings.screenHeight);
+		this.configScene = new Scene(configurableSettings, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
 		this.startScene = new Scene(startScreen, ConfigurableSettings.screenWidth, ConfigurableSettings.screenHeight);
 
 		this.primaryStage.setScene(this.startScene);
@@ -120,6 +123,13 @@ public class Main extends Application {
 		this.primaryStage.setScene(gameScene);
 		this.gameThread.start();
 		drawingAnimation.start();
+	}
+	
+	public void changeToCongfigurationSetting() {
+		configurableSettings.transIn();
+		this.primaryStage.setScene(configScene);
+		this.gameThread.interrupt();
+		this.drawingAnimation.stop();
 	}
 
 	public void changeToCollectionScreen() {
