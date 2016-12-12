@@ -7,6 +7,7 @@ import graphic.Background;
 import graphic.MenuButton;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
+import logic.entity.ItemStatus;
 import logic.entity.Trail;
 import logic.generator.BombGenerator;
 import logic.generator.FruitGenerator;
@@ -62,6 +63,7 @@ public class GameLogic {
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
+		RenderableHolder.instance.addEntity(ItemStatus.instance);
 	}
 
 	public void startGame() {

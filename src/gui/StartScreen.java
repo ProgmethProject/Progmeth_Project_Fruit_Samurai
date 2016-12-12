@@ -7,6 +7,7 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
@@ -15,7 +16,8 @@ import main.Main;
 
 public class StartScreen extends GridPane {
 	private Button startButton, collectionButton, exitButton;
-	private StackPane startPane, collectionPane, settingPane, exitPane;
+	private StackPane startPane, collectionPane, exitPane, titlePane;
+	private Label titleLabel;
 
 	public StartScreen() {
 
@@ -27,10 +29,16 @@ public class StartScreen extends GridPane {
 		    	     + "-fx-background-repeat: stretch; -fx-background-size:" 
 		    	     + ScreenProperties.screenWidth + " " + ScreenProperties.screenHeight
 		    	     + "; -fx-background-radius: 0");
-
+		
+		titleLabel = new Label("Fruit Samurai");
 		startButton = new Button("Start");
 		collectionButton = new Button("Collections");
 		exitButton = new Button("Exit");
+		
+		titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
+				+ "-fx-text-alignment:center; -fx-padding: 20; "
+				+ "-fx-background-color: white;"
+				+ "-fx-border-color: black; -fx-border-width: 5;");
 
 		startButton.setStyle("-fx-background-color:darkorange; -fx-background-radius: 0,0,0,0; "
 				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
@@ -47,22 +55,55 @@ public class StartScreen extends GridPane {
 				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
 				+ "-fx-border-color: black; -fx-border-width: 5;");
 
+		titlePane = new StackPane(titleLabel);
 		startPane = new StackPane(startButton);
 		collectionPane = new StackPane(collectionButton);
 		exitPane = new StackPane(exitButton);
-
+		
+		GridPane.setVgrow(titlePane, Priority.ALWAYS);
 		GridPane.setVgrow(startPane, Priority.ALWAYS);
 		GridPane.setVgrow(collectionPane, Priority.ALWAYS);
 		GridPane.setVgrow(exitPane, Priority.ALWAYS);
-
-		add(startPane, 0, 0);
-		add(collectionPane, 0, 1);
-		add(exitPane, 0, 2);
+		
+		add(titlePane, 0, 0);
+		add(startPane, 0, 1);
+		add(collectionPane, 0, 2);
+		add(exitPane, 0, 3);
 		
 		addListener();
 	}
 
 	public void addListener() {
+		titlePane.setOnMouseEntered(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				int colorA = (int) (Math.random()*255);
+				int colorB = (int) (Math.random()*255);
+				int colorC = (int) (Math.random()*255);
+				String color = colorA + ", " + colorB + ", " + colorC; 
+				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
+						+ "-fx-text-alignment:center; -fx-padding: 20; "
+						+ "-fx-background-color: rgb(" + color + ");"
+						+ "-fx-border-color: black; -fx-border-width: 5;");
+			}
+		});
+		
+		titlePane.setOnMouseExited(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				int colorA = (int) (Math.random()*255);
+				int colorB = (int) (Math.random()*255);
+				int colorC = (int) (Math.random()*255);
+				String color = colorA + ", " + colorB + ", " + colorC; 
+				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
+						+ "-fx-text-alignment:center; -fx-padding: 20; "
+						+ "-fx-background-color: rgb(" + color + ");"
+						+ "-fx-border-color: black; -fx-border-width: 5;");
+			}
+		});
+		
 		startButton.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override
