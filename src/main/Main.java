@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 import logic.GameLogic;
+import logic.highscore.HighScoreUtility;
 
 public class Main extends Application {
 
@@ -62,12 +63,13 @@ public class Main extends Application {
 
 		this.gameThread = new Thread(() -> {
 			while (true) {
-				//TODO Add GameOver transition
+				// TODO Add GameOver transition
 				if (PlayerStatus.instance.isGameOver()) {
 					Platform.runLater(() -> {
-						changeToStartScreen();
-						PlayerStatus.instance.setGameOver(false);
+						HighScoreUtility.recordHighScore(PlayerStatus.instance.getScore());
 					});
+					PlayerStatus.instance.setGameOver(false);
+					return;
 				}
 				try {
 					gameLogic.updateLogic();
@@ -92,6 +94,18 @@ public class Main extends Application {
 		return this.gameLogic;
 	}
 
+	public CollectionScreen getCollectionScreen() {
+		return collectionScreen;
+	}
+
+	public StartScreen getStartScreen() {
+		return startScreen;
+	}
+
+	public AnimationTimer getDrawingAnimation() {
+		return drawingAnimation;
+	}
+
 	public GameScreen getGameScreen() {
 		return this.gameScreen;
 	}
@@ -103,10 +117,9 @@ public class Main extends Application {
 	}
 
 	public void changeToGameScreen() {
-		
-        	this.primaryStage.setScene(gameScene);
-        	this.gameThread.start();
-        	drawingAnimation.start();
+		this.primaryStage.setScene(gameScene);
+		this.gameThread.start();
+		drawingAnimation.start();
 	}
 
 	public void changeToCollectionScreen() {

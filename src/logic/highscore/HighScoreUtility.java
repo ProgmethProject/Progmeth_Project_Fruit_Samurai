@@ -1,4 +1,4 @@
-package logic;
+package logic.highscore;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,8 +12,8 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogEvent;
 import javafx.scene.control.TextInputDialog;
+import jdk.nashorn.internal.ir.debug.JSONWriter;
 import javafx.scene.control.Alert.AlertType;
-import lib.GameloopUtility;
 import main.Main;
 
 public class HighScoreUtility {
@@ -74,7 +74,6 @@ public class HighScoreUtility {
 	public static void recordHighScore(int score) {
 		System.out.println("recordHighScore");
 		if (!loadHighScore() || highScoreRecord == null) {
-			/* fill code */
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
 			alert.setHeaderText(null);
@@ -90,8 +89,6 @@ public class HighScoreUtility {
 			}
 		}
 		if (index >= highScoreRecord.length) {
-			/* fill code */
-			// hint: Alert alert = new Alert(...);
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Game over");
 			alert.setHeaderText(null);
@@ -100,12 +97,11 @@ public class HighScoreUtility {
 			alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
 				@Override
 				public void handle(DialogEvent event) {
-					GameloopUtility.animationTimer.stop();
+					Main.instance.getDrawingAnimation().stop();
 					System.out.println("Dialog is closed");
-					Main.instance.toggleScene();
+					Main.instance.changeToStartScreen();
 				}
 			});
-			/* fill code */
 			alert.show();
 		} else {
 			for (int i = highScoreRecord.length - 1; i >= index + 1; i--) {
@@ -113,7 +109,6 @@ public class HighScoreUtility {
 			}
 
 			TextInputDialog dialog = new TextInputDialog();
-			/* fill code */
 			dialog.setTitle("High score");
 			dialog.setHeaderText(null);
 			dialog.setContentText("Congratulation, you are ranked " + index + "\n" + "Please enter your name");
@@ -128,7 +123,6 @@ public class HighScoreUtility {
 						if (name != null) {
 							highScoreRecord[final_index] = new HighScoreRecord(name, score);
 							BufferedWriter out = new BufferedWriter(new FileWriter("highscore"));
-							/* fill code */
 							String string = "";
 							for (HighScoreRecord record : highScoreRecord) {
 								string += record.getRecord() + "\n";
@@ -146,10 +140,9 @@ public class HighScoreUtility {
 						highScoreRecord = null;
 						return;
 					}
-					GameloopUtility.animationTimer.stop();
-					System.out.println("Score is recorded");
-					Main.instance.toggleScene();
-
+					Main.instance.getDrawingAnimation().stop();
+					System.out.println("Dialog is closed");
+					Main.instance.changeToStartScreen();
 				}
 			});
 			dialog.show();
@@ -197,7 +190,6 @@ public class HighScoreUtility {
 			return readAndParseScoreFile(f);
 		}
 		return true;
-
 	}
 
 	private static boolean readAndParseScoreFile(File f) {
@@ -234,7 +226,6 @@ public class HighScoreUtility {
 			for (String s : HighScoreRecord.defaultRecord()) {
 				str += s + "\n";
 			}
-			// System.out.println(str + "=============\n");
 			str = str.trim();
 			out.write(getXORed(str));
 			out.close();
@@ -250,7 +241,6 @@ public class HighScoreUtility {
 	// This method does both encryption and decryption
 	private static String getXORed(String in) {
 		byte[] inData = in.getBytes();
-		/* fill code */
 		for (int i = 0; i < inData.length; i++) {
 			inData[i] = (byte) (inData[i] ^ key[i % key.length]);
 		}

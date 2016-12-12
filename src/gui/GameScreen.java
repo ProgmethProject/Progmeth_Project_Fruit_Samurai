@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import logic.Trail;
+import logic.entity.Trail;
 import Utility.DrawingUtility;
 import Utility.GameAnimation;
 import Utility.InputUtility;
@@ -71,7 +71,7 @@ public class GameScreen extends GridPane {
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseLeftLastDown(true);
-					logic.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
 				}
 
 			}

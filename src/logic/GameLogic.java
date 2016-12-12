@@ -5,6 +5,9 @@ import java.util.List;
 
 import graphic.RenderableHolder;
 import gui.ConfigurableSettings;
+import logic.entity.Fruit;
+import logic.generator.BombGenerator;
+import logic.generator.FruitGenerator;
 import main.Main;
 import model.Entity;
 import model.IRenderable;

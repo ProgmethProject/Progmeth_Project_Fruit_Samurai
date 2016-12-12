@@ -1,10 +1,12 @@
-package logic;
+package logic.generator;
 
 import java.util.Random;
 
 import com.sun.org.glassfish.gmbal.GmbalException;
 
 import gui.ConfigurableSettings;
+import logic.GameLogic;
+import logic.entity.Fruit;
 import model.Entity;
 
 public class FruitGenerator extends Generator {

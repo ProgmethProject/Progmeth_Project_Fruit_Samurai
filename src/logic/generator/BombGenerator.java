@@ -1,8 +1,10 @@
-package logic;
+package logic.generator;
 
 import java.util.Random;
 
 import gui.ConfigurableSettings;
+import logic.GameLogic;
+import logic.entity.Bomb;
 
 public class BombGenerator extends Generator{
 	private GameLogic gameLogic;

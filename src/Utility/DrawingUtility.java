@@ -7,7 +7,7 @@ import gui.ConfigurableSettings;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.transform.Rotate;
-import logic.Trail;
+import logic.entity.Trail;
 
 public class DrawingUtility {
 	public static Image background;
