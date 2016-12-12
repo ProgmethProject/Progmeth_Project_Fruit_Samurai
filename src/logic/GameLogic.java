@@ -50,8 +50,8 @@ public class GameLogic {
 		entities.clear();
 		RenderableHolder.instance.clearEntity();
 	}
-	
-	public void initGame(){
+
+	public void initGame() {
 		clearEntity();
 		PlayerStatus.instance.initPlayer(PlayerStatus.DEFAULT_HP);
 		mainFruitGenerator = new FruitGenerator(this, 1500);
@@ -63,8 +63,8 @@ public class GameLogic {
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
 	}
-	
-	public void startGame(){
+
+	public void startGame() {
 		mainFruitGenerator.start();
 		mainBombGenerator.start();
 	}

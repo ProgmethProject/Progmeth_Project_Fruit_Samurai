@@ -50,12 +50,13 @@ public class Fruit extends Entity implements Cuttable {
 		PlayerStatus.instance.increaseComboCount(1);
 		PlayerStatus.instance.increaseScore(point);
 		comboCount = PlayerStatus.instance.getComboCount();
+		System.out.println("----->" + comboCount);
 
 		Image image = DrawingUtility.fruit[index];
 		setDestroyed(true);
 		synchronized (RenderableHolder.instance.getEntities()) {
-			RenderableHolder.instance.getEntities().add(DrawingUtility
-					.createCuttingAnimation((int) (x + image.getWidth() / 2), (int) (y + image.getHeight() / 2),comboCount));
+			RenderableHolder.instance.getEntities().add(DrawingUtility.createCuttingAnimation(
+					(int) (x + image.getWidth() / 2), (int) (y + image.getHeight() / 2), comboCount));
 		}
 		HalfFruit left = new HalfFruit(x, y, -speedX, speedY, rotation, index, 0);
 		HalfFruit right = new HalfFruit(x, y, speedX, speedY, rotation, index, 1);
