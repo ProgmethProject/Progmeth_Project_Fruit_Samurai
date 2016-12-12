@@ -2,7 +2,6 @@ package Utility;
 
 import java.util.ArrayList;
 
-
 import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

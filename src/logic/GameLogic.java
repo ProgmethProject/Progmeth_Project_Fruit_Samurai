@@ -19,8 +19,6 @@ public class GameLogic {
 
 		entities = new ArrayList<>();
 		initGame();
-//		Fruit fruit = new Fruit(100, 100, 50, 200);
-//		addEntity(fruit);
 	}
 
 	synchronized public void updateLogic() {
