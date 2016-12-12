@@ -5,6 +5,7 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -14,7 +15,7 @@ import javafx.util.Duration;
 import main.Main;
 
 public class StartScreen extends GridPane {
-	private Button startButton, collectionButton, settingButton, exitButton;
+	private Button startButton, collectionButton, exitButton;
 	private StackPane startPane, collectionPane, settingPane, exitPane;
 
 	public StartScreen() {
@@ -26,17 +27,16 @@ public class StartScreen extends GridPane {
 					 + "-fx-background-position: center center;"
 		    	     + "-fx-background-repeat: stretch; -fx-background-size:" 
 		    	     + ScreenProperties.screenWidth + " " + ScreenProperties.screenHeight
-		    	     + ";");
+		    	     + "; -fx-background-radius: 0");
 
 		startButton = new Button("Start");
 		collectionButton = new Button("Collections");
-		settingButton = new Button("Setting");
 		exitButton = new Button("Exit");
 
 		startButton.setStyle("-fx-background-color:darkorange; -fx-background-radius: 0,0,0,0; "
 				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
 				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-				+ "-fx-border-color: black; -fx-border-width: 5;" + "-fx-opacity:1;");
+				+ "-fx-border-color: black; -fx-border-width: 5;");
 
 		collectionButton.setStyle("-fx-background-color:dodgerblue; -fx-background-radius: 0,0,0,0; "
 				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
@@ -50,12 +50,10 @@ public class StartScreen extends GridPane {
 
 		startPane = new StackPane(startButton);
 		collectionPane = new StackPane(collectionButton);
-		settingPane = new StackPane(settingButton);
 		exitPane = new StackPane(exitButton);
 
 		GridPane.setVgrow(startPane, Priority.ALWAYS);
 		GridPane.setVgrow(collectionPane, Priority.ALWAYS);
-		GridPane.setVgrow(settingPane, Priority.ALWAYS);
 		GridPane.setVgrow(exitPane, Priority.ALWAYS);
 
 		add(startPane, 0, 0);

@@ -22,8 +22,10 @@ public class Trail implements IRenderable {
 	}
 
 	public void addTrail(int x, int y) {
-		trailX.add(x);
-		trailY.add(y);
+		if (!PlayerStatus.instance.isPause()) {
+			trailX.add(x);
+			trailY.add(y);
+		}
 	}
 
 	public void clearTrail() {

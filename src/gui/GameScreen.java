@@ -71,9 +71,8 @@ public class GameScreen extends GridPane {
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseLeftLastDown(true);
-					if (!PlayerStatus.instance.isPause()) {
-						logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
-					}
+					logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+
 				}
 				if (InputUtility.getMouseX() > 10 && InputUtility.getMouseX() < 60 && InputUtility.getMouseY() > 10
 						&& InputUtility.getMouseY() < 60) {
