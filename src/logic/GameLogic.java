@@ -3,8 +3,11 @@ package logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import graphic.Background;
+import graphic.MenuButton;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
+import logic.entity.Trail;
 import logic.generator.BombGenerator;
 import logic.generator.FruitGenerator;
 import model.Entity;
@@ -16,7 +19,6 @@ public class GameLogic {
 	private BombGenerator mainBombGenerator;
 
 	public GameLogic() {
-
 		entities = new ArrayList<>();
 		initGame();
 	}
@@ -57,6 +59,13 @@ public class GameLogic {
 		mainBombGenerator = new BombGenerator(this, 3000);
 		ThreadHolder.instance.addGenerator(mainFruitGenerator);
 		ThreadHolder.instance.addGenerator(mainBombGenerator);
+		RenderableHolder.instance.addEntity(Background.instance);
+		RenderableHolder.instance.addEntity(PlayerStatus.instance);
+		RenderableHolder.instance.addEntity(MenuButton.instance);
+		RenderableHolder.instance.addEntity(Trail.instance);
+	}
+	
+	public void startGame(){
 		mainFruitGenerator.start();
 		mainBombGenerator.start();
 	}

@@ -28,7 +28,7 @@ public class ThreadHolder {
 		clearAllThread();
 		gameThread = new Thread(() -> {
 			Main.instance.getGameLogic().initGame();
-			Main.instance.getGameScreen().initRenderable();
+			Main.instance.getGameLogic().startGame();
 			while (true) {
 				if (PlayerStatus.instance.isGameOver()) {
 					Platform.runLater(() -> {
