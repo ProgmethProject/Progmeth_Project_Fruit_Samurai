@@ -5,6 +5,7 @@ import java.util.Random;
 import com.sun.corba.se.spi.orbutil.fsm.Input;
 import com.sun.javafx.geom.transform.BaseTransform;
 
+import Utility.AudioUtility;
 import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.PlayerStatus;
@@ -61,19 +62,13 @@ public class Fruit extends Entity implements Cuttable {
 		HalfFruit right = new HalfFruit(x, y, speedX, speedY, rotation, index, 1);
 		Main.instance.getGameLogic().addEntity(left);
 		Main.instance.getGameLogic().addEntity(right);
+		AudioUtility.playSound("slash");
 
 	}
 
 	@Override
 	public boolean isCut() {
 		Image image = DrawingUtility.fruit[index];
-		// double radiusRotate = Math.sqrt(Math.pow(image.getWidth() / 2, 2) +
-		// Math.pow(image.getHeight() / 2, 2));
-		//
-		// int xx = (int) (x + radiusRotate * Math.sin((45 + rotation) * Math.PI
-		// / 180));
-		// int yy = (int) (y + radiusRotate * Math.cos((45 + rotation) * Math.PI
-		// / 180));
 
 		int xx = (int) (x + image.getWidth() / 2);
 		int yy = (int) (y + image.getHeight() / 2);
@@ -83,7 +78,6 @@ public class Fruit extends Entity implements Cuttable {
 		int delX = (int) (InputUtility.getMouseX() - xx);
 		int delY = (int) (InputUtility.getMouseY() - yy);
 
-		// System.out.println(x + ":" + y + " rotation:" + rotation);
 		if (InputUtility.isMouseLeftDown()) {
 			if (delX * delX + delY * delY <= radius * radius) {
 				if (InputUtility.getMouseSpeed() > 10) {

@@ -1,5 +1,6 @@
 package logic.entity;
 
+import Utility.AudioUtility;
 import Utility.DrawingUtility;
 import Utility.InputUtility;
 import graphic.PlayerStatus;
@@ -28,6 +29,7 @@ public class Bomb extends InstantItem {
 			RenderableHolder.instance.getEntities().add(DrawingUtility
 					.createBombAnimation((int) x, (int) y));
 		}
+		AudioUtility.playSound("bomb");
 	}
 
 	@Override
