@@ -43,11 +43,6 @@ public class StartScreen extends GridPane {
 				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
 				+ "-fx-border-color: black; -fx-border-width: 5;");
 
-		settingButton.setStyle("-fx-background-color:limegreen; -fx-background-radius: 0,0,0,0; "
-				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
-				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-				+ "-fx-border-color: black; -fx-border-width: 5;" + "-fx-opacity:1;");
-
 		exitButton.setStyle("-fx-background-color:orchid; -fx-background-radius: 0,0,0,0; "
 				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
 				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
@@ -65,8 +60,7 @@ public class StartScreen extends GridPane {
 
 		add(startPane, 0, 0);
 		add(collectionPane, 0, 1);
-		add(settingPane, 0, 2);
-		add(exitPane, 0, 3);
+		add(exitPane, 0, 2);
 		
 		addListener();
 	}
