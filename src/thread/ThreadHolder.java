@@ -2,12 +2,6 @@ package thread;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import Utility.HighScoreUtility;
-import Utility.InputUtility;
-import graphic.PlayerStatus;
-import javafx.application.Platform;
-import logic.entity.ItemStatus;
 import main.Main;
 
 public class ThreadHolder {

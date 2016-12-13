@@ -1,7 +1,5 @@
 package logic.entity;
 
-import java.util.Random;
-
 import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;

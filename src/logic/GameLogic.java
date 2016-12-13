@@ -10,9 +10,6 @@ import graphic.RenderableHolder;
 import logic.entity.Entity;
 import logic.entity.ItemStatus;
 import logic.entity.Trail;
-import thread.BombGenerator;
-import thread.FruitGenerator;
-import thread.ThreadHolder;
 
 public class GameLogic {
 	private List<Entity> entities;

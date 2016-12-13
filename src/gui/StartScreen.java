@@ -86,20 +86,6 @@ public class StartScreen extends GridPane {
 			}
 		});
 
-		titlePane.setOnMouseExited(new EventHandler<Event>() {
-
-			@Override
-			public void handle(Event event) {
-				int colorA = (int) (Math.random() * 255);
-				int colorB = (int) (Math.random() * 255);
-				int colorC = (int) (Math.random() * 255);
-				String color = colorA + ", " + colorB + ", " + colorC;
-				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-						+ "-fx-text-alignment:center; -fx-padding: 20; " + "-fx-background-color: rgb(" + color + ");"
-						+ "-fx-border-color: black; -fx-border-width: 5;");
-			}
-		});
-
 		startButton.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override

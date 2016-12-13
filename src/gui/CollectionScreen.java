@@ -5,6 +5,7 @@ import Utility.HighScoreUtility.HighScoreRecord;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -21,6 +22,7 @@ import main.Main;
 public class CollectionScreen extends BorderPane {
 	private highScorePane highScorePane;
 	private bladeSelectionPane bladeSelectionPane;
+	private Button backButton;
 	private StackPane backPane;
 
 	public CollectionScreen() {
@@ -34,11 +36,21 @@ public class CollectionScreen extends BorderPane {
 
 		backPane = new StackPane();
 		this.setPadding(new Insets(50));
-		Button backButton = new Button("Back");
-		backButton.setStyle("-fx-background-color:deepskyblue ; -fx-background-radius: 0,0,0,0; "
-				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
-				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-				+ "-fx-border-color: black; -fx-border-width: 5;");
+		backButton = new Button("Back");
+		setBtnColor(backButton, "dodgerblue");
+		backPane.setStyle("-fx-background-color: transparent; -fx-padding: 30");
+		backPane.setAlignment(Pos.CENTER);
+		backPane.getChildren().add(backButton);
+
+		setLeft(highScorePane);
+		setRight(bladeSelectionPane);
+		setBottom(backPane);
+		
+		addListener();
+
+	}
+	
+	public void addListener() {
 		backButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
@@ -52,20 +64,31 @@ public class CollectionScreen extends BorderPane {
 				pause.play();
 
 			}
-
 		});
-		backPane.setStyle("-fx-background-color: transparent; -fx-padding: 30");
-		backPane.setAlignment(Pos.CENTER);
-		backPane.getChildren().add(backButton);
+		
+		backButton.setOnMouseEntered(new EventHandler<Event>() {
 
-		setLeft(highScorePane);
-		setRight(bladeSelectionPane);
-		setBottom(backPane);
+			@Override
+			public void handle(Event event) {
+				setBtnColor(backButton, "deepskyblue");
+			}
+		});
 
+		backButton.setOnMouseExited(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				setBtnColor(backButton, "dodgerblue");
+			}
+		});
 	}
-
-	public highScorePane getHighScorePane() {
-		return highScorePane;
+	
+	public void setBtnColor(Button Btn, String color) {
+		Btn.setStyle("-fx-background-color:" + color + "; -fx-background-radius: 0,0,0,0; "
+				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
+				+ "-fx-text-fill: black; -fx-font-size: 40px;"
+				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
+				+ "-fx-border-color: black; -fx-border-width: 5;");
 	}
 
 	public void screenTransitionIn() {
@@ -95,6 +118,9 @@ public class CollectionScreen extends BorderPane {
 		selectionTrans.play();
 		backTrans.play();
 	}
+	
+	
+	
 
 	public static class highScorePane extends GridPane {
 		private Label[] labels = new Label[10];
@@ -142,6 +168,9 @@ public class CollectionScreen extends BorderPane {
 			}
 		}
 	}
+	
+	
+	
 
 	public static class bladeSelectionPane extends GridPane {
 		private Button purpleBtn, blueBtn, greenBtn, redBtn, rainbowBtn;
@@ -169,7 +198,8 @@ public class CollectionScreen extends BorderPane {
 			setBtn(greenBtn, "limegreen");
 			setBtn(redBtn, "red");
 			setBtn(rainbowBtn,
-					"linear-gradient(from 0% 50% to 100% 50%, red 3%, orange 16%, yellow 30%, limegreen 44%, lightblue 64%, blue 77%, purple 92%)");
+					"linear-gradient(from 0% 50% to 100% 50%, red 3%, orange 16%, yellow 30%, "
+					+ "limegreen 44%, lightblue 64%, blue 77%, purple 92%)");
 
 			add(selectColor, 0, 0, 2, 1);
 			add(purpleBtn, 0, 1);
