@@ -1,5 +1,6 @@
 package logic.entity;
 
+import graphic.IRenderable;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import gui.ScreenProperties;
