@@ -25,9 +25,4 @@ public class MenuButton implements IRenderable {
 			DrawingUtility.drawPlayButton(gc, buttonSize);
 		}
 	}
-
-	public int getButtonSize() {
-		return buttonSize;
-	}
-
 }
