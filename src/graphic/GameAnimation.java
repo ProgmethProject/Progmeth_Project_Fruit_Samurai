@@ -90,8 +90,8 @@ public class GameAnimation implements IRenderable {
 				frameHeight);
 		gc.drawImage(croppedImage, x, y);
 
-		if (comboCount > 0)
-			gc.fillText("" + comboCount, x, y);
+		if (comboCount > 1)
+			gc.fillText("Combo " + comboCount, x, y);
 		updateAnimation();
 	}
 
