@@ -26,8 +26,4 @@ public class MenuButton implements IRenderable {
 		}
 	}
 
-	public int getButtonSize() {
-		return buttonSize;
-	}
-
 }
