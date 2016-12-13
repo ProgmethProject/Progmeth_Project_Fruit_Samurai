@@ -76,11 +76,11 @@ public class DrawingUtility {
 		cut_fruit[19] = loadImage("image/cut_entity/frozen_banana2.png", 65, 65);
 		
 		animation = new Image[5];
-		animation[0] = loadImage("image/bombanim2.png", 1280, 146);
-		animation[1] = loadImage("image/cutanim1.png", 1040, 130);
-		animation[2] = loadImage("image/cutanim2.png", 1040, 130);
-		animation[3] = loadImage("image/cutanim3.png", 1040, 130);
-		animation[4] = loadImage("image/cutanim4.png", 1040, 130);
+		animation[0] = loadImage("image/animation/bombanim2.png", 1280, 146);
+		animation[1] = loadImage("image/animation/cutanim1.png", 1040, 130);
+		animation[2] = loadImage("image/animation/cutanim2.png", 1040, 130);
+		animation[3] = loadImage("image/animation/cutanim3.png", 1040, 130);
+		animation[4] = loadImage("image/animation/cutanim4.png", 1040, 130);
 		
 		overlay = new Image[3];
 		overlay[0] = loadImageUnmod("image/background/confetti.png", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
@@ -165,23 +165,6 @@ public class DrawingUtility {
 		gc.setTransform(r.getMxx(), r.getMyx(), r.getMxy(), r.getMyy(), r.getTx(), r.getTy());
 	}
 
-	/**
-	 * Draws an image on a graphics context.
-	 *
-	 * The image is drawn at (tlpx, tlpy) rotated by angle pivoted around the
-	 * point: (tlpx + image.getWidth() / 2, tlpy + image.getHeight() / 2)
-	 *
-	 * @param gc
-	 *            the graphics context the image is to be drawn on.
-	 * @param angle
-	 *            the angle of rotation.
-	 * @param tlpx
-	 *            the top left x co-ordinate where the image will be plotted (in
-	 *            canvas co-ordinates).
-	 * @param tlpy
-	 *            the top left y co-ordinate where the image will be plotted (in
-	 *            canvas co-ordinates).
-	 */
 	public static void drawRotatedImage(GraphicsContext gc, Image image, double angle, double tlpx, double tlpy) {
 		gc.save(); // saves the current state on stack, including the current
 					// transform

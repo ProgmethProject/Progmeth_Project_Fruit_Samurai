@@ -24,7 +24,7 @@ public class CollectionScreen extends BorderPane {
 	private StackPane backPane;
 
 	public CollectionScreen() {
-		String image = ClassLoader.getSystemResource("image/menu.jpg").toString();
+		String image = ClassLoader.getSystemResource("image/background/menu.jpg").toString();
 		setStyle("-fx-background-image: url('" + image + "'); " + "-fx-background-position: center center;"
 				+ "-fx-background-repeat: stretch; -fx-background-size:" + ScreenProperties.screenWidth + " "
 				+ ScreenProperties.screenHeight + "; -fx-padding: 0");

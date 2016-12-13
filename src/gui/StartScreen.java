@@ -23,7 +23,7 @@ public class StartScreen extends GridPane {
 
 		setAlignment(Pos.CENTER);
 
-		String image = ClassLoader.getSystemResource("image/menu.jpg").toString();
+		String image = ClassLoader.getSystemResource("image/background/menu.jpg").toString();
 		this.setStyle("-fx-background-image: url('" + image + "'); " + "-fx-background-position: center center;"
 				+ "-fx-background-repeat: stretch; -fx-background-size:" + ScreenProperties.screenWidth + " "
 				+ ScreenProperties.screenHeight + "; -fx-background-radius: 0");
