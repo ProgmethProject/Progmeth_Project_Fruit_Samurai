@@ -7,11 +7,9 @@ import Utility.DrawingUtility;
 import graphic.PlayerStatus;
 import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
-import logic.generator.FruitGenerator;
-import logic.generator.Generator;
 import main.Main;
-import model.Entity;
-import model.IRenderable;
+import thread.FruitGenerator;
+import thread.Generator;
 
 public class ItemStatus implements IRenderable {
 

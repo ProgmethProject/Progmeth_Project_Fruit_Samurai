@@ -8,7 +8,7 @@ import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import model.IRenderable;
+import logic.entity.IRenderable;
 
 public class PlayerStatus implements IRenderable {
 	public static final int DEFAULT_HP = 3;

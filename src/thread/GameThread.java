@@ -1,9 +1,9 @@
 package thread;
 
+import Utility.HighScoreUtility;
 import graphic.PlayerStatus;
 import javafx.application.Platform;
 import logic.entity.ItemStatus;
-import logic.highscore.HighScoreUtility;
 import main.Main;
 
 public class GameThread extends Thread {
@@ -16,6 +16,7 @@ public class GameThread extends Thread {
 					});
 					PlayerStatus.instance.setGameOver(false);
 					ItemStatus.instance.resetAllCounter();
+					ThreadHolder.instance.clearAllThread();
 					return;
 				}
 				try {

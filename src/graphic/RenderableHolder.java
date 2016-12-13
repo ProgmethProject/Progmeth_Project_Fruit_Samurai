@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import model.IRenderable;
+import logic.entity.IRenderable;
 
 public class RenderableHolder {
 	public static RenderableHolder instance = new RenderableHolder();

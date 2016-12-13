@@ -1,14 +1,12 @@
-package model;
+package logic.entity;
 
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import gui.ScreenProperties;
-import logic.entity.Fruit;
 
 public abstract class Entity implements IRenderable {
 
 	public static double GRAVITY = 700;
-	public static int debug = 0;
 	private static double modifier;
 	protected double x, y, speedX, speedY;
 	protected double rotation;
@@ -89,13 +87,6 @@ public abstract class Entity implements IRenderable {
 	}
 
 	public void update() {
-		if (debug == 0) {
-			System.out.println(++debug + "" + "(" + this.x + "," + this.y + ")" + this);
-		}
-		if (!RenderableHolder.instance.getEntities().contains(this)) {
-			System.out.println(++debug + "" + "(" + this.x + "," + this.y + ")" + this);
-		}
-
 		if (this.x > ScreenProperties.screenWidth || this.x < -50 || this.y > ScreenProperties.screenHeight) {
 			setDestroyed(true);
 			if (this instanceof Fruit) {

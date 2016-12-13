@@ -3,7 +3,7 @@ package graphic;
 import Utility.DrawingUtility;
 import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
-import model.IRenderable;
+import logic.entity.IRenderable;
 
 public class Background implements IRenderable {
 	public static Background instance = new Background();

@@ -1,4 +1,4 @@
-package logic.highscore;
+package exception;
 
 public class ScoreParsingException extends Exception {
 

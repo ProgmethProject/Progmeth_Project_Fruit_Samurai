@@ -8,7 +8,6 @@ public class SuperFruit extends Fruit {
 		super(x, y, speedX, speedY);
 		Random random = new Random();
 		index = 7 + random.nextInt(3);
-		System.out.println(index);
 	}
 
 	@Override

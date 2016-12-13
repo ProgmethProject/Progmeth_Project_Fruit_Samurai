@@ -1,4 +1,4 @@
-package logic.generator;
+package thread;
 
 public abstract class Generator {
 

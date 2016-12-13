@@ -1,4 +1,4 @@
-package logic.highscore;
+package Utility;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 
-import Utility.InputUtility;
+import exception.ScoreParsingException;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -72,7 +72,6 @@ public class HighScoreUtility {
 	 * Display player's score and record if the player rank is 10 or higher.
 	 */
 	public static void recordHighScore(int score) {
-		System.out.println("recordHighScore");
 		if (!loadHighScore() || highScoreRecord == null) {
 			Alert alert = new Alert(AlertType.ERROR);
 			alert.setTitle("Error");
@@ -98,7 +97,6 @@ public class HighScoreUtility {
 				@Override
 				public void handle(DialogEvent event) {
 					Main.instance.getDrawingAnimation().stop();
-					System.out.println("Dialog is closed");
 					InputUtility.setMouseLeftDown(false);
 					Main.instance.getStartScreen().screenTransitionIn();
 					Main.instance.changeToStartScreen();
@@ -129,7 +127,6 @@ public class HighScoreUtility {
 							for (HighScoreRecord record : highScoreRecord) {
 								string += record.getRecord() + "\n";
 							}
-							// System.out.println(string);
 							out.write(getXORed(string));
 							out.close();
 						}
@@ -143,7 +140,6 @@ public class HighScoreUtility {
 						return;
 					}
 					Main.instance.getDrawingAnimation().stop();
-					System.out.println("Dialog is closed");
 					InputUtility.setMouseLeftDown(false);
 					Main.instance.getStartScreen().screenTransitionIn();
 					Main.instance.changeToStartScreen();
@@ -212,7 +208,6 @@ public class HighScoreUtility {
 				try {
 					highScoreRecord[i] = new HighScoreRecord(records[i]);
 				} catch (ScoreParsingException e) {
-					System.err.println("Error parsing line " + (i + 1) + ", " + e.getMessage());
 					highScoreRecord[i] = new HighScoreRecord("ERROR_RECORD", 0);
 				}
 			}

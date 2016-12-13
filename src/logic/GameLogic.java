@@ -7,11 +7,11 @@ import graphic.Background;
 import graphic.MenuButton;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
+import logic.entity.Entity;
 import logic.entity.ItemStatus;
 import logic.entity.Trail;
-import logic.generator.BombGenerator;
-import logic.generator.FruitGenerator;
-import model.Entity;
+import thread.BombGenerator;
+import thread.FruitGenerator;
 import thread.ThreadHolder;
 
 public class GameLogic {

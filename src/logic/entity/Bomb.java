@@ -10,8 +10,6 @@ import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import model.Cuttable;
-import model.Entity;
 
 public class Bomb extends Entity implements Cuttable {
 

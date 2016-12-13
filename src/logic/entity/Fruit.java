@@ -12,8 +12,6 @@ import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import main.Main;
-import model.Cuttable;
-import model.Entity;
 
 public class Fruit extends Entity implements Cuttable {
 	private int point;
@@ -50,7 +48,6 @@ public class Fruit extends Entity implements Cuttable {
 		PlayerStatus.instance.increaseComboCount(1);
 		PlayerStatus.instance.increaseScore(point);
 		comboCount = PlayerStatus.instance.getComboCount();
-		System.out.println("----->" + comboCount);
 
 		Image image = DrawingUtility.fruit[index];
 		setDestroyed(true);

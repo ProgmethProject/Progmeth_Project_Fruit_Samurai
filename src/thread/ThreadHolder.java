@@ -3,14 +3,11 @@ package thread;
 import java.util.ArrayList;
 import java.util.List;
 
+import Utility.HighScoreUtility;
 import Utility.InputUtility;
 import graphic.PlayerStatus;
 import javafx.application.Platform;
 import logic.entity.ItemStatus;
-import logic.generator.BombGenerator;
-import logic.generator.FruitGenerator;
-import logic.generator.Generator;
-import logic.highscore.HighScoreUtility;
 import main.Main;
 
 public class ThreadHolder {
@@ -42,7 +39,6 @@ public class ThreadHolder {
 		for (Generator generator : generators) {
 			generator.stop();
 		}
-		System.out.println(generators.size());
 		generators.clear();
 	}
 

@@ -1,4 +1,4 @@
-package model;
+package logic.entity;
 
 import javafx.scene.canvas.GraphicsContext;
 

@@ -9,7 +9,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import model.IRenderable;
+import logic.entity.IRenderable;
 
 public class GameScreen extends GridPane {
 
@@ -42,7 +42,6 @@ public class GameScreen extends GridPane {
 		canvas.setOnMouseReleased(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				System.out.println("MouseReleased : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(false);
 					if (!PlayerStatus.instance.isPause()) {
@@ -55,7 +54,6 @@ public class GameScreen extends GridPane {
 		canvas.setOnMousePressed(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				System.out.println("MousePressed : " + event.getButton().toString());
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
 					logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());

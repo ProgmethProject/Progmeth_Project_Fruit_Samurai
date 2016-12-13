@@ -6,7 +6,6 @@ import Utility.InputUtility;
 import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
-import model.IRenderable;
 
 public class Trail implements IRenderable {
 	private static int slashColor = 1;

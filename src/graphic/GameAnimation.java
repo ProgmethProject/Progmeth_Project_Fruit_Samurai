@@ -1,9 +1,9 @@
-package Utility;
+package graphic;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.WritableImage;
-import model.IRenderable;
+import logic.entity.IRenderable;
 
 public class GameAnimation implements IRenderable {
 
@@ -41,7 +41,7 @@ public class GameAnimation implements IRenderable {
 		this.y = y;
 	}
 
-	protected void centerAnimationAt(int x, int y) {
+	public void centerAnimationAt(int x, int y) {
 		this.x = x - frameWidth / 2;
 		this.y = y - frameHeight / 2;
 	}
