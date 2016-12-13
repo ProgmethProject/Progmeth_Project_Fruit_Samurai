@@ -194,13 +194,17 @@ public class StartScreen extends GridPane {
 
 	public void screenTransitionOut() {
 		TranslateTransition titleTrans = new TranslateTransition(Duration.millis(700), titlePane);
-		titleTrans.setByX(-ScreenProperties.screenWidth);
+		titleTrans.setFromX(0);
+		titleTrans.setToX(-ScreenProperties.screenWidth);
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
-		startTrans.setByX(-ScreenProperties.screenWidth);
+		startTrans.setFromX(0);
+		startTrans.setToX(-ScreenProperties.screenWidth);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
-		collctionTrans.setByX(-ScreenProperties.screenWidth);
+		collctionTrans.setFromX(0);
+		collctionTrans.setToX(-ScreenProperties.screenWidth);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
-		exitTrans.setByX(-ScreenProperties.screenWidth);
+		exitTrans.setFromX(0);
+		exitTrans.setToX(-ScreenProperties.screenWidth);
 		titleTrans.play();
 		startTrans.play();
 		collctionTrans.play();
@@ -209,13 +213,17 @@ public class StartScreen extends GridPane {
 
 	public void screenTransitionIn() {
 		TranslateTransition titleTrans = new TranslateTransition(Duration.millis(700), titlePane);
-		titleTrans.setByX(ScreenProperties.screenWidth);
+		titleTrans.setFromX(-ScreenProperties.screenWidth);
+		titleTrans.setToX(0);
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
-		startTrans.setByX(ScreenProperties.screenWidth);
+		startTrans.setFromX(-ScreenProperties.screenWidth);
+		startTrans.setToX(0);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
-		collctionTrans.setByX(ScreenProperties.screenWidth);
+		collctionTrans.setFromX(-ScreenProperties.screenWidth);
+		collctionTrans.setToX(0);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
-		exitTrans.setByX(ScreenProperties.screenWidth);
+		exitTrans.setFromX(-ScreenProperties.screenWidth);
+		exitTrans.setToX(0);
 		titleTrans.play();
 		startTrans.play();
 		collctionTrans.play();

@@ -94,13 +94,13 @@ public class CollectionScreen extends BorderPane {
 	public void screenTransitionIn() {
 		TranslateTransition highScoreTrans = new TranslateTransition(Duration.millis(700), highScorePane);
 		highScoreTrans.setFromX(ScreenProperties.screenWidth);
-		highScoreTrans.setByX(-ScreenProperties.screenWidth);
+		highScoreTrans.setToX(0);
 		TranslateTransition selectionTrans = new TranslateTransition(Duration.millis(700), bladeSelectionPane);
 		selectionTrans.setFromX(ScreenProperties.screenWidth);
-		selectionTrans.setByX(-ScreenProperties.screenWidth);
+		selectionTrans.setToX(0);
 		TranslateTransition backTrans = new TranslateTransition(Duration.millis(700), backPane);
 		backTrans.setFromX(ScreenProperties.screenWidth);
-		backTrans.setByX(-ScreenProperties.screenWidth);
+		backTrans.setToX(0);
 		highScoreTrans.play();
 		selectionTrans.play();
 		backTrans.play();
@@ -109,11 +109,14 @@ public class CollectionScreen extends BorderPane {
 
 	public void screenTransitionOut() {
 		TranslateTransition highScoreTrans = new TranslateTransition(Duration.millis(700), highScorePane);
-		highScoreTrans.setByX(ScreenProperties.screenWidth);
+		highScoreTrans.setFromX(0);
+		highScoreTrans.setToX(ScreenProperties.screenWidth);
 		TranslateTransition selectionTrans = new TranslateTransition(Duration.millis(700), bladeSelectionPane);
-		selectionTrans.setByX(ScreenProperties.screenWidth);
+		selectionTrans.setFromX(0);
+		selectionTrans.setToX(ScreenProperties.screenWidth);
 		TranslateTransition backTrans = new TranslateTransition(Duration.millis(700), backPane);
-		backTrans.setByX(ScreenProperties.screenWidth);
+		backTrans.setFromX(0);
+		backTrans.setToX(ScreenProperties.screenWidth);
 		highScoreTrans.play();
 		selectionTrans.play();
 		backTrans.play();
