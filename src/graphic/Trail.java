@@ -1,9 +1,7 @@
-package logic.entity;
+package graphic;
 
 import java.util.ArrayList;
 
-import graphic.IRenderable;
-import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import utility.InputUtility;

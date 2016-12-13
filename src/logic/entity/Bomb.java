@@ -26,9 +26,7 @@ public class Bomb extends Entity implements Cuttable {
 		PlayerStatus.instance.resetComboCount();
 		PlayerStatus.instance.setOnCombo(false);
 		setDestroyed(true);
-		synchronized (RenderableHolder.instance.getEntities()) {
-			RenderableHolder.instance.getEntities().add(DrawingUtility.createBombAnimation((int) x, (int) y));
-		}
+		RenderableHolder.instance.addEntity(DrawingUtility.createBombAnimation((int) x, (int) y));
 		AudioUtility.playSound("bomb");
 	}
 

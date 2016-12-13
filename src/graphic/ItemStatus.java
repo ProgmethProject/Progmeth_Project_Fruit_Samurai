@@ -1,11 +1,10 @@
-package logic.entity;
+package graphic;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import graphic.IRenderable;
-import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
+import logic.entity.Entity;
 import thread.FruitGenerator;
 import thread.Generator;
 import utility.DrawingUtility;

@@ -48,10 +48,8 @@ public class Fruit extends Entity implements Cuttable {
 
 		Image image = DrawingUtility.getFruit(index);
 		setDestroyed(true);
-		synchronized (RenderableHolder.instance.getEntities()) {
-			RenderableHolder.instance.getEntities().add(DrawingUtility.createCuttingAnimation(
-					(int) (x + image.getWidth() / 2), (int) (y + image.getHeight() / 2), comboCount));
-		}
+		RenderableHolder.instance.addEntity(DrawingUtility.createCuttingAnimation((int) (x + image.getWidth() / 2),
+				(int) (y + image.getHeight() / 2), comboCount));
 		HalfFruit left = new HalfFruit(x, y, -speedX, speedY, rotation, index, 0);
 		HalfFruit right = new HalfFruit(x, y, speedX, speedY, rotation, index, 1);
 		Main.instance.getGameLogic().addEntity(left);

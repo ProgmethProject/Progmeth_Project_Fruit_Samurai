@@ -3,11 +3,11 @@ package utility;
 import java.util.ArrayList;
 
 import graphic.GameAnimation;
+import graphic.Trail;
 import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.transform.Rotate;
-import logic.entity.Trail;
 
 public class DrawingUtility {
 	private static Image background;

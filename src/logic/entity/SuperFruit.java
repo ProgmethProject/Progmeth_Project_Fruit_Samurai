@@ -2,6 +2,7 @@ package logic.entity;
 
 import java.util.Random;
 
+import graphic.ItemStatus;
 import utility.AudioUtility;
 
 public class SuperFruit extends Fruit {

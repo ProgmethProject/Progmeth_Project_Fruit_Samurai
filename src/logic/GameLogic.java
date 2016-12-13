@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import graphic.Background;
+import graphic.ItemStatus;
 import graphic.MenuButton;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
+import graphic.Trail;
 import logic.entity.Entity;
-import logic.entity.ItemStatus;
-import logic.entity.Trail;
 
 public class GameLogic {
 	private List<Entity> entities;
