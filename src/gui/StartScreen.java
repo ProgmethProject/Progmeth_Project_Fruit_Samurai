@@ -60,7 +60,7 @@ public class StartScreen extends GridPane {
 	}
 
 	public void addListener() {
-		titlePane.setOnMouseEntered(new EventHandler<Event>() {
+		titleLabel.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override
 			public void handle(Event event) {
@@ -81,20 +81,6 @@ public class StartScreen extends GridPane {
 			@Override
 			public void handle(Event event) {
 				randomTitleColor();
-			}
-		});
-
-		titlePane.setOnMouseExited(new EventHandler<Event>() {
-
-			@Override
-			public void handle(Event event) {
-				int colorA = (int) (Math.random() * 255);
-				int colorB = (int) (Math.random() * 255);
-				int colorC = (int) (Math.random() * 255);
-				String color = colorA + ", " + colorB + ", " + colorC;
-				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-						+ "-fx-text-alignment:center; -fx-padding: 20; " + "-fx-background-color: rgb(" + color + ");"
-						+ "-fx-border-color: black; -fx-border-width: 5;");
 			}
 		});
 
@@ -124,7 +110,6 @@ public class StartScreen extends GridPane {
 					Main.instance.changeToGameScreen();
 				});
 				pause.play();
-
 			}
 
 		});
@@ -209,13 +194,17 @@ public class StartScreen extends GridPane {
 
 	public void screenTransitionOut() {
 		TranslateTransition titleTrans = new TranslateTransition(Duration.millis(700), titlePane);
-		titleTrans.setByX(-ScreenProperties.screenWidth);
+		titleTrans.setFromX(0);
+		titleTrans.setToX(-ScreenProperties.screenWidth);
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
-		startTrans.setByX(-ScreenProperties.screenWidth);
+		startTrans.setFromX(0);
+		startTrans.setToX(-ScreenProperties.screenWidth);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
-		collctionTrans.setByX(-ScreenProperties.screenWidth);
+		collctionTrans.setFromX(0);
+		collctionTrans.setToX(-ScreenProperties.screenWidth);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
-		exitTrans.setByX(-ScreenProperties.screenWidth);
+		exitTrans.setFromX(0);
+		exitTrans.setToX(-ScreenProperties.screenWidth);
 		titleTrans.play();
 		startTrans.play();
 		collctionTrans.play();
@@ -224,13 +213,17 @@ public class StartScreen extends GridPane {
 
 	public void screenTransitionIn() {
 		TranslateTransition titleTrans = new TranslateTransition(Duration.millis(700), titlePane);
-		titleTrans.setByX(ScreenProperties.screenWidth);
+		titleTrans.setFromX(-ScreenProperties.screenWidth);
+		titleTrans.setToX(0);
 		TranslateTransition startTrans = new TranslateTransition(Duration.millis(700), startPane);
-		startTrans.setByX(ScreenProperties.screenWidth);
+		startTrans.setFromX(-ScreenProperties.screenWidth);
+		startTrans.setToX(0);
 		TranslateTransition collctionTrans = new TranslateTransition(Duration.millis(700), collectionPane);
-		collctionTrans.setByX(ScreenProperties.screenWidth);
+		collctionTrans.setFromX(-ScreenProperties.screenWidth);
+		collctionTrans.setToX(0);
 		TranslateTransition exitTrans = new TranslateTransition(Duration.millis(700), exitPane);
-		exitTrans.setByX(ScreenProperties.screenWidth);
+		exitTrans.setFromX(-ScreenProperties.screenWidth);
+		exitTrans.setToX(0);
 		titleTrans.play();
 		startTrans.play();
 		collctionTrans.play();
