@@ -33,7 +33,6 @@ public class BombGenerator extends Generator {
 					}
 					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {
-					e.printStackTrace();
 					return;
 				}
 			}
