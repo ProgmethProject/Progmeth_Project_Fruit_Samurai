@@ -2,10 +2,10 @@ package thread;
 
 import java.util.Random;
 
+import graphic.ItemStatus;
 import graphic.PlayerStatus;
 import gui.ScreenProperties;
 import logic.entity.Bomb;
-import logic.entity.ItemStatus;
 import main.Main;
 
 public class BombGenerator extends Generator {

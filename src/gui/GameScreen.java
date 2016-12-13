@@ -58,7 +58,7 @@ public class GameScreen extends GridPane {
 					InputUtility.setMouseLeftDown(true);
 					InputUtility.setMouseX(event.getX());
 					InputUtility.setMouseY(event.getY());
-					logic.entity.Trail.instance.addTrail(event.getX(), event.getY());
+					graphic.Trail.instance.addTrail(event.getX(), event.getY());
 
 				}
 				if (InputUtility.getMouseX() >= 10 && InputUtility.getMouseX() <= 60 && InputUtility.getMouseY() >= 10

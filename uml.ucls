@@ -219,8 +219,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="25" language="java" name="logic.entity.ItemStatus" project="Progmeth_Project_Fruit_Samurai" 
-    file="/Progmeth_Project_Fruit_Samurai/src/logic/entity/ItemStatus.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="25" language="java" name="graphic.ItemStatus" project="Progmeth_Project_Fruit_Samurai" 
+    file="/Progmeth_Project_Fruit_Samurai/src/graphic/ItemStatus.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1839" y="1095"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -237,8 +237,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="27" language="java" name="logic.entity.Trail" project="Progmeth_Project_Fruit_Samurai" 
-    file="/Progmeth_Project_Fruit_Samurai/src/logic/entity/Trail.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="27" language="java" name="graphic.Trail" project="Progmeth_Project_Fruit_Samurai" 
+    file="/Progmeth_Project_Fruit_Samurai/src/graphic/Trail.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="2059" y="1118"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

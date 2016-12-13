@@ -1,8 +1,8 @@
 package thread;
 
+import graphic.ItemStatus;
 import graphic.PlayerStatus;
 import javafx.application.Platform;
-import logic.entity.ItemStatus;
 import main.Main;
 import utility.HighScoreUtility;
 
