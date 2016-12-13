@@ -40,20 +40,9 @@ public class StartScreen extends GridPane {
 				+ "-fx-background-color: white;"
 				+ "-fx-border-color: black; -fx-border-width: 5;");
 
-		startButton.setStyle("-fx-background-color:darkorange; -fx-background-radius: 0,0,0,0; "
-				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
-				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-				+ "-fx-border-color: black; -fx-border-width: 5;");
-
-		collectionButton.setStyle("-fx-background-color:dodgerblue; -fx-background-radius: 0,0,0,0; "
-				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
-				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-				+ "-fx-border-color: black; -fx-border-width: 5;");
-
-		exitButton.setStyle("-fx-background-color:orchid; -fx-background-radius: 0,0,0,0; "
-				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
-				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-				+ "-fx-border-color: black; -fx-border-width: 5;");
+		setBtnColor(startButton, "darkorange");
+		setBtnColor(collectionButton, "dodgerblue");
+		setBtnColor(exitButton, "orchid");
 
 		titlePane = new StackPane(titleLabel);
 		startPane = new StackPane(startButton);
@@ -79,14 +68,23 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				int colorA = (int) (Math.random()*255);
-				int colorB = (int) (Math.random()*255);
-				int colorC = (int) (Math.random()*255);
-				String color = colorA + ", " + colorB + ", " + colorC; 
-				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-						+ "-fx-text-alignment:center; -fx-padding: 20; "
-						+ "-fx-background-color: rgb(" + color + ");"
-						+ "-fx-border-color: black; -fx-border-width: 5;");
+				randomTitleColor();
+			}
+		});
+		
+		titleLabel.setOnMouseEntered(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				randomTitleColor();
+			}
+		});
+		
+		titleLabel.setOnMouseExited(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				randomTitleColor();
 			}
 		});
 		
@@ -94,11 +92,7 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				startButton.setStyle("-fx-background-color:orange; -fx-background-radius: 0,0,0,0; "
-						+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-						+ "-fx-text-fill: black; -fx-font-size: 40px;"
-						+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-						+ "-fx-border-color: black; -fx-border-width: 5;");
+				setBtnColor(startButton, "orange");
 			}
 		});
 
@@ -106,11 +100,7 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				startButton.setStyle("-fx-background-color:darkorange; -fx-background-radius: 0,0,0,0; "
-						+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-						+ "-fx-text-fill: black; -fx-font-size: 40px;"
-						+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-						+ "-fx-border-color: black; -fx-border-width: 5;");
+				setBtnColor(startButton, "darkorange");
 			}
 		});
 
@@ -133,11 +123,7 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				collectionButton.setStyle("-fx-background-color:deepskyblue; -fx-background-radius: 0,0,0,0; "
-						+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-						+ "-fx-text-fill: black; -fx-font-size: 40px;"
-						+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-						+ "-fx-border-color: black; -fx-border-width: 5;");
+				setBtnColor(collectionButton, "deepskyblue");
 			}
 		});
 
@@ -145,11 +131,7 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				collectionButton.setStyle("-fx-background-color:dodgerblue; -fx-background-radius: 0,0,0,0; "
-						+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-						+ "-fx-text-fill: black; -fx-font-size: 40px;"
-						+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-						+ "-fx-border-color: black; -fx-border-width: 5;");
+				setBtnColor(collectionButton, "dodgerblue");
 			}
 		});
 
@@ -182,11 +164,7 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				exitButton.setStyle("-fx-background-color:violet; -fx-background-radius: 0,0,0,0; "
-						+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-						+ "-fx-text-fill: black; -fx-font-size: 40px;"
-						+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-						+ "-fx-border-color: black; -fx-border-width: 5;");
+				setBtnColor(exitButton, "violet");
 			}
 		});
 
@@ -194,14 +172,29 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(Event event) {
-				exitButton.setStyle("-fx-background-color:orchid; -fx-background-radius: 0,0,0,0; "
-						+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-						+ "-fx-text-fill: black; -fx-font-size: 40px;"
-						+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
-						+ "-fx-border-color: black; -fx-border-width: 5;");
+				setBtnColor(exitButton, "orchid");
 			}
 		});
 
+	}
+	
+	public void setBtnColor(Button Btn, String color) {
+		Btn.setStyle("-fx-background-color:" + color + "; -fx-background-radius: 0,0,0,0; "
+				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
+				+ "-fx-text-fill: black; -fx-font-size: 40px;"
+				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
+				+ "-fx-border-color: black; -fx-border-width: 5;");
+	}
+	
+	public void randomTitleColor() {
+		int colorA = (int) (Math.random()*255);
+		int colorB = (int) (Math.random()*255);
+		int colorC = (int) (Math.random()*255);
+		String color = colorA + ", " + colorB + ", " + colorC; 
+		titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
+				+ "-fx-text-alignment:center; -fx-padding: 20; "
+				+ "-fx-background-color: rgb(" + color + ");"
+				+ "-fx-border-color: black; -fx-border-width: 5;");
 	}
 
 	public void screenTransitionOut() {

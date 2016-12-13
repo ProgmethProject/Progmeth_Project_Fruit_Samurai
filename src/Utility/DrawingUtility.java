@@ -22,102 +22,73 @@ public class DrawingUtility {
 	static {
 		loadResource();
 	}
+	
+	public static Image loadImage(String imgPath, int w, int h) {
+		return new Image(ClassLoader.getSystemResource(imgPath).toString(), w * modifier, h * modifier, false, true);
+	}
+	
+	public static Image loadImageUnmod(String imgPath, int w, int h) {
+		return new Image(ClassLoader.getSystemResource(imgPath).toString(), w, h, false, true);
+	}
 
 	public static void loadResource() {
 		cross = new Image[2];
-		cross[0] = new Image(ClassLoader.getSystemResource("image/ui/black_cross.png").toString(), 50 * modifier,
-				60 * modifier, false, true);
-		cross[1] = new Image(ClassLoader.getSystemResource("image/ui/red_cross.png").toString(), 50 * modifier,
-				60 * modifier, false, true);
+		cross[0] = loadImage("image/ui/black_cross.png", 50, 60);
+		cross[1] = loadImage("image/ui/red_cross.png", 50, 60);
+
+		bomb = loadImage("image/entity/bomb.png", 60, 65);
+		playButton = loadImageUnmod("image/ui/play_button.png", 50, 50);
+		pauseButton = loadImageUnmod("image/ui/pause_button.png", 50, 50);
+		
 		fruit = new Image[10];
-		fruit[0] = new Image(ClassLoader.getSystemResource("image/entity/apple.png").toString(), 60 * modifier,
-				50 * modifier, false, true);
-		fruit[1] = new Image(ClassLoader.getSystemResource("image/entity/grapes.png").toString(), 65 * modifier,
-				50 * modifier, false, true);
-		fruit[2] = new Image(ClassLoader.getSystemResource("image/entity/mango.png").toString(), 70 * modifier,
-				50 * modifier, false, true);
-		fruit[3] = new Image(ClassLoader.getSystemResource("image/entity/orange.png").toString(), 50 * modifier,
-				50 * modifier, false, true);
-		fruit[4] = new Image(ClassLoader.getSystemResource("image/entity/peach.png").toString(), 55 * modifier,
-				55 * modifier, false, true);
-		fruit[5] = new Image(ClassLoader.getSystemResource("image/entity/raspberry.png").toString(), 50 * modifier,
-				50 * modifier, false, true);
-		fruit[6] = new Image(ClassLoader.getSystemResource("image/entity/strawberry.png").toString(), 45 * modifier,
-				55 * modifier, false, true);
-		fruit[7] = new Image(ClassLoader.getSystemResource("image/entity/banana_king.png").toString(), 80 * modifier,
-				55 * modifier, false, true);
-		fruit[8] = new Image(ClassLoader.getSystemResource("image/entity/banana_fire.png").toString(), 78 * modifier,
-				65 * modifier, false, true);
-		fruit[9] = new Image(ClassLoader.getSystemResource("image/entity/frozen_banana.png").toString(), 65 * modifier,
-				65 * modifier, false, true);
+		fruit[0] = loadImage("image/entity/apple.png", 60, 50);
+		fruit[1] = loadImage("image/entity/grapes.png", 65, 50);
+		fruit[2] = loadImage("image/entity/mango.png", 70, 50);
+		fruit[3] = loadImage("image/entity/orange.png", 50, 50);
+		fruit[4] = loadImage("image/entity/peach.png", 55, 55);
+		fruit[5] = loadImage("image/entity/raspberry.png", 50, 50);
+		fruit[6] = loadImage("image/entity/strawberry.png", 45, 55);
+		fruit[7] = loadImage("image/entity/banana_king.png", 80, 55);
+		fruit[8] = loadImage("image/entity/banana_fire.png", 78, 65);
+		fruit[9] = loadImage("image/entity/frozen_banana.png", 65, 65);
+		
 		cut_fruit = new Image[20];
-		cut_fruit[0] = new Image(ClassLoader.getSystemResource("image/cut_entity/apple1.png").toString(), 60 * modifier,
-				50 * modifier, false, true);
-		cut_fruit[1] = new Image(ClassLoader.getSystemResource("image/cut_entity/apple2.png").toString(), 60 * modifier,
-				50 * modifier, false, true);
-		cut_fruit[2] = new Image(ClassLoader.getSystemResource("image/cut_entity/grapes1.png").toString(),
-				65 * modifier, 50 * modifier, false, true);
-		cut_fruit[3] = new Image(ClassLoader.getSystemResource("image/cut_entity/grapes2.png").toString(),
-				65 * modifier, 60 * modifier, false, true);
-		cut_fruit[4] = new Image(ClassLoader.getSystemResource("image/cut_entity/mango1.png").toString(), 70 * modifier,
-				50 * modifier, false, true);
-		cut_fruit[5] = new Image(ClassLoader.getSystemResource("image/cut_entity/mango2.png").toString(), 70 * modifier,
-				50 * modifier, false, true);
-		cut_fruit[6] = new Image(ClassLoader.getSystemResource("image/cut_entity/orange1.png").toString(),
-				50 * modifier, 50 * modifier, false, true);
-		cut_fruit[7] = new Image(ClassLoader.getSystemResource("image/cut_entity/orange2.png").toString(),
-				50 * modifier, 50 * modifier, false, true);
-		cut_fruit[8] = new Image(ClassLoader.getSystemResource("image/cut_entity/peach1.png").toString(), 55 * modifier,
-				55 * modifier, false, true);
-		cut_fruit[9] = new Image(ClassLoader.getSystemResource("image/cut_entity/peach2.png").toString(), 55 * modifier,
-				55 * modifier, false, true);
-		cut_fruit[10] = new Image(ClassLoader.getSystemResource("image/cut_entity/raspberry1.png").toString(),
-				50 * modifier, 50 * modifier, false, true);
-		cut_fruit[11] = new Image(ClassLoader.getSystemResource("image/cut_entity/raspberry2.png").toString(),
-				50 * modifier, 50 * modifier, false, true);
-		cut_fruit[12] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry1.png").toString(),
-				45 * modifier, 55 * modifier, false, true);
-		cut_fruit[13] = new Image(ClassLoader.getSystemResource("image/cut_entity/strawberry2.png").toString(),
-				45 * modifier, 55 * modifier, false, true);
-		cut_fruit[14] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king1.png").toString(), 80 * modifier,
-				55 * modifier, false, true);
-		cut_fruit[15] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_king2.png").toString(), 80 * modifier,
-				55 * modifier, false, true);
-		cut_fruit[16] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire1.png").toString(), 78 * modifier,
-				65 * modifier, false, true);
-		cut_fruit[17] = new Image(ClassLoader.getSystemResource("image/cut_entity/banana_fire2.png").toString(), 78 * modifier,
-				65 * modifier, false, true);
-		cut_fruit[18] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana1.png").toString(), 65 * modifier,
-				65 * modifier, false, true);
-		cut_fruit[19] = new Image(ClassLoader.getSystemResource("image/cut_entity/frozen_banana2.png").toString(), 65 * modifier,
-				65 * modifier, false, true);
+		cut_fruit[0] = loadImage("image/cut_entity/apple1.png", 60, 50);
+		cut_fruit[1] = loadImage("image/cut_entity/apple2.png", 60, 50);
+		cut_fruit[2] = loadImage("image/cut_entity/grapes1.png", 65, 50);
+		cut_fruit[3] = loadImage("image/cut_entity/grapes2.png", 65, 50);
+		cut_fruit[4] = loadImage("image/cut_entity/mango1.png", 70, 50);
+		cut_fruit[5] = loadImage("image/cut_entity/mango2.png", 70, 50);
+		cut_fruit[6] = loadImage("image/cut_entity/orange1.png", 50, 50);
+		cut_fruit[7] = loadImage("image/cut_entity/orange2.png", 50, 50);
+		cut_fruit[8] = loadImage("image/cut_entity/peach1.png", 55, 55);
+		cut_fruit[9] = loadImage("image/cut_entity/peach2.png", 55, 55);
+		cut_fruit[10] = loadImage("image/cut_entity/raspberry1.png", 50, 50);
+		cut_fruit[11] = loadImage("image/cut_entity/raspberry2.png", 50, 50);
+		cut_fruit[12] = loadImage("image/cut_entity/strawberry1.png", 45, 55);
+		cut_fruit[13] = loadImage("image/cut_entity/strawberry2.png", 45, 55);
+		cut_fruit[14] = loadImage("image/cut_entity/banana_king1.png", 80, 55);
+		cut_fruit[15] = loadImage("image/cut_entity/banana_king2.png", 80, 55);
+		cut_fruit[16] = loadImage("image/cut_entity/banana_fire1.png", 78, 65);
+		cut_fruit[17] = loadImage("image/cut_entity/banana_fire2.png", 78, 65);
+		cut_fruit[18] = loadImage("image/cut_entity/frozen_banana1.png", 65, 65);
+		cut_fruit[19] = loadImage("image/cut_entity/frozen_banana2.png", 65, 65);
+		
 		animation = new Image[5];
-		animation[0] = new Image(ClassLoader.getSystemResource("image/bombanim2.png").toString(), 1280, 146, false,
-				true);
-		animation[1] = new Image(ClassLoader.getSystemResource("image/cutanim1.png").toString(), 1040, 130, false,
-				true);
-		animation[2] = new Image(ClassLoader.getSystemResource("image/cutanim2.png").toString(), 1040, 130, false,
-				true);
-		animation[3] = new Image(ClassLoader.getSystemResource("image/cutanim3.png").toString(), 1040, 130, false,
-				true);
-		animation[4] = new Image(ClassLoader.getSystemResource("image/cutanim4.png").toString(), 1040, 130, false,
-				true);
-		bomb = new Image(ClassLoader.getSystemResource("image/entity/bomb.png").toString(), 60 * modifier,
-				65 * modifier, false, true);
-		background = new Image(ClassLoader.getSystemResource("image/background/background.jpg").toString(),
-				ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
-		playButton = new Image(ClassLoader.getSystemResource("image/ui/play_button.png").toString(), 50, 50, false,
-				true);
-		pauseButton = new Image(ClassLoader.getSystemResource("image/ui/pause_button.png").toString(), 50, 50, false,
-				true);
+		animation[0] = loadImage("image/bombanim2.png", 1280, 146);
+		animation[1] = loadImage("image/cutanim1.png", 1040, 130);
+		animation[2] = loadImage("image/cutanim2.png", 1040, 130);
+		animation[3] = loadImage("image/cutanim3.png", 1040, 130);
+		animation[4] = loadImage("image/cutanim4.png", 1040, 130);
+		
 		overlay = new Image[3];
-		overlay[0] = new Image(ClassLoader.getSystemResource("image/background/confetti.png").toString(),
-				ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
-		overlay[1] = new Image(ClassLoader.getSystemResource("image/background/flame.png").toString(),
-				ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
-		overlay[2] = new Image(ClassLoader.getSystemResource("image/background/snow.png").toString(),
-				ScreenProperties.screenWidth, ScreenProperties.screenHeight, false, true);
-	}
+		overlay[0] = loadImageUnmod("image/background/confetti.png", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+		overlay[1] = loadImageUnmod("image/background/flame.png", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+		overlay[2] = loadImageUnmod("image/background/snow.png", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+		
+		background = loadImageUnmod("image/background/background.jpg", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+		
+		}
 
 	public static void drawLife(GraphicsContext gc, double x, double y, int healthPoint) {
 		int cross1, cross2, cross3;
