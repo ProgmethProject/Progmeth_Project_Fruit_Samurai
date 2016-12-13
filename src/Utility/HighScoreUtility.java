@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
-
 import exception.ScoreParsingException;
 import javafx.event.EventHandler;
 import javafx.scene.control.Alert;
@@ -17,7 +16,6 @@ import javafx.scene.control.TextInputDialog;
 import main.Main;
 
 public class HighScoreUtility {
-	private static String player_name = "";
 
 	public static class HighScoreRecord implements Comparable<HighScoreRecord> {
 		private String name = "";
@@ -121,6 +119,9 @@ public class HighScoreUtility {
 					try {
 						String name = ((TextInputDialog) event.getTarget()).getResult();
 						if (name != null) {
+							if(name.length() > 10) {
+								name = name.substring(0, 10);
+							}
 							highScoreRecord[final_index] = new HighScoreRecord(name, score);
 							BufferedWriter out = new BufferedWriter(new FileWriter("highscore"));
 							String string = "";
