@@ -13,7 +13,7 @@ public class ItemStatus implements IRenderable {
 
 	public static ItemStatus instance = new ItemStatus();
 	private int freezeCounter, frenzyCounter, doubleCounter;
-	List<Generator> frenzyGenerator;
+	private List<Generator> frenzyGenerator;
 
 	public ItemStatus() {
 		freezeCounter = 0;
