@@ -39,13 +39,12 @@ public class Bomb extends Entity implements Cuttable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		Image image = DrawingUtility.bomb;
-		DrawingUtility.drawRotatedImage(gc, image, rotation, x, y);
+		DrawingUtility.drawBomb(gc, rotation, x, y);
 	}
 
 	@Override
 	public boolean isCut() {
-		Image image = DrawingUtility.bomb;
+		Image image = DrawingUtility.getBomb();
 
 		int xx = (int) (x + image.getWidth() / 2);
 		int yy = (int) (y + image.getHeight() / 2);

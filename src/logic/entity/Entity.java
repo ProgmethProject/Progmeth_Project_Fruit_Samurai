@@ -22,7 +22,7 @@ public abstract class Entity implements IRenderable {
 		this.z = RenderableHolder.instance.getMaxZ() + 1;
 		this.isDestroyed = false;
 		this.rotation = 0;
-		this.modifier = 1;
+		modifier = 1;
 	}
 
 	public static void setModifier(double modifier) {

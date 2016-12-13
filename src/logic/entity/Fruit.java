@@ -37,10 +37,7 @@ public class Fruit extends Entity implements Cuttable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		Image image = DrawingUtility.fruit[index];
-
-		DrawingUtility.drawRotatedImage(gc, image, rotation, x, y);
-		gc.fillRect(x + image.getWidth() / 2, y + image.getHeight() / 2, 5, 5);
+		DrawingUtility.drawFruit(gc, index, rotation, x, y);
 	}
 
 	@Override
@@ -49,7 +46,7 @@ public class Fruit extends Entity implements Cuttable {
 		PlayerStatus.instance.increaseScore(point);
 		comboCount = PlayerStatus.instance.getComboCount();
 
-		Image image = DrawingUtility.fruit[index];
+		Image image = DrawingUtility.getFruit(index);
 		setDestroyed(true);
 		synchronized (RenderableHolder.instance.getEntities()) {
 			RenderableHolder.instance.getEntities().add(DrawingUtility.createCuttingAnimation(
@@ -64,7 +61,7 @@ public class Fruit extends Entity implements Cuttable {
 
 	@Override
 	public boolean isCut() {
-		Image image = DrawingUtility.fruit[index];
+		Image image = DrawingUtility.getFruit(index);
 
 		int xx = (int) (x + image.getWidth() / 2);
 		int yy = (int) (y + image.getHeight() / 2);

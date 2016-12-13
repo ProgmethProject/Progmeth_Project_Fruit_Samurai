@@ -20,7 +20,7 @@ public class Background implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		gc.drawImage(DrawingUtility.background, 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+		DrawingUtility.drawBackground(gc);
 	}
 
 }
