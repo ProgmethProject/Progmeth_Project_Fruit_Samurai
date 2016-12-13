@@ -16,8 +16,6 @@ import thread.ThreadHolder;
 
 public class GameLogic {
 	private List<Entity> entities;
-	private FruitGenerator mainFruitGenerator;
-	private BombGenerator mainBombGenerator;
 
 	public GameLogic() {
 		entities = new ArrayList<>();
@@ -25,7 +23,7 @@ public class GameLogic {
 	}
 
 	synchronized public void updateLogic() {
-		if (!PlayerStatus.instance.isPause()) {
+		
 			for (int i = entities.size() - 1; i >= 0; i--) {
 				Entity e = entities.get(i);
 				if (e.isDestroyed()) {
@@ -34,7 +32,6 @@ public class GameLogic {
 					e.update();
 				}
 			}
-		}
 	}
 
 	synchronized public void addEntity(Entity e) {
@@ -55,20 +52,11 @@ public class GameLogic {
 	public void initGame() {
 		clearEntity();
 		PlayerStatus.instance.initPlayer(PlayerStatus.DEFAULT_HP);
-		mainFruitGenerator = new FruitGenerator(this, 1500);
-		mainBombGenerator = new BombGenerator(this, 2000);
-		ThreadHolder.instance.addGenerator(mainFruitGenerator);
-		ThreadHolder.instance.addGenerator(mainBombGenerator);
 		RenderableHolder.instance.addEntity(Background.instance);
 		RenderableHolder.instance.addEntity(PlayerStatus.instance);
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
 		RenderableHolder.instance.addEntity(ItemStatus.instance);
-	}
-
-	public void startGame() {
-		mainFruitGenerator.start();
-		mainBombGenerator.start();
 	}
 
 }

@@ -22,16 +22,15 @@ public class FruitGenerator extends Generator {
 		return () -> {
 			while (true) {
 				try {
-					if (PlayerStatus.instance.isPause()) {
-						continue;
+					if (!PlayerStatus.instance.isPause()) {
+						Random random = new Random();
+						int x = random.nextInt((int) ScreenProperties.screenWidth);
+						int y = (int) ScreenProperties.screenHeight;
+						int speedX = (100 + random.nextInt(200)) * (x > ScreenProperties.screenWidth / 2 ? -1 : 1);
+						int speedY = 700 + random.nextInt(200);
+						gameLogic.addEntity(random.nextInt(5) != 0 ? new Fruit(x, y, speedX, speedY)
+								: new SuperFruit(x, y, speedX, speedY));
 					}
-					Random random = new Random();
-					int x = random.nextInt((int) ScreenProperties.screenWidth);
-					int y = (int) ScreenProperties.screenHeight;
-					int speedX = (100 + random.nextInt(200)) * (x > ScreenProperties.screenWidth / 2 ? -1 : 1);
-					int speedY = 700 + random.nextInt(200);
-					gameLogic.addEntity(random.nextInt(5) != 0 ? new Fruit(x, y, speedX, speedY)
-							: new SuperFruit(x, y, speedX, speedY));
 					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {
 					e.printStackTrace();

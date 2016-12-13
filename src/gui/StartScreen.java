@@ -71,7 +71,6 @@ public class StartScreen extends GridPane {
 	}
 
 	public void addListener() {
-<<<<<<< HEAD
 		titlePane.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override
@@ -87,10 +86,6 @@ public class StartScreen extends GridPane {
 		});
 
 		titlePane.setOnMouseExited(new EventHandler<Event>() {
-=======
-		
-		titleLabel.setOnMousePressed(new EventHandler<Event>() {
->>>>>>> 445f32ffc1d6bfc97db4473bc972c6f8158159e4
 
 			@Override
 			public void handle(Event event) {
