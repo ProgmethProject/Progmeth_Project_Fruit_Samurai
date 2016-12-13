@@ -4,7 +4,6 @@ import java.util.Random;
 
 import graphic.PlayerStatus;
 import gui.ScreenProperties;
-import logic.GameLogic;
 import logic.entity.Bomb;
 import logic.entity.ItemStatus;
 import main.Main;

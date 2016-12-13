@@ -2,7 +2,6 @@ package gui;
 
 import Utility.HighScoreUtility;
 import Utility.HighScoreUtility.HighScoreRecord;
-import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;

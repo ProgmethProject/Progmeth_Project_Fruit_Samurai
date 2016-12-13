@@ -1,9 +1,5 @@
 package gui;
 
-import graphic.Background;
-import graphic.MenuButton;
-import graphic.PlayerStatus;
-import graphic.RenderableHolder;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -16,8 +12,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
-import logic.entity.ItemStatus;
-import logic.entity.Trail;
 import main.Main;
 
 public class StartScreen extends GridPane {

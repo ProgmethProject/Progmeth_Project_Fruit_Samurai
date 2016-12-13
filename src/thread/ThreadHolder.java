@@ -2,7 +2,6 @@ package thread;
 
 import java.util.ArrayList;
 import java.util.List;
-import main.Main;
 
 public class ThreadHolder {
 	public static ThreadHolder instance = new ThreadHolder();

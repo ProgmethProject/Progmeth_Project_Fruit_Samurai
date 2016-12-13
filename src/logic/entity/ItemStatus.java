@@ -5,9 +5,7 @@ import java.util.List;
 
 import Utility.DrawingUtility;
 import graphic.PlayerStatus;
-import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
-import main.Main;
 import thread.FruitGenerator;
 import thread.Generator;
 

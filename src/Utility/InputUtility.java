@@ -2,62 +2,62 @@ package Utility;
 
 public class InputUtility {
 
-	private static int mouseX, mouseY, prevMouseX, prevMouseY, releaseX, releaseY;
+	private static double mouseX, mouseY, prevMouseX, prevMouseY, releaseX, releaseY;
 	private static boolean mouseLeftDown, mouseOnScreen;
 
-	public static int getPrevMouseX() {
+	public static double getPrevMouseX() {
 		return prevMouseX;
 	}
 
-	public static int getPrevMouseY() {
+	public static double getPrevMouseY() {
 		return prevMouseY;
 	}
 
-	public static int getMouseX() {
+	public static double getMouseX() {
 		return InputUtility.mouseX;
 	}
 
-	public static void setMouseX(int mouseX) {
+	public static void setMouseX(double mouseX) {
 		InputUtility.prevMouseX = InputUtility.mouseX;
 		InputUtility.mouseX = mouseX;
 	}
 
-	public static int getMouseY() {
+	public static double getMouseY() {
 		return InputUtility.mouseY;
 	}
 
-	public static void setMouseY(int mouseY) {
+	public static void setMouseY(double mouseY) {
 		InputUtility.prevMouseY = InputUtility.mouseY;
 		InputUtility.mouseY = mouseY;
 	}
 
-	public static int getMouseSpeed() {
-		int delX = mouseX - prevMouseX;
-		int delY = mouseY - prevMouseY;
+	public static double getMouseSpeed() {
+		double delX = mouseX - prevMouseX;
+		double delY = mouseY - prevMouseY;
 
 		return delX * delX + delY * delY;
 	}
 
 	public static double getMouseAngle() {
-		int delX = mouseX - prevMouseX;
-		int delY = mouseY - prevMouseY;
+		double delX = mouseX - prevMouseX;
+		double delY = mouseY - prevMouseY;
 
-		return Math.atan((double) delY / (double) delX);
+		return Math.atan(delY /  delX);
 	}
 
-	public static int getReleaseX() {
+	public static double getReleaseX() {
 		return releaseX;
 	}
 
-	public static void setReleaseX(int releaseX) {
+	public static void setReleaseX(double releaseX) {
 		InputUtility.releaseX = releaseX;
 	}
 
-	public static int getReleaseY() {
+	public static double getReleaseY() {
 		return releaseY;
 	}
 
-	public static void setReleaseY(int releaseY) {
+	public static void setReleaseY(double releaseY) {
 		InputUtility.releaseY = releaseY;
 	}
 

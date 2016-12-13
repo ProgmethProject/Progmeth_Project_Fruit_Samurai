@@ -45,8 +45,8 @@ public class GameScreen extends GridPane {
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(false);
 					if (!PlayerStatus.instance.isPause()) {
-						InputUtility.setReleaseX((int) event.getX());
-						InputUtility.setReleaseY((int) event.getY());
+						InputUtility.setReleaseX(event.getX());
+						InputUtility.setReleaseY(event.getY());
 					}
 				}
 			}
@@ -56,7 +56,9 @@ public class GameScreen extends GridPane {
 			public void handle(MouseEvent event) {
 				if (event.getButton() == MouseButton.PRIMARY) {
 					InputUtility.setMouseLeftDown(true);
-					logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
+					InputUtility.setMouseX(event.getX());
+					InputUtility.setMouseY(event.getY());
+					logic.entity.Trail.instance.addTrail(event.getX(), event.getY());
 
 				}
 				if (InputUtility.getMouseX() >= 10 && InputUtility.getMouseX() <= 60 && InputUtility.getMouseY() >= 10
@@ -84,16 +86,16 @@ public class GameScreen extends GridPane {
 		canvas.setOnMouseMoved(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				InputUtility.setMouseX((int) event.getX());
-				InputUtility.setMouseY((int) event.getY());
+				InputUtility.setMouseX(event.getX());
+				InputUtility.setMouseY(event.getY());
 			}
 		});
 
 		canvas.setOnMouseDragged(new EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				InputUtility.setMouseX((int) event.getX());
-				InputUtility.setMouseY((int) event.getY());
+				InputUtility.setMouseX(event.getX());
+				InputUtility.setMouseY(event.getY());
 			}
 		});
 

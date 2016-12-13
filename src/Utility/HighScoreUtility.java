@@ -160,12 +160,6 @@ public class HighScoreUtility {
 			alert.showAndWait();
 			return null;
 		}
-		String msg = "======= Top 10 players =======" + System.getProperty("line.separator");
-		int rank = 1;
-		for (HighScoreRecord record : highScoreRecord) {
-			msg += rank + " " + record.getRecord() + System.getProperty("line.separator");
-			rank++;
-		}
 		return highScoreRecord;
 	}
 

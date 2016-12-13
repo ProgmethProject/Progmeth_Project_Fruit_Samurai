@@ -1,7 +1,6 @@
 package graphic;
 
 import Utility.DrawingUtility;
-import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import logic.entity.IRenderable;
 
