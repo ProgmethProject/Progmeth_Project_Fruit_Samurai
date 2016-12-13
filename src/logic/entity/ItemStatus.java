@@ -63,10 +63,10 @@ public class ItemStatus implements IRenderable {
 		}
 		if (frenzyCounter > 0) {
 			if (frenzyGenerator.size() == 0) {
-				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 1000));
-				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 2000));
-				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 3000));
-				frenzyGenerator.add(new FruitGenerator(Main.instance.getGameLogic(), 4000));
+				frenzyGenerator.add(new FruitGenerator(1000));
+				frenzyGenerator.add(new FruitGenerator(2000));
+				frenzyGenerator.add(new FruitGenerator(3000));
+				frenzyGenerator.add(new FruitGenerator(4000));
 				for (Generator generator : frenzyGenerator) {
 					generator.start();
 				}
@@ -99,15 +99,15 @@ public class ItemStatus implements IRenderable {
 	@Override
 	public void draw(GraphicsContext gc) {
 		if (frenzyCounter > 0) {
-			gc.drawImage(DrawingUtility.overlay[1], 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+			DrawingUtility.drawOverlay(gc, 1);
 		}
 
 		if (freezeCounter > 0) {
-			gc.drawImage(DrawingUtility.overlay[2], 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+			DrawingUtility.drawOverlay(gc, 2);
 		}
 
 		if (doubleCounter > 0) {
-			gc.drawImage(DrawingUtility.overlay[0], 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+			DrawingUtility.drawOverlay(gc, 0);
 		}
 	}
 }

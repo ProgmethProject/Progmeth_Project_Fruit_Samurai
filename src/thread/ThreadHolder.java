@@ -21,8 +21,8 @@ public class ThreadHolder {
 	public Thread resetThread() {
 		clearAllThread();
 		gameThread = new GameThread();
-		addGenerator(new FruitGenerator(Main.instance.getGameLogic(), 1500));
-		addGenerator(new BombGenerator(Main.instance.getGameLogic(), 2000));
+		addGenerator(new FruitGenerator(1500));
+		addGenerator(new BombGenerator(2000));
 		return gameThread;
 	}
 
@@ -41,9 +41,18 @@ public class ThreadHolder {
 	}
 
 	public void startAll() {
+		startGameThread();
+		startGenerators();
+	}
+
+	public void startGameThread() {
 		gameThread.start();
+	}
+
+	public void startGenerators() {
 		for (Generator generator : generators) {
 			generator.start();
 		}
 	}
+
 }

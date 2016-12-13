@@ -10,24 +10,24 @@ import javafx.scene.transform.Rotate;
 import logic.entity.Trail;
 
 public class DrawingUtility {
-	public static Image background;
-	public static Image[] overlay;
-	public static Image playButton;
-	public static Image pauseButton;
-	public static Image[] cross;
-	public static Image[] fruit;
-	public static Image[] cut_fruit;
-	public static Image bomb;
-	public static Image[] animation;
+	private static Image background;
+	private static Image[] overlay;
+	private static Image playButton;
+	private static Image pauseButton;
+	private static Image[] cross;
+	private static Image[] fruit;
+	private static Image[] cut_fruit;
+	private static Image bomb;
+	private static Image[] animation;
 	private static double modifier = 1.5;
 	static {
 		loadResource();
 	}
-	
+
 	public static Image loadImage(String imgPath, int w, int h) {
 		return new Image(ClassLoader.getSystemResource(imgPath).toString(), w * modifier, h * modifier, false, true);
 	}
-	
+
 	public static Image loadImageUnmod(String imgPath, int w, int h) {
 		return new Image(ClassLoader.getSystemResource(imgPath).toString(), w, h, false, true);
 	}
@@ -40,7 +40,7 @@ public class DrawingUtility {
 		bomb = loadImage("image/entity/bomb.png", 60, 65);
 		playButton = loadImageUnmod("image/ui/play_button.png", 50, 50);
 		pauseButton = loadImageUnmod("image/ui/pause_button.png", 50, 50);
-		
+
 		fruit = new Image[10];
 		fruit[0] = loadImage("image/entity/apple.png", 60, 50);
 		fruit[1] = loadImage("image/entity/grapes.png", 65, 50);
@@ -52,7 +52,7 @@ public class DrawingUtility {
 		fruit[7] = loadImage("image/entity/banana_king.png", 80, 55);
 		fruit[8] = loadImage("image/entity/banana_fire.png", 78, 65);
 		fruit[9] = loadImage("image/entity/frozen_banana.png", 65, 65);
-		
+
 		cut_fruit = new Image[20];
 		cut_fruit[0] = loadImage("image/cut_entity/apple1.png", 60, 50);
 		cut_fruit[1] = loadImage("image/cut_entity/apple2.png", 60, 50);
@@ -74,22 +74,26 @@ public class DrawingUtility {
 		cut_fruit[17] = loadImage("image/cut_entity/banana_fire2.png", 78, 65);
 		cut_fruit[18] = loadImage("image/cut_entity/frozen_banana1.png", 65, 65);
 		cut_fruit[19] = loadImage("image/cut_entity/frozen_banana2.png", 65, 65);
-		
+
 		animation = new Image[5];
 		animation[0] = loadImage("image/animation/bombanim2.png", 1280, 146);
 		animation[1] = loadImage("image/animation/cutanim1.png", 1040, 130);
 		animation[2] = loadImage("image/animation/cutanim2.png", 1040, 130);
 		animation[3] = loadImage("image/animation/cutanim3.png", 1040, 130);
 		animation[4] = loadImage("image/animation/cutanim4.png", 1040, 130);
-		
+
 		overlay = new Image[3];
-		overlay[0] = loadImageUnmod("image/background/confetti.png", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
-		overlay[1] = loadImageUnmod("image/background/flame.png", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
-		overlay[2] = loadImageUnmod("image/background/snow.png", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
-		
-		background = loadImageUnmod("image/background/background.jpg", ScreenProperties.screenWidth, ScreenProperties.screenHeight);
-		
-		}
+		overlay[0] = loadImageUnmod("image/background/confetti.png", ScreenProperties.screenWidth,
+				ScreenProperties.screenHeight);
+		overlay[1] = loadImageUnmod("image/background/flame.png", ScreenProperties.screenWidth,
+				ScreenProperties.screenHeight);
+		overlay[2] = loadImageUnmod("image/background/snow.png", ScreenProperties.screenWidth,
+				ScreenProperties.screenHeight);
+
+		background = loadImageUnmod("image/background/background.jpg", ScreenProperties.screenWidth,
+				ScreenProperties.screenHeight);
+
+	}
 
 	public static void drawLife(GraphicsContext gc, double x, double y, int healthPoint) {
 		int cross1, cross2, cross3;
@@ -171,6 +175,42 @@ public class DrawingUtility {
 		rotate(gc, angle, tlpx + image.getWidth() / 2, tlpy + image.getHeight() / 2);
 		gc.drawImage(image, tlpx, tlpy);
 		gc.restore(); // back to original state (before rotation)
+	}
+
+	public static void drawFruit(GraphicsContext gc, int index, double rotation, double x, double y) {
+		drawRotatedImage(gc, fruit[index], rotation, x, y);
+	}
+
+	public static void drawBomb(GraphicsContext gc, double rotation, double x, double y) {
+		drawRotatedImage(gc, bomb, rotation, x, y);
+	}
+
+	public static void drawHalfFruit(GraphicsContext gc, int index, int side, double rotation, double x, double y) {
+		drawRotatedImage(gc, cut_fruit[index * 2 + side], rotation, x, y);
+	}
+	
+	public static void drawOverlay(GraphicsContext gc,int index){
+		gc.drawImage(overlay[index], 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+	}
+	
+	public static void drawBackground(GraphicsContext gc){
+		gc.drawImage(background, 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
+	}
+	
+	public static void drawPlayButton(GraphicsContext gc,int buttonSize){
+		gc.drawImage(playButton, 10, 10, buttonSize, buttonSize);
+	}
+	
+	public static void drawPauseButton(GraphicsContext gc,int buttonSize){
+		gc.drawImage(pauseButton, 10, 10, buttonSize, buttonSize);
+	}
+
+	public static Image getFruit(int index) {
+		return fruit[index];
+	}
+
+	public static Image getBomb() {
+		return bomb;
 	}
 
 }

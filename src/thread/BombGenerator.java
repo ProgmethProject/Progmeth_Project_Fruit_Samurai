@@ -7,13 +7,12 @@ import gui.ScreenProperties;
 import logic.GameLogic;
 import logic.entity.Bomb;
 import logic.entity.ItemStatus;
+import main.Main;
 
 public class BombGenerator extends Generator {
-	private GameLogic gameLogic;
 
-	public BombGenerator(GameLogic gameLogic, long generateInterval) {
+	public BombGenerator(long generateInterval) {
 		super(generateInterval);
-		this.gameLogic = gameLogic;
 	}
 
 	@Override
@@ -28,7 +27,7 @@ public class BombGenerator extends Generator {
 							int y = (int) ScreenProperties.screenHeight;
 							int speedX = (100 + random.nextInt(200)) * (x > ScreenProperties.screenWidth / 2 ? -1 : 1);
 							int speedY = 700 + random.nextInt(200);
-							gameLogic.addEntity(new Bomb(x, y, speedX, speedY));
+							Main.instance.getGameLogic().addEntity(new Bomb(x, y, speedX, speedY));
 						}
 					}
 					Thread.sleep(generateInterval);

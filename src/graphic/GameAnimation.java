@@ -36,7 +36,7 @@ public class GameAnimation implements IRenderable {
 		this.comboCount = comboCount;
 	}
 
-	protected void topLeftAnimationAt(int x, int y) {
+	public void topLeftAnimationAt(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}

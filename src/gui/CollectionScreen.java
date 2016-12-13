@@ -92,8 +92,6 @@ public class CollectionScreen extends BorderPane {
 	}
 
 	public void screenTransitionIn() {
-		highScorePane.updatePane();
-
 		TranslateTransition highScoreTrans = new TranslateTransition(Duration.millis(700), highScorePane);
 		highScoreTrans.setFromX(ScreenProperties.screenWidth);
 		highScoreTrans.setByX(-ScreenProperties.screenWidth);
@@ -106,6 +104,7 @@ public class CollectionScreen extends BorderPane {
 		highScoreTrans.play();
 		selectionTrans.play();
 		backTrans.play();
+		highScorePane.updatePane();
 	}
 
 	public void screenTransitionOut() {

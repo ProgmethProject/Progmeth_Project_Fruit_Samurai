@@ -59,8 +59,8 @@ public class GameScreen extends GridPane {
 					logic.entity.Trail.instance.addTrail((int) event.getX(), (int) event.getY());
 
 				}
-				if (InputUtility.getMouseX() > 10 && InputUtility.getMouseX() < 60 && InputUtility.getMouseY() > 10
-						&& InputUtility.getMouseY() < 60) {
+				if (InputUtility.getMouseX() >= 10 && InputUtility.getMouseX() <= 60 && InputUtility.getMouseY() >= 10
+						&& InputUtility.getMouseY() <= 60) {
 					PlayerStatus.instance.setPause(!PlayerStatus.instance.isPause());
 				}
 

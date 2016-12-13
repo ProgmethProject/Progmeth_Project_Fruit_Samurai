@@ -7,14 +7,13 @@ import gui.ScreenProperties;
 import logic.GameLogic;
 import logic.entity.Fruit;
 import logic.entity.SuperFruit;
+import main.Main;
 
 public class FruitGenerator extends Generator {
 
-	private GameLogic gameLogic;
 
-	public FruitGenerator(GameLogic gameLogic, long generateInterval) {
+	public FruitGenerator(long generateInterval) {
 		super(generateInterval);
-		this.gameLogic = gameLogic;
 	}
 
 	@Override
@@ -28,7 +27,7 @@ public class FruitGenerator extends Generator {
 						int y = (int) ScreenProperties.screenHeight;
 						int speedX = (100 + random.nextInt(200)) * (x > ScreenProperties.screenWidth / 2 ? -1 : 1);
 						int speedY = 700 + random.nextInt(200);
-						gameLogic.addEntity(random.nextInt(5) != 0 ? new Fruit(x, y, speedX, speedY)
+						Main.instance.getGameLogic().addEntity(random.nextInt(5) != 0 ? new Fruit(x, y, speedX, speedY)
 								: new SuperFruit(x, y, speedX, speedY));
 					}
 					Thread.sleep(generateInterval);

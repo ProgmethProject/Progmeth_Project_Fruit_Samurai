@@ -57,6 +57,8 @@ public class StartScreen extends GridPane {
 		add(exitPane, 0, 3);
 
 		addListener();
+//		Main.instance.getCollectionScreen().screenTransitionIn();
+//		Main.instance.getCollectionScreen().screenTransitionOut();
 	}
 
 	public void addListener() {
@@ -139,7 +141,7 @@ public class StartScreen extends GridPane {
 				PauseTransition pause = new PauseTransition(Duration.millis(700));
 				pause.setOnFinished(event -> {
 					Main.instance.getCollectionScreen().screenTransitionIn();
-					Main.instance.changeToCollectionScreen();
+					Main.instance.changeToCollectionScreen();					
 				});
 				pause.play();
 
