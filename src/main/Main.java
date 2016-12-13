@@ -25,7 +25,7 @@ public class Main extends Application {
 	private GameLogic gameLogic;
 	private AnimationTimer drawingAnimation;
 
-	Scene collectionScene, gameScene, startScene, configScene;
+	private Scene collectionScene, gameScene, startScene, configScene;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
