@@ -29,28 +29,7 @@ public class ThreadHolder {
 
 	public Thread resetThread() {
 		clearAllThread();
-		gameThread = new Thread(() -> {
-			while (true) {
-				if (PlayerStatus.instance.isGameOver()) {
-					Platform.runLater(() -> {
-						HighScoreUtility.recordHighScore(PlayerStatus.instance.getScore());
-					});
-					PlayerStatus.instance.setGameOver(false);
-
-					return;
-				}
-				try {
-					if (!PlayerStatus.instance.isPause()) {
-						Main.instance.getGameLogic().updateLogic();
-						ItemStatus.instance.update();
-					}
-					Thread.sleep(1);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-					return;
-				}
-			}
-		});
+		gameThread = new GameThread();
 		addGenerator(new FruitGenerator(Main.instance.getGameLogic(), 1500));
 		addGenerator(new BombGenerator(Main.instance.getGameLogic(), 2000));
 		return gameThread;
