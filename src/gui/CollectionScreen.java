@@ -1,7 +1,5 @@
 package gui;
 
-import Utility.HighScoreUtility;
-import Utility.HighScoreUtility.HighScoreRecord;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -17,6 +15,8 @@ import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import logic.entity.Trail;
 import main.Main;
+import utility.HighScoreUtility;
+import utility.HighScoreUtility.HighScoreRecord;
 
 public class CollectionScreen extends BorderPane {
 	private highScorePane highScorePane;

@@ -1,7 +1,7 @@
 package logic.entity;
 
-import Utility.DrawingUtility;
 import javafx.scene.canvas.GraphicsContext;
+import utility.DrawingUtility;
 
 public class HalfFruit extends Entity {
 	private int index;

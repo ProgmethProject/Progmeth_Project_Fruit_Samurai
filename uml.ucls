@@ -74,8 +74,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="Utility.InputUtility" project="Progmeth_Project_Fruit_Samurai" 
-    file="/Progmeth_Project_Fruit_Samurai/src/Utility/InputUtility.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="9" language="java" name="utility.InputUtility" project="Progmeth_Project_Fruit_Samurai" 
+    file="/Progmeth_Project_Fruit_Samurai/src/utility/InputUtility.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="69" y="894"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -83,8 +83,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="Utility.DrawingUtility" project="Progmeth_Project_Fruit_Samurai" 
-    file="/Progmeth_Project_Fruit_Samurai/src/Utility/DrawingUtility.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="10" language="java" name="utility.DrawingUtility" project="Progmeth_Project_Fruit_Samurai" 
+    file="/Progmeth_Project_Fruit_Samurai/src/utility/DrawingUtility.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="696" y="926"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -92,8 +92,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="Utility.HighScoreUtility.HighScoreRecord" 
-    project="Progmeth_Project_Fruit_Samurai" file="/Progmeth_Project_Fruit_Samurai/src/Utility/HighScoreUtility.java" 
+  <class id="11" language="java" name="utility.HighScoreUtility.HighScoreRecord" 
+    project="Progmeth_Project_Fruit_Samurai" file="/Progmeth_Project_Fruit_Samurai/src/utility/HighScoreUtility.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="340" y="1021"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
@@ -102,8 +102,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="Utility.AudioUtility" project="Progmeth_Project_Fruit_Samurai" 
-    file="/Progmeth_Project_Fruit_Samurai/src/Utility/AudioUtility.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="12" language="java" name="utility.AudioUtility" project="Progmeth_Project_Fruit_Samurai" 
+    file="/Progmeth_Project_Fruit_Samurai/src/utility/AudioUtility.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="340" y="1255"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
@@ -111,8 +111,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="Utility.HighScoreUtility" project="Progmeth_Project_Fruit_Samurai" 
-    file="/Progmeth_Project_Fruit_Samurai/src/Utility/HighScoreUtility.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="13" language="java" name="utility.HighScoreUtility" project="Progmeth_Project_Fruit_Samurai" 
+    file="/Progmeth_Project_Fruit_Samurai/src/utility/HighScoreUtility.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="339" y="766"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

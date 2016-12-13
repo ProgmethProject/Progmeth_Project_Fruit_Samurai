@@ -3,13 +3,13 @@ package logic.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import Utility.AudioUtility;
-import Utility.DrawingUtility;
-import Utility.InputUtility;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import utility.AudioUtility;
+import utility.DrawingUtility;
+import utility.InputUtility;
 
 public class Bomb extends Entity implements Cuttable {
 

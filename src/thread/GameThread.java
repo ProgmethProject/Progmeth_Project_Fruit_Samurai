@@ -1,10 +1,10 @@
 package thread;
 
-import Utility.HighScoreUtility;
 import graphic.PlayerStatus;
 import javafx.application.Platform;
 import logic.entity.ItemStatus;
 import main.Main;
+import utility.HighScoreUtility;
 
 public class GameThread extends Thread {
 	public GameThread() {

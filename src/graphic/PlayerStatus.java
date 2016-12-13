@@ -3,11 +3,11 @@ package graphic;
 import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
 
-import Utility.DrawingUtility;
 import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import utility.DrawingUtility;
 
 public class PlayerStatus implements IRenderable {
 	public static final int DEFAULT_HP = 3;

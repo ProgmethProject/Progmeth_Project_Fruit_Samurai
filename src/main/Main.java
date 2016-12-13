@@ -1,6 +1,5 @@
 package main;
 
-import Utility.DrawingUtility;
 import gui.CollectionScreen;
 import gui.GameScreen;
 import gui.ScreenProperties;
@@ -13,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import logic.GameLogic;
 import thread.ThreadHolder;
+import utility.DrawingUtility;
 
 public class Main extends Application {
 

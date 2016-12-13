@@ -2,11 +2,11 @@ package logic.entity;
 
 import java.util.ArrayList;
 
-import Utility.InputUtility;
 import graphic.IRenderable;
 import graphic.PlayerStatus;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import utility.InputUtility;
 
 public class Trail implements IRenderable {
 	private static int slashColor = 1;

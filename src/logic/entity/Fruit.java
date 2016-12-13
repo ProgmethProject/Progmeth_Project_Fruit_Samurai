@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import Utility.AudioUtility;
-import Utility.DrawingUtility;
-import Utility.InputUtility;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import main.Main;
+import utility.AudioUtility;
+import utility.DrawingUtility;
+import utility.InputUtility;
 
 public class Fruit extends Entity implements Cuttable {
 	private int point;
