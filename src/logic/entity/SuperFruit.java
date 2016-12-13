@@ -2,6 +2,8 @@ package logic.entity;
 
 import java.util.Random;
 
+import Utility.AudioUtility;
+
 public class SuperFruit extends Fruit {
 
 	public SuperFruit(double x, double y, double speedX, double speedY) {
@@ -15,10 +17,13 @@ public class SuperFruit extends Fruit {
 		super.cut();
 		if (index == 7) {
 			ItemStatus.instance.setDoubleCounter(5000);
+			AudioUtility.playSound("kaching");
 		} else if (index == 8) {
 			ItemStatus.instance.setFrenzyCounter(5000);
+			AudioUtility.playSound("faster");
 		} else if (index == 9) {
 			ItemStatus.instance.setFreezeCounter(5000);
+			AudioUtility.playSound("slow");
 		}
 	}
 
