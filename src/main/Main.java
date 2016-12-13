@@ -85,7 +85,7 @@ public class Main extends Application {
 	public void changeToStartScreen() {
 		this.primaryStage.setScene(startScene);
 		ThreadHolder.instance.getGameThread().interrupt();
-//		this.drawingAnimation.stop();
+		this.drawingAnimation.stop();
 	}
 
 	public void changeToGameScreen() {
@@ -93,13 +93,13 @@ public class Main extends Application {
 		gameLogic.initGame();
 		ThreadHolder.instance.resetThread();
 		ThreadHolder.instance.startAll();
-//		drawingAnimation.start();
+		drawingAnimation.start();
 	}
 
 	public void changeToCollectionScreen() {
 		this.primaryStage.setScene(collectionScene);
 		ThreadHolder.instance.getGameThread().interrupt();
-//		this.drawingAnimation.stop();
+		this.drawingAnimation.stop();
 	}
 
 	public void closeScreen() {
