@@ -25,13 +25,14 @@ public class BombGenerator extends Generator {
 						System.out.println("frenzy :" + ItemStatus.instance.getFrenzyCounter());
 						continue;
 					}
-					if (PlayerStatus.instance.isPause())continue;
-					Random random = new Random();
-					int x = random.nextInt((int) ScreenProperties.screenWidth);
-					int y = (int) ScreenProperties.screenHeight;
-					int speedX = (100 + random.nextInt(200)) * (x > ScreenProperties.screenWidth / 2 ? -1 : 1);
-					int speedY = 700 + random.nextInt(200);
-					gameLogic.addEntity(new Bomb(x, y, speedX, speedY));
+					if (!PlayerStatus.instance.isPause()) {
+						Random random = new Random();
+						int x = random.nextInt((int) ScreenProperties.screenWidth);
+						int y = (int) ScreenProperties.screenHeight;
+						int speedX = (100 + random.nextInt(200)) * (x > ScreenProperties.screenWidth / 2 ? -1 : 1);
+						int speedY = 700 + random.nextInt(200);
+						gameLogic.addEntity(new Bomb(x, y, speedX, speedY));
+					}
 					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {
 					e.printStackTrace();

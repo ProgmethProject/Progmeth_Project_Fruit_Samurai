@@ -4,12 +4,10 @@ import com.sun.javafx.tk.FontLoader;
 import com.sun.javafx.tk.Toolkit;
 
 import Utility.DrawingUtility;
-import Utility.InputUtility;
 import gui.ScreenProperties;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import logic.entity.Trail;
 import model.IRenderable;
 
 public class PlayerStatus implements IRenderable {

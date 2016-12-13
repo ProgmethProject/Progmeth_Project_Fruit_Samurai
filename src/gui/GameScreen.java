@@ -1,8 +1,6 @@
 package gui;
 
 import Utility.InputUtility;
-import graphic.Background;
-import graphic.MenuButton;
 import graphic.PlayerStatus;
 import graphic.RenderableHolder;
 import javafx.event.EventHandler;
@@ -11,7 +9,6 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import logic.entity.Trail;
 import model.IRenderable;
 
 public class GameScreen extends GridPane {

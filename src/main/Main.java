@@ -90,8 +90,9 @@ public class Main extends Application {
 
 	public void changeToGameScreen() {
 		this.primaryStage.setScene(gameScene);
+		gameLogic.initGame();
 		ThreadHolder.instance.resetThread();
-		ThreadHolder.instance.getGameThread().start();
+		ThreadHolder.instance.startAll();
 		drawingAnimation.start();
 	}
 

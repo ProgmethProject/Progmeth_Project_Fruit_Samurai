@@ -7,7 +7,7 @@ import model.IRenderable;
 public class MenuButton implements IRenderable {
 	private int buttonSize = 50;
 	public static final MenuButton instance = new MenuButton();
-	
+
 	@Override
 	public int getZ() {
 		return Integer.MAX_VALUE;
@@ -20,10 +20,9 @@ public class MenuButton implements IRenderable {
 
 	@Override
 	public void draw(GraphicsContext gc) {
-		if(!PlayerStatus.instance.isPause()) {
+		if (!PlayerStatus.instance.isPause()) {
 			gc.drawImage(DrawingUtility.pauseButton, 10, 10, buttonSize, buttonSize);
-		}
-		else {
+		} else {
 			gc.drawImage(DrawingUtility.playButton, 10, 10, buttonSize, buttonSize);
 		}
 	}

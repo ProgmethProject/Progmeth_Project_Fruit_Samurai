@@ -143,9 +143,9 @@ public class DrawingUtility {
 	public static GameAnimation createCuttingAnimation(int x, int y, int comboCount) {
 		GameAnimation anim;
 		if (Trail.instance.getSlashColor() == 5) {
-			anim = new GameAnimation(DrawingUtility.animation[(int) (Math.random()*4) + 1], 8, 1,comboCount);
+			anim = new GameAnimation(DrawingUtility.animation[(int) (Math.random() * 4) + 1], 8, 1, comboCount);
 		} else {
-			anim = new GameAnimation(DrawingUtility.animation[Trail.instance.getSlashColor()], 8, 1,comboCount);
+			anim = new GameAnimation(DrawingUtility.animation[Trail.instance.getSlashColor()], 8, 1, comboCount);
 		}
 		anim.centerAnimationAt(x, y);
 		anim.play();

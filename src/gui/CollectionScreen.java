@@ -11,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import logic.entity.Trail;
@@ -71,7 +70,7 @@ public class CollectionScreen extends BorderPane {
 
 	public void screenTransitionIn() {
 		highScorePane.updatePane();
-		
+
 		TranslateTransition highScoreTrans = new TranslateTransition(Duration.millis(700), highScorePane);
 		highScoreTrans.setFromX(ScreenProperties.screenWidth);
 		highScoreTrans.setByX(-ScreenProperties.screenWidth);
@@ -104,10 +103,10 @@ public class CollectionScreen extends BorderPane {
 
 		public highScorePane() {
 			setStyle("-fx-background-color: transparent; -fx-padding: 30");
-			setPrefWidth(ScreenProperties.screenWidth/2);
+			setPrefWidth(ScreenProperties.screenWidth / 2);
 			setAlignment(Pos.CENTER);
 			setVgap(5);
-			
+
 			StackPane labelPane = new StackPane();
 			highScoreHeader = new Label("High Score");
 			highScoreHeader.setStyle("-fx-font-size: 30px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
@@ -115,13 +114,13 @@ public class CollectionScreen extends BorderPane {
 					+ "-fx-border-color: black; -fx-border-width: 3;");
 			labelPane.getChildren().add(highScoreHeader);
 			add(labelPane, 0, 0);
-			
+
 			GridPane scorePane = new GridPane();
 			scorePane.setPrefSize(250, 300);
-			scorePane.setStyle("-fx-background-color: white; -fx-padding: 5;"
-					+ "-fx-border-color: black; -fx-border-width: 3;");
+			scorePane.setStyle(
+					"-fx-background-color: white; -fx-padding: 5;" + "-fx-border-color: black; -fx-border-width: 3;");
 			scorePane.setAlignment(Pos.CENTER);
-			
+
 			for (int i = 0; i < 10; i++) {
 				StackPane score = new StackPane();
 				score.setStyle("-fx-background-color: transparent; -fx-padding: 5 13 5 13;"
@@ -134,6 +133,7 @@ public class CollectionScreen extends BorderPane {
 			add(scorePane, 0, 1);
 			updatePane();
 		}
+
 		public void updatePane() {
 			HighScoreRecord[] records = HighScoreUtility.loadTop10();
 			if (records != null) {

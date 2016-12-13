@@ -1,6 +1,5 @@
 package Utility;
 
-
 public class InputUtility {
 
 	private static int mouseX, mouseY, prevMouseX, prevMouseY, releaseX, releaseY;
@@ -32,20 +31,20 @@ public class InputUtility {
 		InputUtility.mouseY = mouseY;
 	}
 
-	public static int getMouseSpeed(){
-		int delX = mouseX-prevMouseX;
-		int delY = mouseY-prevMouseY;
-		
-		return delX*delX+delY*delY;
+	public static int getMouseSpeed() {
+		int delX = mouseX - prevMouseX;
+		int delY = mouseY - prevMouseY;
+
+		return delX * delX + delY * delY;
 	}
-	
-	public static double getMouseAngle(){
-		int delX = mouseX-prevMouseX;
-		int delY = mouseY-prevMouseY;
-		
-		return Math.atan((double)delY/(double)delX);
+
+	public static double getMouseAngle() {
+		int delX = mouseX - prevMouseX;
+		int delY = mouseY - prevMouseY;
+
+		return Math.atan((double) delY / (double) delX);
 	}
-	
+
 	public static int getReleaseX() {
 		return releaseX;
 	}

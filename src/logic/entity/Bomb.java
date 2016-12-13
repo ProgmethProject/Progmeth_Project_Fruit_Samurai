@@ -12,9 +12,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import model.Cuttable;
 import model.Entity;
-import model.IRenderable;
 
-public class Bomb extends Entity implements Cuttable, IRenderable  {
+public class Bomb extends Entity implements Cuttable {
+
 	private int healthPointAdjustment = -1;
 
 	public Bomb(double x, double y, double speedX, double speedY) {

@@ -50,8 +50,8 @@ public class RenderableHolder {
 			sortEntity();
 		}
 	}
-	
-	public void clearEntity(){
+
+	public void clearEntity() {
 		synchronized (entities) {
 			entities.clear();
 		}
