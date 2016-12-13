@@ -1,5 +1,6 @@
 package main;
 
+import Utility.DrawingUtility;
 import gui.CollectionScreen;
 import gui.GameScreen;
 import gui.ScreenProperties;
@@ -28,8 +29,8 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+		DrawingUtility.loadResource();
 		instance = this;
-
 		this.gameLogic = new GameLogic();
 
 		this.primaryStage = primaryStage;
@@ -51,22 +52,15 @@ public class Main extends Application {
 		this.startScene = new Scene(startScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 
 		this.drawingAnimation = new AnimationTimer() {
-			int x = 0;
 			@Override
 			public void handle(long now) {
-				if(x == 0){
-					System.out.println("AnimationTimerStart");
-					x = 1;
-				}
 				drawGameScreen();
 			}
 		};
-		drawingAnimation.start();
-		
+
 		this.primaryStage.setScene(this.startScene);
 		this.primaryStage.show();
 
-		
 	}
 
 	public GameLogic getGameLogic() {

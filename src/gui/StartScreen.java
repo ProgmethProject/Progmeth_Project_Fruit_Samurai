@@ -1,5 +1,9 @@
 package gui;
 
+import graphic.Background;
+import graphic.MenuButton;
+import graphic.PlayerStatus;
+import graphic.RenderableHolder;
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
@@ -12,6 +16,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.StackPane;
 import javafx.util.Duration;
+import logic.entity.ItemStatus;
+import logic.entity.Trail;
 import main.Main;
 
 public class StartScreen extends GridPane {
@@ -57,6 +63,7 @@ public class StartScreen extends GridPane {
 		add(exitPane, 0, 3);
 
 		addListener();
+
 	}
 
 	public void addListener() {
@@ -67,7 +74,7 @@ public class StartScreen extends GridPane {
 				randomTitleColor();
 			}
 		});
-		
+
 		titleLabel.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override
@@ -75,7 +82,7 @@ public class StartScreen extends GridPane {
 				randomTitleColor();
 			}
 		});
-		
+
 		titleLabel.setOnMouseExited(new EventHandler<Event>() {
 
 			@Override
@@ -134,14 +141,8 @@ public class StartScreen extends GridPane {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				screenTransitionOut();
-				PauseTransition pause = new PauseTransition(Duration.millis(700));
-				pause.setOnFinished(event -> {
-					Main.instance.getCollectionScreen().screenTransitionIn();
-					Main.instance.changeToCollectionScreen();					
-				});
-				pause.play();
-
+				Main.instance.getCollectionScreen().screenTransitionIn();
+				Main.instance.changeToCollectionScreen();
 			}
 
 		});
@@ -172,23 +173,21 @@ public class StartScreen extends GridPane {
 		});
 
 	}
-	
+
 	public void setBtnColor(Button Btn, String color) {
 		Btn.setStyle("-fx-background-color:" + color + "; -fx-background-radius: 0,0,0,0; "
-				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-				+ "-fx-text-fill: black; -fx-font-size: 40px;"
+				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
 				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
 				+ "-fx-border-color: black; -fx-border-width: 5;");
 	}
-	
+
 	public void randomTitleColor() {
-		int colorA = (int) (Math.random()*255);
-		int colorB = (int) (Math.random()*255);
-		int colorC = (int) (Math.random()*255);
-		String color = colorA + ", " + colorB + ", " + colorC; 
+		int colorA = (int) (Math.random() * 255);
+		int colorB = (int) (Math.random() * 255);
+		int colorC = (int) (Math.random() * 255);
+		String color = colorA + ", " + colorB + ", " + colorC;
 		titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
-				+ "-fx-text-alignment:center; -fx-padding: 20; "
-				+ "-fx-background-color: rgb(" + color + ");"
+				+ "-fx-text-alignment:center; -fx-padding: 20; " + "-fx-background-color: rgb(" + color + ");"
 				+ "-fx-border-color: black; -fx-border-width: 5;");
 	}
 

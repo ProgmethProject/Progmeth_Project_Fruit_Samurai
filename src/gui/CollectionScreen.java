@@ -45,27 +45,21 @@ public class CollectionScreen extends BorderPane {
 		setLeft(highScorePane);
 		setRight(bladeSelectionPane);
 		setBottom(backPane);
-		
+
 		addListener();
 
 	}
-	
+
 	public void addListener() {
 		backButton.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent arg0) {
-				screenTransitionOut();
-				PauseTransition pause = new PauseTransition(Duration.millis(700));
-				pause.setOnFinished(event -> {
-					Main.instance.getStartScreen().screenTransitionIn();
-					Main.instance.changeToStartScreen();
-				});
-				pause.play();
-
+				Main.instance.getStartScreen().screenTransitionIn();
+				Main.instance.changeToStartScreen();
 			}
 		});
-		
+
 		backButton.setOnMouseEntered(new EventHandler<Event>() {
 
 			@Override
@@ -82,11 +76,10 @@ public class CollectionScreen extends BorderPane {
 			}
 		});
 	}
-	
+
 	public void setBtnColor(Button Btn, String color) {
 		Btn.setStyle("-fx-background-color:" + color + "; -fx-background-radius: 0,0,0,0; "
-				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;"
-				+ "-fx-text-fill: black; -fx-font-size: 40px;"
+				+ "-fx-padding: 5 30 5 30; -fx-background-size:50;" + "-fx-text-fill: black; -fx-font-size: 40px;"
 				+ "-fx-font-weight: bold; -fx-font-family: \"Arial\"; "
 				+ "-fx-border-color: black; -fx-border-width: 5;");
 	}
@@ -106,24 +99,6 @@ public class CollectionScreen extends BorderPane {
 		backTrans.play();
 		highScorePane.updatePane();
 	}
-
-	public void screenTransitionOut() {
-		TranslateTransition highScoreTrans = new TranslateTransition(Duration.millis(700), highScorePane);
-		highScoreTrans.setFromX(0);
-		highScoreTrans.setToX(ScreenProperties.screenWidth);
-		TranslateTransition selectionTrans = new TranslateTransition(Duration.millis(700), bladeSelectionPane);
-		selectionTrans.setFromX(0);
-		selectionTrans.setToX(ScreenProperties.screenWidth);
-		TranslateTransition backTrans = new TranslateTransition(Duration.millis(700), backPane);
-		backTrans.setFromX(0);
-		backTrans.setToX(ScreenProperties.screenWidth);
-		highScoreTrans.play();
-		selectionTrans.play();
-		backTrans.play();
-	}
-	
-	
-	
 
 	public static class highScorePane extends GridPane {
 		private Label[] labels = new Label[10];
@@ -171,9 +146,6 @@ public class CollectionScreen extends BorderPane {
 			}
 		}
 	}
-	
-	
-	
 
 	public static class bladeSelectionPane extends GridPane {
 		private Button purpleBtn, blueBtn, greenBtn, redBtn, rainbowBtn;
@@ -200,8 +172,7 @@ public class CollectionScreen extends BorderPane {
 			setBtn(blueBtn, "deepskyblue");
 			setBtn(greenBtn, "limegreen");
 			setBtn(redBtn, "red");
-			setBtn(rainbowBtn,
-					"linear-gradient(from 0% 50% to 100% 50%, red 3%, orange 16%, yellow 30%, "
+			setBtn(rainbowBtn, "linear-gradient(from 0% 50% to 100% 50%, red 3%, orange 16%, yellow 30%, "
 					+ "limegreen 44%, lightblue 64%, blue 77%, purple 92%)");
 
 			add(selectColor, 0, 0, 2, 1);

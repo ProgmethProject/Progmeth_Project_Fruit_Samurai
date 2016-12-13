@@ -21,6 +21,7 @@ public class FruitGenerator extends Generator {
 		return () -> {
 			while (true) {
 				try {
+					Thread.sleep(generateInterval);
 					if (!PlayerStatus.instance.isPause()) {
 						Random random = new Random();
 						int x = random.nextInt((int) ScreenProperties.screenWidth);
@@ -30,7 +31,6 @@ public class FruitGenerator extends Generator {
 						Main.instance.getGameLogic().addEntity(random.nextInt(5) != 0 ? new Fruit(x, y, speedX, speedY)
 								: new SuperFruit(x, y, speedX, speedY));
 					}
-					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {
 					return;
 				}

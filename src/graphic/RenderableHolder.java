@@ -6,6 +6,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import logic.entity.IRenderable;
+import logic.entity.ItemStatus;
 
 public class RenderableHolder {
 	public static RenderableHolder instance = new RenderableHolder();

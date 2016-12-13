@@ -20,6 +20,7 @@ public class BombGenerator extends Generator {
 		return () -> {
 			while (true) {
 				try {
+					Thread.sleep(generateInterval);
 					if (ItemStatus.instance.getFrenzyCounter() == 0) {
 						if (!PlayerStatus.instance.isPause()) {
 							Random random = new Random();
@@ -30,7 +31,6 @@ public class BombGenerator extends Generator {
 							Main.instance.getGameLogic().addEntity(new Bomb(x, y, speedX, speedY));
 						}
 					}
-					Thread.sleep(generateInterval);
 				} catch (InterruptedException e) {
 					return;
 				}
