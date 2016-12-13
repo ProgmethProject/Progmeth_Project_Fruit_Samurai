@@ -57,8 +57,6 @@ public class StartScreen extends GridPane {
 		add(exitPane, 0, 3);
 
 		addListener();
-//		Main.instance.getCollectionScreen().screenTransitionIn();
-//		Main.instance.getCollectionScreen().screenTransitionOut();
 	}
 
 	public void addListener() {
@@ -83,6 +81,20 @@ public class StartScreen extends GridPane {
 			@Override
 			public void handle(Event event) {
 				randomTitleColor();
+			}
+		});
+
+		titlePane.setOnMouseExited(new EventHandler<Event>() {
+
+			@Override
+			public void handle(Event event) {
+				int colorA = (int) (Math.random() * 255);
+				int colorB = (int) (Math.random() * 255);
+				int colorC = (int) (Math.random() * 255);
+				String color = colorA + ", " + colorB + ", " + colorC;
+				titleLabel.setStyle("-fx-font-size: 50px; -fx-font-family:\"Arial Black\"; -fx-text-fill: black;"
+						+ "-fx-text-alignment:center; -fx-padding: 20; " + "-fx-background-color: rgb(" + color + ");"
+						+ "-fx-border-color: black; -fx-border-width: 5;");
 			}
 		});
 
