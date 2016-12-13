@@ -58,7 +58,7 @@ public class StartScreen extends GridPane {
 
 		addListener();
 //		Main.instance.getCollectionScreen().screenTransitionIn();
-//		Main.instance.getCollectionScreen().screenTransitionOut();
+		Main.instance.getCollectionScreen().screenTransitionOut();
 	}
 
 	public void addListener() {
@@ -112,7 +112,6 @@ public class StartScreen extends GridPane {
 					Main.instance.changeToGameScreen();
 				});
 				pause.play();
-
 			}
 
 		});
