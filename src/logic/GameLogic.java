@@ -16,7 +16,7 @@ public class GameLogic {
 
 	public GameLogic() {
 		entities = new ArrayList<>();
-		initGame();
+//		initGame();
 	}
 
 	synchronized public void updateLogic() {
@@ -54,6 +54,7 @@ public class GameLogic {
 		RenderableHolder.instance.addEntity(MenuButton.instance);
 		RenderableHolder.instance.addEntity(Trail.instance);
 		RenderableHolder.instance.addEntity(ItemStatus.instance);
+		System.out.println("initFinish");
 	}
 
 }

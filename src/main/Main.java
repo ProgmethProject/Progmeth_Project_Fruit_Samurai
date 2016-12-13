@@ -50,16 +50,23 @@ public class Main extends Application {
 		this.collectionScene = new Scene(collectionScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 		this.startScene = new Scene(startScreen, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 
-		this.primaryStage.setScene(this.startScene);
-		this.primaryStage.show();
-
 		this.drawingAnimation = new AnimationTimer() {
+			int x = 0;
 			@Override
 			public void handle(long now) {
+				if(x == 0){
+					System.out.println("AnimationTimerStart");
+					x = 1;
+				}
 				drawGameScreen();
 			}
 		};
 		drawingAnimation.start();
+		
+		this.primaryStage.setScene(this.startScene);
+		this.primaryStage.show();
+
+		
 	}
 
 	public GameLogic getGameLogic() {
