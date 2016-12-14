@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<class-diagram version="1.1.11" icons="true" automaticImage="PNG" always-add-relationships="false" 
+<class-diagram version="1.1.10" icons="true" automaticImage="PNG" always-add-relationships="false" 
   generalizations="false" realizations="true" associations="false" dependencies="false" nesting-relationships="true" 
   router="FAN">  
   <class id="1" language="java" name="thread.Generator" project="Progmeth_Project_Fruit_Samurai" 
@@ -13,7 +13,7 @@
   </class>  
   <class id="2" language="java" name="thread.BombGenerator" project="Progmeth_Project_Fruit_Samurai" 
     file="/Progmeth_Project_Fruit_Samurai/src/thread/BombGenerator.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="598" y="454"/>    
+    <position height="-1" width="-1" x="578" y="454"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
