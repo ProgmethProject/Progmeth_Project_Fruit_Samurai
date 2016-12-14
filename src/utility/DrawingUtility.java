@@ -133,22 +133,6 @@ public class DrawingUtility {
 		gc.drawImage(cross[cross3], x + 70, y, 30, 36);
 	}
 
-	public static void drawTrail(GraphicsContext gc) {
-		double lineWidth = 10;
-		ArrayList<Integer> trailX = Trail.instance.getTrailX();
-		ArrayList<Integer> trailY = Trail.instance.getTrailY();
-		int prevX = trailX.get(trailX.size() - 1);
-		int prevY = trailY.get(trailY.size() - 1);
-
-		for (int i = trailX.size() - 2; i >= 0; i--) {
-			gc.setLineWidth(lineWidth);
-			gc.strokeLine(prevX, prevY, trailX.get(i), trailY.get(i));
-			prevX = trailX.get(i);
-			prevY = trailY.get(i);
-			lineWidth -= 1;
-		}
-	}
-
 	public static GameAnimation createCuttingAnimation(int x, int y, int comboCount) {
 		GameAnimation anim;
 		if (Trail.instance.getSlashColor() == 5) {
