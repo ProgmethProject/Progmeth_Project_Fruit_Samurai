@@ -1,3 +1,7 @@
+/*
+ * Author: 	Wattanai Thangsrirojkul		5831062121 Section 33
+ * 			Sivakorn Chanpitayanukulkij 5830535521 Section 33
+ */
 package thread;
 
 import java.util.Random;
@@ -9,7 +13,6 @@ import logic.entity.SuperFruit;
 import main.Main;
 
 public class FruitGenerator extends Generator {
-
 
 	public FruitGenerator(long generateInterval) {
 		super(generateInterval);

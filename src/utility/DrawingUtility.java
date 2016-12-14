@@ -1,3 +1,7 @@
+/*
+ * Author: 	Wattanai Thangsrirojkul		5831062121 Section 33
+ * 			Sivakorn Chanpitayanukulkij 5830535521 Section 33
+ */
 package utility;
 
 import java.util.ArrayList;
@@ -188,20 +192,20 @@ public class DrawingUtility {
 	public static void drawHalfFruit(GraphicsContext gc, int index, int side, double rotation, double x, double y) {
 		drawRotatedImage(gc, cut_fruit[index * 2 + side], rotation, x, y);
 	}
-	
-	public static void drawOverlay(GraphicsContext gc,int index){
+
+	public static void drawOverlay(GraphicsContext gc, int index) {
 		gc.drawImage(overlay[index], 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 	}
-	
-	public static void drawBackground(GraphicsContext gc){
+
+	public static void drawBackground(GraphicsContext gc) {
 		gc.drawImage(background, 0, 0, ScreenProperties.screenWidth, ScreenProperties.screenHeight);
 	}
-	
-	public static void drawPlayButton(GraphicsContext gc,int buttonSize){
+
+	public static void drawPlayButton(GraphicsContext gc, int buttonSize) {
 		gc.drawImage(playButton, 10, 10, buttonSize, buttonSize);
 	}
-	
-	public static void drawPauseButton(GraphicsContext gc,int buttonSize){
+
+	public static void drawPauseButton(GraphicsContext gc, int buttonSize) {
 		gc.drawImage(pauseButton, 10, 10, buttonSize, buttonSize);
 	}
 

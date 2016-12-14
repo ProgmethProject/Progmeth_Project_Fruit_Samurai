@@ -1,3 +1,7 @@
+/*
+ * Author: 	Wattanai Thangsrirojkul		5831062121 Section 33
+ * 			Sivakorn Chanpitayanukulkij 5830535521 Section 33
+ */
 package logic;
 
 import java.util.ArrayList;
@@ -19,15 +23,15 @@ public class GameLogic {
 	}
 
 	synchronized public void updateLogic() {
-		
-			for (int i = entities.size() - 1; i >= 0; i--) {
-				Entity e = entities.get(i);
-				if (e.isDestroyed()) {
-					removeEntity(e);
-				} else {
-					e.update();
-				}
+
+		for (int i = entities.size() - 1; i >= 0; i--) {
+			Entity e = entities.get(i);
+			if (e.isDestroyed()) {
+				removeEntity(e);
+			} else {
+				e.update();
 			}
+		}
 	}
 
 	synchronized public void addEntity(Entity e) {
