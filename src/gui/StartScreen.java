@@ -1,3 +1,7 @@
+/*
+ * Author: 	Wattanai Thangsrirojkul		5831062121 Section 33
+ * 			Sivakorn Chanpitayanukulkij 5830535521 Section 33
+ */
 package gui;
 
 import javafx.animation.PauseTransition;

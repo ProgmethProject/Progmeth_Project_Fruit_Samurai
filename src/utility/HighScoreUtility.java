@@ -69,13 +69,79 @@ public class HighScoreUtility {
 	/*
 	 * Display player's score and record if the player rank is 10 or higher.
 	 */
+	public static void displayErrorAlert(){
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Error");
+		alert.setHeaderText(null);
+		alert.setContentText("Error loading highscore record");
+		alert.show();
+	}
+	
+	public static void displayGameOverAlert(int score){
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Game over");
+		alert.setHeaderText(null);
+		alert.setContentText("Game over\n" + "Your score is " + score);
+
+		alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
+			@Override
+			public void handle(DialogEvent event) {
+				Main.instance.getDrawingAnimation().stop();
+				InputUtility.setMouseLeftDown(false);
+				Main.instance.getStartScreen().screenTransitionIn();
+				Main.instance.changeToStartScreen();
+			}
+		});
+		alert.show();
+	}
+	
+	public static void displayRankedAlert(int index,int score){
+		TextInputDialog dialog = new TextInputDialog();
+		dialog.setTitle("High score");
+		dialog.setHeaderText(null);
+		dialog.setContentText("Congratulation, you are ranked " + (index + 1) + "\n" + "Please enter your name");
+
+		final int final_index = index;
+		dialog.setOnHidden(new EventHandler<DialogEvent>() {
+
+			@Override
+			public void handle(DialogEvent event) {
+				try {
+					String name = ((TextInputDialog) event.getTarget()).getResult();
+					if (name != null) {
+						if(name.length() > 10) {
+							name = name.substring(0, 10);
+						}
+						highScoreRecord[final_index] = new HighScoreRecord(name, score);
+						BufferedWriter out = new BufferedWriter(new FileWriter("highscore"));
+						String string = "";
+						for (HighScoreRecord record : highScoreRecord) {
+							string += record.getRecord() + "\n";
+						}
+						out.write(getXORed(string));
+						out.close();
+					}
+				} catch (IOException e1) {
+					Alert alert = new Alert(AlertType.ERROR);
+					alert.setHeaderText(null);
+					alert.setContentText("Error saving high score record");
+					alert.setTitle("Error");
+					alert.show();
+					highScoreRecord = null;
+					return;
+				}
+				Main.instance.getDrawingAnimation().stop();
+				InputUtility.setMouseLeftDown(false);
+				Main.instance.getStartScreen().screenTransitionIn();
+				Main.instance.changeToStartScreen();
+			}
+		});
+		dialog.show();
+	}
+	
 	public static void recordHighScore(int score) {
 		if (!loadHighScore() || highScoreRecord == null) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Error");
-			alert.setHeaderText(null);
-			alert.setContentText("Error loading highscore record");
-			alert.show();
+			displayErrorAlert();
 			return;
 		}
 		int index = highScoreRecord.length;
@@ -86,67 +152,12 @@ public class HighScoreUtility {
 			}
 		}
 		if (index >= highScoreRecord.length) {
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("Game over");
-			alert.setHeaderText(null);
-			alert.setContentText("Game over\n" + "Your score is " + score);
-
-			alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
-				@Override
-				public void handle(DialogEvent event) {
-					Main.instance.getDrawingAnimation().stop();
-					InputUtility.setMouseLeftDown(false);
-					Main.instance.getStartScreen().screenTransitionIn();
-					Main.instance.changeToStartScreen();
-				}
-			});
-			alert.show();
+			displayGameOverAlert(score);
 		} else {
 			for (int i = highScoreRecord.length - 1; i >= index + 1; i--) {
 				highScoreRecord[i] = highScoreRecord[i - 1];
 			}
-
-			TextInputDialog dialog = new TextInputDialog();
-			dialog.setTitle("High score");
-			dialog.setHeaderText(null);
-			dialog.setContentText("Congratulation, you are ranked " + (index + 1) + "\n" + "Please enter your name");
-
-			final int final_index = index;
-			dialog.setOnHidden(new EventHandler<DialogEvent>() {
-
-				@Override
-				public void handle(DialogEvent event) {
-					try {
-						String name = ((TextInputDialog) event.getTarget()).getResult();
-						if (name != null) {
-							if(name.length() > 10) {
-								name = name.substring(0, 10);
-							}
-							highScoreRecord[final_index] = new HighScoreRecord(name, score);
-							BufferedWriter out = new BufferedWriter(new FileWriter("highscore"));
-							String string = "";
-							for (HighScoreRecord record : highScoreRecord) {
-								string += record.getRecord() + "\n";
-							}
-							out.write(getXORed(string));
-							out.close();
-						}
-					} catch (IOException e1) {
-						Alert alert = new Alert(AlertType.ERROR);
-						alert.setHeaderText(null);
-						alert.setContentText("Error saving high score record");
-						alert.setTitle("Error");
-						alert.show();
-						highScoreRecord = null;
-						return;
-					}
-					Main.instance.getDrawingAnimation().stop();
-					InputUtility.setMouseLeftDown(false);
-					Main.instance.getStartScreen().screenTransitionIn();
-					Main.instance.changeToStartScreen();
-				}
-			});
-			dialog.show();
+			displayRankedAlert(index,score);
 		}
 	}
 

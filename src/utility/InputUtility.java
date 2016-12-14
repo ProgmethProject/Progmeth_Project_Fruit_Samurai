@@ -1,3 +1,7 @@
+/*
+ * Author: 	Wattanai Thangsrirojkul		5831062121 Section 33
+ * 			Sivakorn Chanpitayanukulkij 5830535521 Section 33
+ */
 package utility;
 
 public class InputUtility {
@@ -42,7 +46,7 @@ public class InputUtility {
 		double delX = mouseX - prevMouseX;
 		double delY = mouseY - prevMouseY;
 
-		return Math.atan(delY /  delX);
+		return Math.atan(delY / delX);
 	}
 
 	public static double getReleaseX() {
