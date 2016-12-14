@@ -11,7 +11,7 @@ import gui.ScreenProperties;
 
 public abstract class Entity implements IRenderable {
 
-	public static double GRAVITY = 700;
+	public static final double GRAVITY = 700;
 	private static double modifier;
 	protected double x, y, speedX, speedY;
 	protected double rotation;

@@ -164,11 +164,7 @@ public class HighScoreUtility {
 	public static HighScoreRecord[] loadTop10() {
 		setReadFileName("highscore");
 		if (!loadHighScore() || highScoreRecord == null) {
-			Alert alert = new Alert(AlertType.ERROR);
-			alert.setTitle("Error");
-			alert.setHeaderText(null);
-			alert.setContentText("Error loading highscore record" + loadHighScore());
-			alert.showAndWait();
+			displayErrorAlert();
 			return null;
 		}
 		return highScoreRecord;
